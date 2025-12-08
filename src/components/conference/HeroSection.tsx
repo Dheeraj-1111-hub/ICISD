@@ -24,7 +24,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6"
         >
-          ICISD <span className="text-accent">2025</span>
+          ICISD <span className="text-accent">2026</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +46,7 @@ export const HeroSection = () => {
         >
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-accent" />
-            <span className="font-medium">March 15-17, 2025</span>
+            <span className="font-medium">Feb 15-17, 2026</span>
           </div>
           <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-accent" />
           <div className="flex items-center gap-2">
