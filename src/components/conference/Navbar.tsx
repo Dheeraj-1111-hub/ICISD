@@ -27,18 +27,24 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-card shadow-md py-3"
-          : "bg-transparent py-4"
+        isScrolled ? "bg-card shadow-md py-3" : "bg-transparent py-4"
       }`}
     >
       <div className="container-conference">
         <div className="flex items-center justify-between">
+
+          {/* === Custom Logo Here === */}
           <a href="#hero" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold">IC</span>
-            </div>
-            <span className={`font-bold text-lg ${isScrolled ? "text-foreground" : "text-white"}`}>
+            <img
+              src="/logo.png"
+              alt="ICISD Logo"
+              className="w-16 h-16 object-contain"
+            />
+            <span
+              className={`font-bold text-lg ${
+                isScrolled ? "text-foreground" : "text-white"
+              }`}
+            >
               ICISD 2025
             </span>
           </a>

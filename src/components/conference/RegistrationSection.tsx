@@ -6,41 +6,63 @@ const registrationCategories = [
   {
     title: "Student",
     subtitle: "Undergraduate & Graduate",
-    earlyBird: 99,
-    regular: 149,
+    earlyBird: 1500,
+    regular: 2000,
     features: ["Conference Access", "Digital Proceedings", "Certificate", "Lunch & Refreshments"],
     popular: false,
   },
   {
     title: "Research Scholar",
     subtitle: "PhD & Postdoctoral",
-    earlyBird: 149,
-    regular: 199,
+    earlyBird: 2000,
+    regular: 2500,
     features: ["Conference Access", "Digital Proceedings", "Certificate", "Lunch & Refreshments", "Workshop Access"],
     popular: false,
   },
   {
     title: "Faculty",
     subtitle: "Academic Professionals",
-    earlyBird: 199,
-    regular: 299,
-    features: ["Conference Access", "Digital Proceedings", "Certificate", "Lunch & Refreshments", "Workshop Access", "Networking Dinner"],
+    earlyBird: 3000,
+    regular: 4000,
+    features: [
+      "Conference Access",
+      "Digital Proceedings",
+      "Certificate",
+      "Lunch & Refreshments",
+      "Workshop Access",
+      "Networking Dinner",
+    ],
     popular: true,
   },
   {
     title: "Industry Delegate",
     subtitle: "Corporate Representatives",
-    earlyBird: 349,
-    regular: 449,
-    features: ["Conference Access", "Digital Proceedings", "Certificate", "Lunch & Refreshments", "Workshop Access", "Networking Dinner", "Exhibition Access"],
+    earlyBird: 4500,
+    regular: 6000,
+    features: [
+      "Conference Access",
+      "Digital Proceedings",
+      "Certificate",
+      "Lunch & Refreshments",
+      "Workshop Access",
+      "Networking Dinner",
+      "Exhibition Access",
+    ],
     popular: false,
   },
   {
     title: "International",
     subtitle: "Outside Host Country",
-    earlyBird: 249,
-    regular: 349,
-    features: ["Virtual + Onsite Access", "Digital Proceedings", "Certificate", "Lunch & Refreshments", "Workshop Access", "Networking Dinner"],
+    earlyBird: 7000,
+    regular: 9000,
+    features: [
+      "Virtual + Onsite Access",
+      "Digital Proceedings",
+      "Certificate",
+      "Lunch & Refreshments",
+      "Workshop Access",
+      "Networking Dinner",
+    ],
     popular: false,
   },
 ];
@@ -67,7 +89,7 @@ export const RegistrationSection = () => {
             Registration Fees
           </h2>
           <p className="text-muted-foreground">
-            Early bird pricing available until February 1, 2025. All fees are in USD and include 
+            Early bird pricing available until February 1, 2025. All fees are in INR and include
             applicable taxes.
           </p>
         </motion.div>
@@ -97,19 +119,27 @@ export const RegistrationSection = () => {
 
               <div className="text-center mb-4">
                 <div className="flex items-center justify-center gap-2 mb-1">
-                  <span className="text-3xl font-bold text-primary">${category.earlyBird}</span>
+                  <span className="text-3xl font-bold text-primary">
+                    ₹{category.earlyBird.toLocaleString("en-IN")}
+                  </span>
                   <span className="px-2 py-0.5 rounded bg-accent/20 text-accent-foreground text-xs font-semibold">
                     Early Bird
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Regular: <span className="line-through">${category.regular}</span>
+                  Regular:{" "}
+                  <span className="line-through">
+                    ₹{category.regular.toLocaleString("en-IN")}
+                  </span>
                 </p>
               </div>
 
               <ul className="space-y-2 flex-1 mb-4">
                 {category.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <li
+                    key={feature}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <Check className="w-4 h-4 text-accent flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -136,7 +166,8 @@ export const RegistrationSection = () => {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="text-center text-sm text-muted-foreground mt-6"
         >
-          Secure payment via Credit Card, PayPal, or Bank Transfer. Group discounts available for 5+ participants.
+          Secure payment via UPI, Credit/Debit Card, Net Banking, or Bank Transfer. Group discounts
+          available for 5+ participants.
         </motion.p>
       </div>
     </section>

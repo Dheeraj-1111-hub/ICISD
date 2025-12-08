@@ -119,7 +119,7 @@ export const SubmissionSection = () => {
           <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/watch?v=mY5lV2JExhs"
               title="ICISD 2025 Conference Overview"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
