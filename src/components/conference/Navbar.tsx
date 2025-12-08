@@ -45,7 +45,7 @@ export const Navbar = () => {
                 isScrolled ? "text-foreground" : "text-white"
               }`}
             >
-              ICISD 2025
+              ICISD 2026
             </span>
           </a>
 
