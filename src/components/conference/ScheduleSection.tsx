@@ -5,7 +5,7 @@ import { Clock, MapPin, Coffee, Mic2, Users } from "lucide-react";
 
 const scheduleData = {
   day1: {
-    date: "March 15, 2025",
+    date: "Feb 15, 2026",
     title: "Day 1 - Opening & Foundations",
     events: [
       { time: "08:00 - 09:00", title: "Registration & Welcome Coffee", type: "break", icon: Coffee, location: "Main Lobby" },
@@ -21,7 +21,7 @@ const scheduleData = {
     ],
   },
   day2: {
-    date: "March 16, 2025",
+    date: "Feb 16, 2026",
     title: "Day 2 - Innovation & Practice",
     events: [
       { time: "08:30 - 09:00", title: "Morning Coffee & Networking", type: "break", icon: Coffee, location: "Main Lobby" },
