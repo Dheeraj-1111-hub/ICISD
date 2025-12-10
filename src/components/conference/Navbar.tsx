@@ -147,7 +147,7 @@ export const Navbar = () => {
                   handleNavClick("#registration");
                 }}
               >
-                Register Now
+                Apply Now
               </a>
             </div>
           </motion.div>
