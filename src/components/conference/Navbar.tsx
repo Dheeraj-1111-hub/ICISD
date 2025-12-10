@@ -100,7 +100,7 @@ export const Navbar = () => {
                   : "bg-white text-primary hover:bg-white/90"
               }`}
             >
-              Register Now
+              Apply Now
             </a>
           </div>
 
