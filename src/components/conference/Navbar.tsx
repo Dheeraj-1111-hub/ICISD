@@ -6,10 +6,10 @@ const navLinks = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Tracks", href: "#tracks" },
-  { name: "Speakers", href: "#speakers" },
+
   { name: "Schedule", href: "#schedule" },
   { name: "Registration", href: "#registration" },
-  { name: "Committee", href: "#committee" },
+
 ];
 
 export const Navbar = () => {
@@ -24,6 +24,24 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (href) => {
+    // Close mobile menu
+    setIsMobileMenuOpen(false);
+
+    // Allow normal behavior if no hash
+    if (!href.startsWith("#")) return;
+
+    const id = href.substring(1);
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,8 +50,7 @@ export const Navbar = () => {
     >
       <div className="container-conference">
         <div className="flex items-center justify-between">
-
-          {/* === Custom Logo Here === */}
+          {/* Logo */}
           <a href="#hero" className="flex items-center gap-3">
             <img
               src="/logo.png"
@@ -55,6 +72,10 @@ export const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isScrolled
                     ? "text-foreground hover:bg-muted hover:text-primary"
@@ -69,6 +90,10 @@ export const Navbar = () => {
           <div className="hidden lg:block">
             <a
               href="#registration"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#registration");
+              }}
               className={`px-5 py-2 rounded-md text-sm font-semibold transition-colors ${
                 isScrolled
                   ? "bg-primary text-primary-foreground hover:bg-primary-dark"
@@ -106,7 +131,10 @@ export const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   className="block px-3 py-2 rounded-md text-foreground font-medium hover:bg-muted transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
                 >
                   {link.name}
                 </a>
@@ -114,7 +142,10 @@ export const Navbar = () => {
               <a
                 href="#registration"
                 className="block w-full mt-3 px-4 py-2.5 rounded-md bg-primary text-primary-foreground text-center font-semibold"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#registration");
+                }}
               >
                 Register Now
               </a>

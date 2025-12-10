@@ -68,7 +68,7 @@ export const SpeakersSection = () => {
   });
 
   return (
-    <section id="speakers" className="section-padding bg-background">
+    <section id="speakers" className="section-padding bg-background scroll-mt-28">
       <div className="container-conference" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
