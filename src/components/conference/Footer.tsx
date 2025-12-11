@@ -1,19 +1,25 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, ArrowUp } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Youtube,
+  ArrowUp,
+} from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Tracks", href: "#tracks" },
-  { name: "Speakers", href: "#speakers" },
   { name: "Schedule", href: "#schedule" },
   { name: "Registration", href: "#registration" },
 ];
 
 const resourceLinks = [
   { name: "Submission Guidelines", href: "#submission" },
-  { name: "Committee", href: "#committee" },
-  { name: "FAQ", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Committee", href: "#patrons" }, // ✅ Updated
 ];
 
 const socialLinks = [
@@ -38,12 +44,14 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                 <span className="text-white font-bold">IC</span>
               </div>
-              <span className="text-white font-bold text-lg">ICISD 2025</span>
+              <span className="text-white font-bold text-lg">ICISD 2026</span>
             </div>
+
             <p className="text-white/70 text-sm leading-relaxed mb-4">
-              International Conference on Innovations in Sustainable Development - 
-              Bringing together global minds for a greener future.
+              International Conference on Innovations in Sustainable Development
+              - Bringing together global minds for a greener future.
             </p>
+
             <div className="flex gap-2">
               {socialLinks.map((social) => (
                 <a
@@ -64,7 +72,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-white/70 text-sm hover:text-accent transition-colors"
                   >
@@ -81,7 +89,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               {resourceLinks.map((link) => (
                 <li key={link.name}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-white/70 text-sm hover:text-accent transition-colors"
                   >
@@ -103,6 +111,7 @@ export const Footer = () => {
                   <p>submissions@icisd2025.org</p>
                 </div>
               </li>
+
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-accent mt-0.5" />
                 <div className="text-white/70 text-sm">
@@ -110,10 +119,12 @@ export const Footer = () => {
                   <p>+44 20 7946 0958</p>
                 </div>
               </li>
+
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-accent mt-0.5" />
                 <p className="text-white/70 text-sm">
-                  Global Convention Center<br />
+                  Global Convention Center
+                  <br />
                   Innovation District, Tech City
                 </p>
               </li>
@@ -127,8 +138,9 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm text-center md:text-left">
-            © 2025 ICISD. All rights reserved.
+            © 2026 ICISD. All rights reserved.
           </p>
+
           <button
             onClick={scrollToTop}
             className="w-10 h-10 rounded-md bg-accent flex items-center justify-center text-accent-foreground hover:opacity-90 transition-opacity"
