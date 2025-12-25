@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
-import heroImage from "../../../public/hero.jpg"; // keep your path
+import heroImage from "../../../public/hero.jpg";
+import { useUser, useClerk } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
+  const { isSignedIn } = useUser();
+  const { openSignIn } = useClerk();
+  const navigate = useNavigate();
+
+  const handleApplyNow = () => {
+    if (!isSignedIn) {
+      openSignIn({
+        redirectUrl: "/register",
+      });
+    } else {
+      navigate("/register");
+    }
+  };
+
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -34,9 +50,7 @@ export const HeroSection = () => {
       const hours = Math.floor(
         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       const pad = (n) => String(n).padStart(2, "0");
@@ -196,15 +210,13 @@ export const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex items-center justify-center"
         >
-          <a
-            href="YOUR_GOOGLE_FORM_LINK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-accent flex items-center gap-2 drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)] px-8 py-3 text-lg font-semibold"
+          <button
+            onClick={handleApplyNow}
+            className="btn-accent flex items-center gap-2 px-8 py-3 text-lg font-semibold"
           >
             Apply Now
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
