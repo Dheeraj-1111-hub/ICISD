@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 import { clerkMiddleware } from "@clerk/express";
 import { connectDB } from "./config/db.js";
 import registrationRoutes from "./routes/registration.routes.js";
-import paymentRoutes from "./routes/payment.routes.js";
-import webhookRoutes from "./routes/webhook.routes.js";
+
+
 
 dotenv.config();
 
@@ -27,8 +27,7 @@ app.use(clerkMiddleware());
 
 /* -------------------- Routes -------------------- */
 app.use("/api/registrations", registrationRoutes);
-app.use("/api/payments", paymentRoutes);
-app.use("/api/webhooks", webhookRoutes);
+
 
 /* -------------------- Start Server -------------------- */
 const startServer = async () => {

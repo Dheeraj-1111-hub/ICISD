@@ -99,7 +99,6 @@ export const Navbar = () => {
 
           {/* ================= Desktop Right ================= */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Not signed in */}
             <SignedOut>
               <a
                 href="#registration"
@@ -117,8 +116,18 @@ export const Navbar = () => {
               </a>
             </SignedOut>
 
-            {/* Signed in → Avatar */}
             <SignedIn>
+              <a
+                href="/dashboard"
+                className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
+                  isScrolled
+                    ? "bg-muted text-foreground hover:bg-muted/70"
+                    : "bg-white/10 text-white hover:bg-white/20"
+                }`}
+              >
+                Dashboard
+              </a>
+
               <UserButton
                 appearance={{
                   elements: {
@@ -188,6 +197,13 @@ export const Navbar = () => {
               </SignedOut>
 
               <SignedIn>
+                <a
+                  href="/dashboard"
+                  className="block w-full mt-3 px-4 py-2.5 rounded-md bg-muted text-foreground text-center font-semibold"
+                >
+                  Dashboard
+                </a>
+
                 <div className="flex justify-center pt-4">
                   <UserButton
                     appearance={{
