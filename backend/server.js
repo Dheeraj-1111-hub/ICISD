@@ -15,10 +15,15 @@ const PORT = process.env.PORT || 5000;
 /* -------------------- Middleware -------------------- */
 app.use(
   cors({
-    origin: ["http://localhost:8080", "http://localhost:5173"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:8080",
+      "https://icisd-2w8g.vercel.app", // 👈 ADD THIS
+    ],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 
