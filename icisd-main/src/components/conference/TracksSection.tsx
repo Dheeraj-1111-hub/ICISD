@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 
-/* ---------------- TRACK DATA (STRICTLY FROM DOC) ---------------- */
+/* ---------------- TRACK DATA ---------------- */
 
 const tracks = [
   {
@@ -126,8 +126,8 @@ const TrackModal = ({ track, onClose }) => {
             <X />
           </button>
 
-          <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-            <track.icon className="w-7 h-7 text-primary" />
+          <div className="w-14 h-14 rounded-xl bg-[#1a472a]/10 flex items-center justify-center mb-4">
+            <track.icon className="w-7 h-7 text-[#1a472a]" />
           </div>
 
           <h3 className="text-2xl font-bold mb-4">{track.title}</h3>
@@ -162,7 +162,7 @@ export const TracksSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-14"
           >
-            <span className="inline-block px-4 py-1.5 rounded-md bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-md bg-[#1a472a]/15 text-[#1a472a] text-sm font-semibold mb-4">
               Research Domains
             </span>
 
@@ -189,13 +189,11 @@ export const TracksSection = () => {
                   whileHover={{ scale: 1.04, y: -6 }}
                   className="w-full h-full p-6 rounded-xl bg-white/80 backdrop-blur border border-gray-200 shadow-md hover:shadow-xl text-center"
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <track.icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#1a472a]/10 flex items-center justify-center mb-4">
+                    <track.icon className="w-7 h-7 text-[#1a472a]" />
                   </div>
 
-                  <h3 className="text-lg font-bold">
-                    {track.title}
-                  </h3>
+                  <h3 className="text-lg font-bold">{track.title}</h3>
                 </motion.button>
               </motion.div>
             ))}

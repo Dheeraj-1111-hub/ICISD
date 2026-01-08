@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import {
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const navLinks = [
   { name: "Home", href: "#hero" },
@@ -131,8 +127,7 @@ export const Navbar = () => {
               <UserButton
                 appearance={{
                   elements: {
-                    avatarBox:
-                      "w-9 h-9 rounded-full ring-2 ring-white/20",
+                    avatarBox: "w-9 h-9 rounded-full ring-2 ring-white/20",
                   },
                 }}
                 afterSignOutUrl="/"
@@ -145,15 +140,9 @@ export const Navbar = () => {
             className={`lg:hidden p-2 rounded-md ${
               isScrolled ? "text-foreground" : "text-white"
             }`}
-            onClick={() =>
-              setIsMobileMenuOpen((prev) => !prev)
-            }
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
-            {isMobileMenuOpen ? (
-              <X size={24} />
-            ) : (
-              <Menu size={24} />
-            )}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

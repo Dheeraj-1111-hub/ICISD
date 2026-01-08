@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,48 +7,50 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 40% 13%;
+    --foreground: 141 40% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card-foreground: 141 40% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover-foreground: 141 40% 13%;
 
-    --primary: 220 70% 45%;
+    --primary: 141 46% 19%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 70% 55%;
-    --primary-dark: 220 70% 35%;
+    --primary-light: 141 46% 29%;
+    --primary-dark: 141 46% 12%;
 
-    --secondary: 220 20% 96%;
-    --secondary-foreground: 220 40% 13%;
+    --secondary: 141 20% 96%;
+    --secondary-foreground: 141 40% 13%;
 
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 141 15% 94%;
+    --muted-foreground: 141 15% 45%;
 
     --accent: 43 90% 50%;
-    --accent-foreground: 220 40% 13%;
+    --accent-foreground: 141 40% 13%;
     --accent-light: 43 90% 60%;
     --accent-dark: 43 90% 40%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 220 70% 45%;
+    --border: 141 15% 90%;
+    --input: 141 15% 90%;
+    --ring: 141 46% 19%;
 
     --radius: 0.5rem;
 
     /* Custom colors */
     --gold: 43 90% 50%;
-    --royal-blue: 220 70% 45%;
-    --navy: 220 50% 20%;
-    
+    --royal-blue: 141 46% 19%;
+    --royal-blue-light: 141 46% 29%;
+    --royal-blue-dark: 141 46% 12%;
+    --navy: 141 46% 12%;
+
     /* Shadows */
-    --shadow-sm: 0 1px 3px 0 hsl(220 40% 13% / 0.1);
-    --shadow-md: 0 4px 12px -2px hsl(220 40% 13% / 0.1);
-    --shadow-lg: 0 8px 24px -4px hsl(220 40% 13% / 0.12);
+    --shadow-sm: 0 1px 3px 0 hsl(141 46% 13% / 0.1);
+    --shadow-md: 0 4px 12px -2px hsl(141 46% 13% / 0.1);
+    --shadow-lg: 0 8px 24px -4px hsl(141 46% 13% / 0.12);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -56,42 +58,42 @@
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: 141 13% 91%;
+    --sidebar-ring: 141 91.2% 59.8%;
   }
 
   .dark {
-    --background: 220 50% 8%;
-    --foreground: 220 20% 95%;
+    --background: 141 50% 8%;
+    --foreground: 141 20% 95%;
 
-    --card: 220 50% 12%;
-    --card-foreground: 220 20% 95%;
+    --card: 141 50% 12%;
+    --card-foreground: 141 20% 95%;
 
-    --popover: 220 50% 12%;
-    --popover-foreground: 220 20% 95%;
+    --popover: 141 50% 12%;
+    --popover-foreground: 141 20% 95%;
 
-    --primary: 220 70% 55%;
+    --primary: 141 46% 35%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 40% 20%;
-    --secondary-foreground: 220 20% 95%;
+    --secondary: 141 40% 20%;
+    --secondary-foreground: 141 20% 95%;
 
-    --muted: 220 40% 18%;
-    --muted-foreground: 220 15% 60%;
+    --muted: 141 40% 18%;
+    --muted-foreground: 141 15% 60%;
 
     --accent: 43 90% 50%;
-    --accent-foreground: 220 40% 13%;
+    --accent-foreground: 141 40% 13%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 40% 20%;
-    --input: 220 40% 20%;
-    --ring: 220 70% 55%;
+    --border: 141 40% 20%;
+    --input: 141 40% 20%;
+    --ring: 141 46% 35%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 141.4 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
@@ -113,7 +115,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display font-bold tracking-tight;
   }
 }

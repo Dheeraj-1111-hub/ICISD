@@ -5,34 +5,134 @@ import { Clock, MapPin, Coffee, Mic2, Users } from "lucide-react";
 
 const scheduleData = {
   day1: {
-    date: "Feb 15, 2026",
+    date: "6th April 2026",
     title: "Day 1 - Opening & Foundations",
     events: [
-      { time: "08:00 - 09:00", title: "Registration & Welcome Coffee", type: "break", icon: Coffee, location: "Main Lobby" },
-      { time: "09:00 - 09:45", title: "Inaugural Ceremony & Welcome Address", type: "keynote", icon: Mic2, location: "Grand Auditorium" },
-      { time: "10:00 - 11:30", title: "Keynote: Future of Renewable Energy Systems", type: "keynote", icon: Mic2, speaker: "Dr. Elena Vasquez", location: "Grand Auditorium" },
-      { time: "11:30 - 11:45", title: "Networking Break", type: "break", icon: Coffee, location: "Exhibition Hall" },
-      { time: "11:45 - 13:00", title: "Technical Session: AI & Smart Technologies", type: "session", icon: Users, location: "Hall A" },
-      { time: "13:00 - 14:00", title: "Lunch & Poster Presentations", type: "break", icon: Coffee, location: "Dining Area" },
-      { time: "14:00 - 15:30", title: "Workshop: Sustainable Engineering Practices", type: "workshop", icon: Users, location: "Workshop Room 1" },
-      { time: "15:30 - 17:00", title: "Panel Discussion: Climate Policy & Action", type: "session", icon: Mic2, location: "Grand Auditorium" },
-      { time: "17:00 - 18:30", title: "Technical Session: Green Finance & ESG", type: "session", icon: Users, location: "Hall B" },
-      { time: "19:00 - 21:00", title: "Welcome Dinner & Networking", type: "break", icon: Coffee, location: "Rooftop Garden" },
+      {
+        time: "08:00 - 09:00",
+        title: "Registration & Welcome Coffee",
+        type: "break",
+        icon: Coffee,
+        location: "Main Lobby",
+      },
+      {
+        time: "09:00 - 09:45",
+        title: "Inaugural Ceremony & Welcome Address",
+        type: "keynote",
+        icon: Mic2,
+        location: "Grand Auditorium",
+      },
+      {
+        time: "10:00 - 11:30",
+        title: "Keynote Session",
+        type: "keynote",
+        icon: Mic2,
+        location: "Grand Auditorium",
+      },
+      {
+        time: "11:30 - 11:45",
+        title: "Networking Break",
+        type: "break",
+        icon: Coffee,
+        location: "Exhibition Hall",
+      },
+      {
+        time: "11:45 - 13:00",
+        title: "Technical Session – I",
+        type: "session",
+        icon: Users,
+        location: "Hall A",
+      },
+      {
+        time: "13:00 - 14:00",
+        title: "Lunch Break",
+        type: "break",
+        icon: Coffee,
+        location: "Dining Area",
+      },
+      {
+        time: "14:00 - 15:30",
+        title: "Technical Session – II",
+        type: "session",
+        icon: Users,
+        location: "Hall B",
+      },
+      {
+        time: "15:30 - 15:45",
+        title: "Tea Break",
+        type: "break",
+        icon: Coffee,
+        location: "Exhibition Hall",
+      },
+      {
+        time: "15:45 - 17:30",
+        title: "Workshop / Panel Discussion",
+        type: "workshop",
+        icon: Users,
+        location: "Conference Hall",
+      },
     ],
   },
   day2: {
-    date: "Feb 16, 2026",
-    title: "Day 2 - Innovation & Practice",
+    date: "7th April 2026",
+    title: "Day 2 - Research & Innovation",
     events: [
-      { time: "08:30 - 09:00", title: "Morning Coffee & Networking", type: "break", icon: Coffee, location: "Main Lobby" },
-      { time: "09:00 - 10:30", title: "Keynote: Circular Economy Revolution", type: "keynote", icon: Mic2, speaker: "Prof. Anders Lindberg", location: "Grand Auditorium" },
-      { time: "10:30 - 10:45", title: "Refreshment Break", type: "break", icon: Coffee, location: "Exhibition Hall" },
-      { time: "10:45 - 12:15", title: "Technical Session: Smart Cities & IoT", type: "session", icon: Users, location: "Hall A" },
-      { time: "12:15 - 13:15", title: "Lunch Break", type: "break", icon: Coffee, location: "Dining Area" },
-      { time: "13:15 - 14:45", title: "Workshop: Data Science for Sustainability", type: "workshop", icon: Users, location: "Workshop Room 2" },
-      { time: "15:00 - 16:30", title: "Technical Session: Biotechnology Innovations", type: "session", icon: Users, location: "Hall B" },
-      { time: "16:30 - 17:30", title: "Q&A with Industry Leaders", type: "session", icon: Mic2, location: "Grand Auditorium" },
-      { time: "17:30 - 18:00", title: "Closing Ceremony & Awards", type: "keynote", icon: Mic2, location: "Grand Auditorium" },
+      {
+        time: "09:00 - 09:30",
+        title: "Morning Coffee",
+        type: "break",
+        icon: Coffee,
+        location: "Main Lobby",
+      },
+      {
+        time: "09:30 - 11:00",
+        title: "Technical Session – III",
+        type: "session",
+        icon: Users,
+        location: "Hall A",
+      },
+      {
+        time: "11:00 - 11:15",
+        title: "Tea Break",
+        type: "break",
+        icon: Coffee,
+        location: "Exhibition Hall",
+      },
+      {
+        time: "11:15 - 13:00",
+        title: "Technical Session – IV",
+        type: "session",
+        icon: Users,
+        location: "Hall B",
+      },
+      {
+        time: "13:00 - 14:00",
+        title: "Lunch Break",
+        type: "break",
+        icon: Coffee,
+        location: "Dining Area",
+      },
+      {
+        time: "14:00 - 15:30",
+        title: "Paper Presentation Session",
+        type: "session",
+        icon: Users,
+        location: "Conference Hall",
+      },
+      {
+        time: "15:30 - 16:00",
+        title: "Valedictory Function",
+        type: "keynote",
+        icon: Mic2,
+        location: "Grand Auditorium",
+      },
+      {
+        time: "16:00 - 16:30",
+        title: "Certificate Distribution & Closing",
+        type: "keynote",
+        icon: Mic2,
+        location: "Grand Auditorium",
+      },
     ],
   },
 };
@@ -45,17 +145,15 @@ const typeColors = {
 };
 
 export const ScheduleSection = () => {
-  const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [activeDay, setActiveDay] = useState("day1");
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const currentSchedule = scheduleData[activeDay];
 
   return (
     <section id="schedule" className="section-padding bg-background">
       <div className="container-conference" ref={ref}>
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -65,84 +163,64 @@ export const ScheduleSection = () => {
           <span className="inline-block px-3 py-1 rounded-md bg-primary/10 text-primary text-sm font-semibold mb-4">
             Event Timeline
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Conference Schedule
           </h2>
           <p className="text-muted-foreground">
-            Two days of intensive learning, networking, and inspiration with world-class 
-            speakers and cutting-edge research presentations.
+            Conference conducted on <strong>6th & 7th April 2026</strong> with
+            technical sessions, workshops, and keynote addresses.
           </p>
         </motion.div>
 
-        {/* Day Tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex justify-center gap-4 mb-10"
-        >
-          {(["day1", "day2"] as const).map((day) => (
+        {/* Tabs */}
+        <div className="flex justify-center gap-4 mb-10">
+          {["day1", "day2"].map((day) => (
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+              className={`px-6 py-3 rounded-lg font-semibold ${
                 activeDay === day
                   ? "bg-primary text-primary-foreground"
-                  : "bg-card text-foreground border border-border hover:bg-muted"
+                  : "bg-card border"
               }`}
             >
-              <span className="block text-base">{scheduleData[day].title}</span>
-              <span className={`block text-sm mt-0.5 ${activeDay === day ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                {scheduleData[day].date}
-              </span>
+              <div>{scheduleData[day].title}</div>
+              <div className="text-sm opacity-80">{scheduleData[day].date}</div>
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Schedule Content */}
+        {/* Schedule */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeDay}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl mx-auto space-y-3"
           >
-            <div className="space-y-3">
-              {currentSchedule.events.map((event, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.03 }}
-                  className="card-conference flex flex-col sm:flex-row gap-4 items-start"
-                >
-                  {/* Time */}
-                  <div className="flex items-center gap-2 text-primary font-semibold min-w-[140px]">
-                    <Clock className="w-4 h-4" />
-                    <span>{event.time}</span>
+            {currentSchedule.events.map((event, index) => (
+              <div key={index} className="card-conference flex gap-4">
+                <div className="min-w-[130px] font-semibold text-primary flex items-center gap-2">
+                  <Clock className="w-4 h-4" /> {event.time}
+                </div>
+                <div>
+                  <div className="flex gap-2 items-center">
+                    <h4 className="font-bold">{event.title}</h4>
+                    <span
+                      className={`text-xs px-2 py-0.5 rounded ${
+                        typeColors[event.type]
+                      }`}
+                    >
+                      {event.type}
+                    </span>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3 mb-2">
-                      <h4 className="font-bold text-foreground">{event.title}</h4>
-                      <span className={`px-2 py-0.5 rounded text-xs font-medium capitalize ${typeColors[event.type]}`}>
-                        {event.type}
-                      </span>
-                    </div>
-                    {event.speaker && (
-                      <p className="text-sm text-primary font-medium mb-1">Speaker: {event.speaker}</p>
-                    )}
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                      <MapPin className="w-3.5 h-3.5" />
-                      <span>{event.location}</span>
-                    </div>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <MapPin className="w-3.5 h-3.5" /> {event.location}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </div>
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>
