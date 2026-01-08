@@ -9,7 +9,7 @@ export default function Payment() {
       const token = await getToken();
 
       const res = await fetch(
-        "http://localhost:5000/api/payments/create-checkout-session",
+        `${import.meta.env.VITE_API_URL}/api/payments/create-checkout-session`,
         {
           method: "POST",
           headers: {

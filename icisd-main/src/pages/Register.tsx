@@ -30,7 +30,7 @@ export default function Register() {
     try {
       const token = await getToken();
 
-      await fetch("http://localhost:5000/api/registrations", {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/registrations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,3 +1,4 @@
+// icisd-main/src/pages/Dashboard.tsx
 import { useEffect, useState } from "react";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
@@ -28,7 +29,7 @@ export default function Dashboard() {
     const fetchRegistration = async () => {
       const token = await getToken();
       const res = await fetch(
-        "http://localhost:5000/api/registrations/me",
+        `${import.meta.env.VITE_API_URL}/api/registrations/me`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (res.ok) setData(await res.json());
