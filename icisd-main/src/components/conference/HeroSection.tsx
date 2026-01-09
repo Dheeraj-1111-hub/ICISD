@@ -69,14 +69,18 @@ export const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-slate-900 overflow-hidden"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+{/* Background Gradient */}
+<div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950" />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/55 to-black/90" />
+{/* Subtle Abstract Glow */}
+<div className="absolute inset-0">
+  <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
+  <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-emerald-400/10 rounded-full blur-[140px]" />
+</div>
+
+{/* Subtle Grid Pattern */}
+<div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:80px_80px]" />
+
 
       <div className="container-conference relative z-10 text-center py-20 pt-32">
         {/* Badge */}
@@ -208,29 +212,37 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex justify-center"
-        >
-          <button
-            onClick={handleApplyNow}
-            className="
-              flex items-center gap-2
-              px-8 py-3
-              text-lg font-semibold
-              rounded-md
-              bg-emerald-600
-              text-white
-              hover:bg-emerald-500
-              transition-colors
-            "
-          >
-            Apply Now
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.3 }}
+  className="flex justify-center"
+>
+  <button
+    // onClick={handleApplyNow} // 🚫 Disabled for now
+    onClick={() => {
+      const section = document.getElementById("registration");
+      section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }}
+    className="
+      flex items-center gap-2
+      px-8 py-3
+      text-lg font-semibold
+      rounded-md
+      bg-emerald-600
+      text-white
+      hover:bg-emerald-500
+      transition-colors
+      focus:outline-none focus:ring-2 focus:ring-emerald-400
+    "
+  >
+    Apply Now
+    <ArrowRight className="w-5 h-5" />
+  </button>
+</motion.div>
+
+
+
       </div>
     </section>
   );

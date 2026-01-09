@@ -13,12 +13,66 @@ import {
   X,
 } from "lucide-react";
 
+/* ---------------- COLOR MAP ---------------- */
+
+const colorMap: any = {
+  emerald: {
+    bg: "bg-emerald-50",
+    text: "text-emerald-600",
+    ring: "ring-emerald-500/30",
+    wash: "bg-emerald-500/5",
+  },
+  blue: {
+    bg: "bg-blue-50",
+    text: "text-blue-600",
+    ring: "ring-blue-500/30",
+    wash: "bg-blue-500/5",
+  },
+  violet: {
+    bg: "bg-violet-50",
+    text: "text-violet-600",
+    ring: "ring-violet-500/30",
+    wash: "bg-violet-500/5",
+  },
+  cyan: {
+    bg: "bg-cyan-50",
+    text: "text-cyan-600",
+    ring: "ring-cyan-500/30",
+    wash: "bg-cyan-500/5",
+  },
+  amber: {
+    bg: "bg-amber-50",
+    text: "text-amber-600",
+    ring: "ring-amber-500/30",
+    wash: "bg-amber-500/5",
+  },
+  sky: {
+    bg: "bg-sky-50",
+    text: "text-sky-600",
+    ring: "ring-sky-500/30",
+    wash: "bg-sky-500/5",
+  },
+  indigo: {
+    bg: "bg-indigo-50",
+    text: "text-indigo-600",
+    ring: "ring-indigo-500/30",
+    wash: "bg-indigo-500/5",
+  },
+  green: {
+    bg: "bg-green-50",
+    text: "text-green-600",
+    ring: "ring-green-500/30",
+    wash: "bg-green-500/5",
+  },
+};
+
 /* ---------------- TRACK DATA ---------------- */
 
 const tracks = [
   {
     icon: Cpu,
     title: "Artificial Intelligence and Intelligent Systems",
+    color: "emerald",
     topics: [
       "Machine and Deep Learning",
       "Intelligent Decision Support Systems & XAI",
@@ -29,6 +83,7 @@ const tracks = [
   {
     icon: Database,
     title: "Smart Data Platform and AI Analytics",
+    color: "blue",
     topics: [
       "AI Driven Analytics",
       "Automated and Augmented Analytics",
@@ -39,6 +94,7 @@ const tracks = [
   {
     icon: MessageSquare,
     title: "NLP & Speech Technologies",
+    color: "violet",
     topics: [
       "Text Mining and Sentiment Analysis",
       "Multilingual Models & LLMs",
@@ -49,6 +105,7 @@ const tracks = [
   {
     icon: Wifi,
     title: "Internet of Things (IoT) and Smart Environments",
+    color: "cyan",
     topics: [
       "IoT Architectures and Protocols",
       "IoT Enabled Intelligent Systems",
@@ -59,6 +116,7 @@ const tracks = [
   {
     icon: Shield,
     title: "Cybersecurity and Blockchain",
+    color: "amber",
     topics: [
       "Network Security and Cryptography",
       "Ethical Hacking and Digital Forensics",
@@ -68,6 +126,7 @@ const tracks = [
   {
     icon: Cloud,
     title: "Cloud Computing & Distributed Systems",
+    color: "sky",
     topics: [
       "Serverless & Microservice Architectures",
       "Cloud Security & Cloud-Native Systems",
@@ -78,6 +137,7 @@ const tracks = [
   {
     icon: Atom,
     title: "Quantum Computing & Future Technologies",
+    color: "indigo",
     topics: [
       "Quantum Algorithms",
       "Quantum Cryptography",
@@ -88,6 +148,7 @@ const tracks = [
   {
     icon: Leaf,
     title: "Sustainability & Digital Transformation",
+    color: "green",
     topics: [
       "Green Computing",
       "Intelligent Transport Systems",
@@ -101,6 +162,7 @@ const tracks = [
 
 const TrackModal = ({ track, onClose }: any) => {
   if (!track) return null;
+  const c = colorMap[track.color];
 
   return (
     <AnimatePresence>
@@ -116,7 +178,7 @@ const TrackModal = ({ track, onClose }: any) => {
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 40 }}
-          transition={{ type: "spring", stiffness: 180, damping: 20 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
           className="bg-white w-full max-w-lg rounded-2xl p-6 shadow-2xl relative"
         >
           <button
@@ -126,8 +188,10 @@ const TrackModal = ({ track, onClose }: any) => {
             <X />
           </button>
 
-          <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
-            <track.icon className="w-7 h-7 text-emerald-600" />
+          <div
+            className={`w-14 h-14 rounded-full ${c.bg} flex items-center justify-center mb-4`}
+          >
+            <track.icon className={`w-7 h-7 ${c.text}`} />
           </div>
 
           <h3 className="text-2xl font-bold mb-4 text-slate-900">
@@ -149,7 +213,7 @@ const TrackModal = ({ track, onClose }: any) => {
 
 export const TracksSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
-  const [selectedTrack, setSelectedTrack] = useState(null);
+  const [selectedTrack, setSelectedTrack] = useState<any>(null);
 
   return (
     <>
@@ -165,64 +229,69 @@ export const TracksSection = () => {
             <p className="text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
               Research Domains
             </p>
-
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Conference{" "}
-              <span className="text-emerald-600">Tracks</span>
+              Conference <span className="text-emerald-600">Tracks</span>
             </h2>
-
             <p className="text-slate-600 text-sm sm:text-base">
-              The conference invites original research contributions across the
-              following specialized domains.
+              Original research contributions across specialized domains.
             </p>
           </motion.div>
 
           {/* Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {tracks.map((track, index) => (
-              <motion.div
-                key={track.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.07 }}
-              >
-                <motion.button
-                  onClick={() => setSelectedTrack(track)}
-                  whileHover={{ y: -8 }}
-                  className="
-                    group relative w-full h-full
-                    rounded-2xl bg-white
-                    border border-slate-200
-                    p-7 text-center
-                    shadow-sm hover:shadow-xl
-                    transition-all duration-300
-                  "
+            {tracks.map((track, index) => {
+              const c = colorMap[track.color];
+
+              return (
+                <motion.div
+                  key={track.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: index * 0.07 }}
                 >
-                  {/* Gradient ring */}
-                  <span className="absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:ring-emerald-500/30 transition" />
+                  <motion.button
+                    onClick={() => setSelectedTrack(track)}
+                    whileHover={{ y: -10 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                    className="group relative w-full h-full rounded-2xl bg-white border border-slate-200 p-7 text-center shadow-sm hover:shadow-xl transition"
+                  >
+                    {/* Color wash */}
+                    <span
+                      className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition ${c.wash}`}
+                    />
 
-                  {/* Track number */}
-                  <span className="absolute top-4 right-4 text-sm font-semibold text-emerald-600">
-  {String(index + 1).padStart(2, "0")}
-</span>
+                    {/* Ring */}
+                    <span
+                      className={`absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:${c.ring} transition`}
+                    />
 
-                  {/* Icon */}
-                  <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-emerald-50 flex items-center justify-center 
-                                  group-hover:scale-110 group-hover:shadow-[0_0_0_8px_rgba(16,185,129,0.08)]
-                                  transition-all">
-                    <track.icon className="w-8 h-8 text-emerald-600" />
-                  </div>
+                    {/* Index */}
+                    <span
+                      className={`absolute top-4 right-4 text-sm font-semibold ${c.text}`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                  <h3 className="text-base font-semibold text-slate-900 mb-3 leading-snug">
-  {track.title}
-</h3>
+                    {/* Icon */}
+                    <div
+                      className={`w-16 h-16 mx-auto mb-5 rounded-full ${c.bg} flex items-center justify-center transition-all group-hover:scale-110`}
+                    >
+                      <track.icon className={`w-8 h-8 ${c.text}`} />
+                    </div>
 
-                  <span className="text-sm font-medium text-emerald-600 opacity-80 group-hover:opacity-100">
-  View Topics →
-</span>
-                </motion.button>
-              </motion.div>
-            ))}
+                    <h3 className="text-base font-semibold text-slate-900 mb-3">
+                      {track.title}
+                    </h3>
+
+                    <span
+                      className={`text-sm font-medium ${c.text} opacity-80 group-hover:opacity-100`}
+                    >
+                      View Topics →
+                    </span>
+                  </motion.button>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ export default function ProtectedRoute({ children }) {
     <>
       <SignedIn>{children}</SignedIn>
       <SignedOut>
-        <RedirectToSignIn redirectUrl="/register" />
+        <RedirectToSignIn redirectUrl="/" />
       </SignedOut>
     </>
   );

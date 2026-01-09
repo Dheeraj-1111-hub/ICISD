@@ -32,10 +32,7 @@ export const Navbar = () => {
     const element = document.getElementById(id);
 
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -49,7 +46,7 @@ export const Navbar = () => {
     >
       <div className="container-conference">
         <div className="flex items-center justify-between">
-          {/*Logo*/}
+          {/* Logo */}
           <a
             href="#hero"
             onClick={(e) => {
@@ -72,7 +69,7 @@ export const Navbar = () => {
             </span>
           </a>
 
-          {/*Desktop Nav*/}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -93,7 +90,7 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/*Desktop Right*/}
+          {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-4">
             <SignedOut>
               <a
@@ -104,7 +101,7 @@ export const Navbar = () => {
                 }}
                 className={`px-5 py-2 rounded-md text-sm font-semibold transition-colors ${
                   isScrolled
-                    ? "bg-primary text-primary-foreground hover:bg-primary-dark"
+                    ? "bg-emerald-600 text-primary-foreground hover:bg-emerald-600"
                     : "bg-white text-primary hover:bg-white/90"
                 }`}
               >
@@ -113,6 +110,8 @@ export const Navbar = () => {
             </SignedOut>
 
             <SignedIn>
+              {/* Dashboard disabled for now */}
+              {/*
               <a
                 href="/dashboard"
                 className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
@@ -123,6 +122,7 @@ export const Navbar = () => {
               >
                 Dashboard
               </a>
+              */}
 
               <UserButton
                 appearance={{
@@ -147,7 +147,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/*  Mobile Menu  */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -171,7 +171,7 @@ export const Navbar = () => {
                 </a>
               ))}
 
-              {/* Mobile Auth Section */}
+              {/* Mobile Auth */}
               <SignedOut>
                 <a
                   href="#registration"
@@ -186,12 +186,15 @@ export const Navbar = () => {
               </SignedOut>
 
               <SignedIn>
+                {/* Dashboard disabled for now */}
+                {/*
                 <a
                   href="/dashboard"
                   className="block w-full mt-3 px-4 py-2.5 rounded-md bg-muted text-foreground text-center font-semibold"
                 >
                   Dashboard
                 </a>
+                */}
 
                 <div className="flex justify-center pt-4">
                   <UserButton
