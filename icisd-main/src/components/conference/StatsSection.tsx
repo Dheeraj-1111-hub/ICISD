@@ -57,26 +57,29 @@ export const StatsSection = () => {
   });
 
   return (
-    <section className="py-16 md:py-20 bg-navy">
+    <section className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-white/60 mb-2">
-            Highlights
+          <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
+            Conference Overview
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Conference at a <span className="text-accent">Glance</span>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+            Conference at a{" "}
+            <span className="text-emerald-600">Glance</span>
           </h2>
-          <p className="text-white/75 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            Discover the scale and impact of ICISD 2026 as we bring together
-            global experts, researchers and practitioners in{" "}
-            <span className="font-semibold text-accent">
-              sustainable development
+
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+            ICISD 2026 brings together leading researchers, academicians,
+            and industry experts to advance discussions on{" "}
+            <span className="font-semibold text-emerald-600">
+              sustainable development and innovation
             </span>
             .
           </p>
@@ -90,18 +93,25 @@ export const StatsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="flex flex-col items-center text-center rounded-xl bg-white/[0.06] border border-white/15 
-                         p-6 sm:p-7 shadow-[0_12px_30px_rgba(15,23,42,0.5)] 
-                         hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.7)] 
-                         hover:border-accent/60 transition-all duration-200"
+              className="
+                flex flex-col items-center text-center
+                rounded-xl bg-white
+                border border-slate-200
+                p-6 sm:p-7
+                shadow-sm
+                hover:-translate-y-1
+                hover:shadow-lg
+                hover:border-emerald-500
+                transition-all duration-200
+              "
             >
               {/* Icon */}
-              <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-accent/15">
-                <stat.icon className="w-6 h-6 text-accent" />
+              <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-emerald-50">
+                <stat.icon className="w-6 h-6 text-emerald-600" />
               </div>
 
               {/* Number */}
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1 leading-tight">
+              <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-1 leading-tight">
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
@@ -109,11 +119,11 @@ export const StatsSection = () => {
                 />
               </div>
 
-              {/* Divider line */}
-              <div className="w-10 h-px bg-white/20 my-2" />
+              {/* Divider */}
+              <div className="w-10 h-px bg-slate-200 my-2" />
 
               {/* Label */}
-              <p className="text-white/75 font-medium text-sm sm:text-base">
+              <p className="text-slate-600 font-medium text-sm sm:text-base">
                 {stat.label}
               </p>
             </motion.div>

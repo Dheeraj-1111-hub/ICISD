@@ -1,11 +1,13 @@
+// backend/server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { clerkMiddleware } from "@clerk/express";
 import { connectDB } from "./config/db.js";
+
 import registrationRoutes from "./routes/registration.routes.js";
-
-
+import paymentRoutes from "./routes/payment.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
 
 dotenv.config();
 
@@ -18,33 +20,26 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:8080",
-      "https://icisd-2w8g.vercel.app", // 👈 ADD THIS
+      "https://icisd-2w8g.vercel.app",
     ],
     credentials: true,
   })
 );
 
-
 app.use(express.json());
-
-/* 🔥 Clerk middleware (MANDATORY) */
 app.use(clerkMiddleware());
 
 /* -------------------- Routes -------------------- */
 app.use("/api/registrations", registrationRoutes);
-
+app.use("/api/payments", paymentRoutes);
+app.use("/api/admin", adminRoutes);
 
 /* -------------------- Start Server -------------------- */
 const startServer = async () => {
-  try {
-    await connectDB();
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on http://localhost:${PORT}`);
-    });
-  } catch (err) {
-    console.error("❌ Failed to start server", err);
-    process.exit(1);
-  }
+  await connectDB();
+  app.listen(PORT, () =>
+    console.log(`🚀 Server running on http://localhost:${PORT}`)
+  );
 };
 
 startServer();

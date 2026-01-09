@@ -1,3 +1,4 @@
+// backend/routes/registration.routes.js
 import { Router } from "express";
 import {
   createRegistration,

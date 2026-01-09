@@ -12,9 +12,7 @@ export const HeroSection = () => {
 
   const handleApplyNow = () => {
     if (!isSignedIn) {
-      openSignIn({
-        redirectUrl: "/register",
-      });
+      openSignIn({ redirectUrl: "/register" });
     } else {
       navigate("/register");
     }
@@ -28,15 +26,13 @@ export const HeroSection = () => {
   });
 
   useEffect(() => {
-    // 🔹 Set your conference start date & time here
-    const targetDate = new Date("2026-02-15T00:00:00"); // local time
+    const targetDate = new Date("2026-04-06T00:00:00");
 
     const updateTime = () => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
 
       if (distance <= 0) {
-        // Conference started or over
         setTimeLeft({
           days: "00",
           hours: "00",
@@ -53,7 +49,7 @@ export const HeroSection = () => {
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      const pad = (n) => String(n).padStart(2, "0");
+      const pad = (n: number) => String(n).padStart(2, "0");
 
       setTimeLeft({
         days: pad(days),
@@ -63,110 +59,118 @@ export const HeroSection = () => {
       });
     };
 
-    updateTime(); // run once immediately
+    updateTime();
     const timer = setInterval(updateTime, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-navy overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-slate-900 overflow-hidden"
     >
-      {/* Background image */}
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
 
-      {/* Dark overlay so text is readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/85" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/55 to-black/90" />
 
-      {/* Content */}
       <div className="container-conference relative z-10 text-center py-20 pt-32">
-        {/* Small badge */}
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white/10 border border-white/20 mb-4 backdrop-blur-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-accent" />
+          <span className="w-2 h-2 rounded-full bg-emerald-500" />
           <span className="text-white/90 text-sm font-medium">
-            Early Bird Registration Open
+            International Conference · ICISD’26
           </span>
         </motion.div>
 
-        {/* University / campus line */}
+        {/* Location */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="text-xs sm:text-sm tracking-[0.18em] uppercase text-white/70 mb-3 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]"
+          className="text-xs sm:text-sm tracking-[0.18em] uppercase text-white/70 mb-3"
         >
-          SRM Institute of Science & Technology, Vadapalani Campus
+          SRM Institute of Science and Technology · Vadapalani Campus · Chennai
         </motion.p>
 
-        {/* Main title */}
+        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
         >
-          ICISD <span className="text-accent">2026</span>
+          ICISD{" "}
+          <span className="text-emerald-500">2026</span>
         </motion.h1>
 
-        {/* Full form */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-base sm:text-lg md:text-xl text-white/80 mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          className="text-base sm:text-lg md:text-xl text-white/85 mb-6"
         >
           International Conference on{" "}
-          <span className="text-accent font-semibold">Innovations</span> in{" "}
-          <span className="text-accent font-semibold">
-            Sustainable Development
+          <span className="text-emerald-400 font-semibold">
+            Intelligent Systems
+          </span>{" "}
+          and{" "}
+          <span className="text-emerald-400 font-semibold">
+            Digital Transformation
           </span>
         </motion.p>
 
-        {/* Organised by */}
+        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="text-xs sm:text-sm text-white/75 mb-8 max-w-2xl mx-auto drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]"
+          className="text-xs sm:text-sm text-white/75 mb-8 max-w-3xl mx-auto"
         >
           Organised by the{" "}
           <span className="font-medium">
-            Department of Computer Science and Engineering
+            Department of Computer Science & Engineering
           </span>
-          , SRM IST, Vadapalani.
+          , Faculty of Engineering and Technology, SRM IST, in association with{" "}
+          <span className="font-medium">
+            Cardiff Metropolitan University
+          </span>
+          .
         </motion.p>
 
-        {/* Date & location */}
+        {/* Date & Mode */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80 mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80 mb-6"
         >
           <div className="flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-accent" />
-            <span className="font-medium">15 – 17 February 2026</span>
+            <Calendar className="w-5 h-5 text-emerald-400" />
+            <span className="font-medium">6th – 7th April 2026</span>
           </div>
-          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-accent" />
+
+          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-emerald-400" />
+
           <div className="flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-accent" />
+            <MapPin className="w-5 h-5 text-emerald-400" />
             <span className="font-medium">
-              SRM IST, Vadapalani · Hybrid Mode
+              Vadapalani Campus · Hybrid Mode
             </span>
           </div>
         </motion.div>
 
-        {/* Countdown title + timer */}
+        {/* Countdown */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -177,24 +181,24 @@ export const HeroSection = () => {
             Conference begins in
           </p>
 
-          <div className="inline-flex items-center gap-3 sm:gap-4 rounded-2xl bg-black/45 border border-white/15 px-4 sm:px-6 py-3 sm:py-4 backdrop-blur-md">
+          <div className="inline-flex items-center gap-4 rounded-2xl bg-black/45 border border-white/15 px-6 py-4 backdrop-blur-md">
             {[
               { label: "Days", value: timeLeft.days },
               { label: "Hours", value: timeLeft.hours },
               { label: "Minutes", value: timeLeft.minutes },
               { label: "Seconds", value: timeLeft.seconds },
             ].map((unit, idx) => (
-              <div key={unit.label} className="flex items-center gap-2">
-                <div className="flex flex-col items-center justify-center min-w-[3.5rem] sm:min-w-[4rem]">
-                  <span className="text-2xl sm:text-3xl font-semibold text-accent leading-none">
+              <div key={unit.label} className="flex items-center gap-3">
+                <div className="flex flex-col items-center min-w-[4rem]">
+                  <span className="text-3xl font-semibold text-emerald-400">
                     {unit.value}
                   </span>
-                  <span className="mt-1 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-white/70">
+                  <span className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
                     {unit.label}
                   </span>
                 </div>
                 {idx !== 3 && (
-                  <span className="text-accent/70 text-xl sm:text-2xl font-semibold -mt-1">
+                  <span className="text-emerald-400/70 text-2xl font-semibold">
                     :
                   </span>
                 )}
@@ -203,16 +207,25 @@ export const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* CTA → only one button */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex items-center justify-center"
+          className="flex justify-center"
         >
           <button
             onClick={handleApplyNow}
-            className="btn-accent flex items-center gap-2 px-8 py-3 text-lg font-semibold"
+            className="
+              flex items-center gap-2
+              px-8 py-3
+              text-lg font-semibold
+              rounded-md
+              bg-emerald-600
+              text-white
+              hover:bg-emerald-500
+              transition-colors
+            "
           >
             Apply Now
             <ArrowRight className="w-5 h-5" />

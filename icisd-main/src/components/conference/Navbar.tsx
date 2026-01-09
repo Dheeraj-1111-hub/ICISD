@@ -49,7 +49,7 @@ export const Navbar = () => {
     >
       <div className="container-conference">
         <div className="flex items-center justify-between">
-          {/* ================= Logo ================= */}
+          {/*Logo*/}
           <a
             href="#hero"
             onClick={(e) => {
@@ -72,7 +72,7 @@ export const Navbar = () => {
             </span>
           </a>
 
-          {/* ================= Desktop Nav ================= */}
+          {/*Desktop Nav*/}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -93,7 +93,7 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* ================= Desktop Right ================= */}
+          {/*Desktop Right*/}
           <div className="hidden lg:flex items-center gap-4">
             <SignedOut>
               <a
@@ -135,7 +135,7 @@ export const Navbar = () => {
             </SignedIn>
           </div>
 
-          {/* ================= Mobile Menu Button ================= */}
+          {/* Mobile Menu Button */}
           <button
             className={`lg:hidden p-2 rounded-md ${
               isScrolled ? "text-foreground" : "text-white"
@@ -147,7 +147,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* ================= Mobile Menu ================= */}
+      {/*  Mobile Menu  */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

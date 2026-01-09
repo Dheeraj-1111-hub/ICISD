@@ -1,30 +1,31 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Target, Users, Lightbulb, Award, Leaf } from "lucide-react";
+import { Target, Users, Lightbulb, Award, Cpu } from "lucide-react";
 
 const highlights = [
   {
     icon: Target,
-    title: "Mission-Driven",
+    title: "Research Excellence",
     description:
-      "Advancing sustainable solutions through interdisciplinary research collaboration",
+      "A global platform for presenting high-quality research in intelligent and digitally enabled systems",
   },
   {
     icon: Lightbulb,
-    title: "Innovation Focus",
+    title: "Emerging Technologies",
     description:
-      "Showcasing cutting-edge technologies driving environmental transformation",
+      "Focused discussions on AI, data-driven intelligence, automation, IoT, cloud, and cyber-physical systems",
   },
   {
     icon: Users,
-    title: "Global Reach",
+    title: "Global Collaboration",
     description:
-      "Connecting researchers, innovators, and policymakers from 50+ countries",
+      "Bringing together researchers, academicians, and industry professionals from around the world",
   },
   {
     icon: Award,
-    title: "Excellence",
-    description: "Peer-reviewed publications in high-impact indexed journals",
+    title: "Indexed Publications",
+    description:
+      "Accepted papers published in Scopus-indexed conference proceedings with DOI",
   },
 ];
 
@@ -35,7 +36,7 @@ export const AboutSection = () => {
   });
 
   return (
-    <section id="about" className="section-padding bg-background">
+    <section id="about" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -44,64 +45,78 @@ export const AboutSection = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-block px-3 py-1 rounded-md bg-[#1a472a]/10 text-[#1a472a] text-sm font-semibold mb-4">
+            <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
               About the Conference
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 leading-tight">
-              Shaping Tomorrow&apos;s Sustainable World
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+              Intelligent Systems &{" "}
+              <span className="text-emerald-600">
+                Digital Transformation
+              </span>
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              ICISD 2025 brings together visionary researchers, industry
-              leaders, and policymakers to explore groundbreaking solutions for
-              our planet&apos;s most pressing challenges. This premier
-              international forum serves as a catalyst for transformative ideas
-              in sustainable development.
+            <p className="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base">
+              The International Conference on Intelligent Systems and Digital
+              Transformation (ICISD’26) provides a premier global forum for
+              researchers, academicians, and industry experts to present and
+              exchange innovative ideas shaping intelligent and digitally
+              enabled systems.
             </p>
 
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Through rigorous academic discourse and hands-on workshops,
-              participants will engage with pioneering research spanning
-              renewable energy, artificial intelligence, circular economy
-              models, and smart city innovations.
+            <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
+              ICISD’26 focuses on cutting-edge advancements in artificial
+              intelligence, data analytics, automation, Internet of Things,
+              cloud computing, cybersecurity, and emerging digital technologies
+              that are transforming industries and society.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-[#1a472a]">
-                <Leaf className="w-5 h-5" />
+            {/* Key Points */}
+            <div className="flex flex-wrap items-center gap-6">
+              <div className="flex items-center gap-2 text-emerald-600">
+                <Cpu className="w-5 h-5" />
                 <span className="font-semibold text-sm">
-                  Carbon Neutral Event
+                  Interdisciplinary Research
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-[#1a472a]">
+
+              <div className="flex items-center gap-2 text-emerald-600">
                 <Users className="w-5 h-5" />
                 <span className="font-semibold text-sm">
-                  Open Access Research
+                  Academia–Industry Interaction
                 </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Content */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          {/* Highlights Cards */}
+          <div className="grid sm:grid-cols-2 gap-6">
             {highlights.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="card-conference"
+                className="
+                  bg-white
+                  border border-slate-200
+                  rounded-xl
+                  p-5
+                  shadow-sm
+                  hover:shadow-lg
+                  hover:border-emerald-500
+                  transition-all duration-200
+                "
               >
-                <div className="w-12 h-12 rounded-lg bg-[#1a472a]/10 flex items-center justify-center mb-3">
-                  <item.icon className="w-6 h-6 text-[#1a472a]" />
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center mb-3">
+                  <item.icon className="w-6 h-6 text-emerald-600" />
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2">
+                <h3 className="text-base font-bold text-slate-900 mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>

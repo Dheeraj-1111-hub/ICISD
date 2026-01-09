@@ -18,12 +18,13 @@ const registrationCategories = [
     ],
   },
   {
-    title: "Attendee",
+    title: "Author",
     subtitle: "Foreign Participants",
     earlyBird: 350,
     lateFee: 400,
     currency: "$",
     features: [
+      "Paper Presentation",
       "Conference Access",
       "Digital Proceedings",
       "Certificate",
@@ -53,7 +54,7 @@ export const RegistrationSection = () => {
   });
 
   return (
-    <section id="registration" className="section-padding bg-secondary">
+    <section id="registration" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         {/* Header */}
         <motion.div
@@ -62,63 +63,71 @@ export const RegistrationSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-3 py-1 rounded-md bg-accent/20 text-accent-foreground text-sm font-semibold mb-4">
-            Secure Your Spot
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
             Registration Fees
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Conference Registration
           </h2>
-          <p className="text-muted-foreground">
-            Early bird pricing available for a limited time.  
-            Fees are shown in INR and USD where applicable.
+
+          <p className="text-slate-600 text-sm sm:text-base">
+            Early bird pricing is available for a limited period.  
+            Fees are applicable as per category and shown in INR / USD.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {registrationCategories.map((category, index) => (
             <motion.div
-              key={category.title}
+              key={category.title + index}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ y: -6 }}
-              className="relative card-conference flex flex-col p-5 md:p-6 rounded-lg overflow-hidden group transition-all duration-300 hover:shadow-lg"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="
+                bg-white
+                border border-slate-200
+                rounded-xl
+                p-6
+                flex flex-col
+                shadow-sm
+                hover:shadow-lg
+                hover:border-emerald-500
+                transition-all duration-200
+              "
             >
-              {/* Hover Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-
               {/* Title */}
-              <div className="text-center mb-4">
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+              <div className="text-center mb-5">
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
                   {category.title}
                 </h3>
-                <p className="text-xs md:text-sm text-muted-foreground">
+                <p className="text-sm text-slate-500">
                   {category.subtitle}
                 </p>
               </div>
 
               {/* Pricing */}
-              <div className="text-center mb-4 pb-3 border-b border-border/50 min-h-[96px]">
-                <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="text-center mb-5 pb-4 border-b border-slate-200">
+                <div className="text-4xl font-bold text-emerald-600">
                   {category.currency}
                   {category.earlyBird.toLocaleString(
                     category.currency === "₹" ? "en-IN" : "en-US"
                   )}
-                </span>
+                </div>
 
                 <div className="flex justify-center gap-2 mt-2">
-                  <span className="px-2 py-0.5 rounded-full bg-accent/20 text-accent-foreground text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
                     Early Bird
                   </span>
-                  <span className="px-2 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-semibold">
+                  <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
                     Late Fee
                   </span>
                 </div>
 
-                <p className="text-xs md:text-sm text-muted-foreground mt-2">
-                  Late:{" "}
-                  <span className="font-semibold text-foreground">
+                <p className="text-sm text-slate-600 mt-2">
+                  Late:&nbsp;
+                  <span className="font-semibold text-slate-900">
                     {category.currency}
                     {category.lateFee.toLocaleString(
                       category.currency === "₹" ? "en-IN" : "en-US"
@@ -128,48 +137,49 @@ export const RegistrationSection = () => {
               </div>
 
               {/* Features */}
-              <ul className="space-y-2 flex-1 mb-4">
-                {category.features.map((feature, featureIndex) => (
-                  <motion.li
-                    key={feature}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                      duration: 0.2,
-                      delay: 0.15 + index * 0.05 + featureIndex * 0.04,
-                    }}
-                    className="flex items-start gap-2 text-xs md:text-sm text-muted-foreground"
+              <ul className="space-y-2 flex-1 mb-6">
+                {category.features.map((feature, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-2 text-sm text-slate-600"
                   >
-                    <Check className="w-4 h-4 text-accent mt-0.5" />
-                    <span className="group-hover:text-foreground transition-colors">
-                      {feature}
-                    </span>
-                  </motion.li>
+                    <Check className="w-4 h-4 text-emerald-600 mt-0.5" />
+                    <span>{feature}</span>
+                  </li>
                 ))}
               </ul>
 
               {/* Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full py-2.5 md:py-3 rounded-md font-semibold text-sm md:text-base bg-primary text-primary-foreground hover:bg-primary-dark shadow-sm hover:shadow-md flex items-center justify-center gap-1.5"
+              <button
+                className="
+                  mt-auto
+                  w-full
+                  py-3
+                  rounded-md
+                  bg-emerald-600
+                  text-white
+                  font-semibold
+                  hover:bg-emerald-500
+                  transition-colors
+                  flex items-center justify-center gap-2
+                "
               >
-                Register
+                Register Now
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </button>
             </motion.div>
           ))}
         </div>
 
         {/* Footer Note */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="text-center text-sm text-muted-foreground mt-6"
+          className="text-center text-sm text-slate-500 mt-8"
         >
-          Secure payment via UPI, Credit/Debit Card, Net Banking, or Bank Transfer.
-          Group discounts available for 5+ participants.
+          Secure payment via UPI, Credit/Debit Card, Net Banking, or Bank Transfer.  
+          Group discounts available for 5 or more participants.
         </motion.p>
       </div>
     </section>

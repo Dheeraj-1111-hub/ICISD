@@ -1,38 +1,26 @@
+// backend/models/Registration.js
 import mongoose from "mongoose";
 
 const registrationSchema = new mongoose.Schema(
   {
-    userId: {
-      type: String,
-      required: true,
-      index: true,
-    },
+    userId: { type: String, required: true, index: true },
 
-    role: {
-      type: String,
-      enum: ["author", "listener"],
-      required: true,
-    },
-
+    role: String,
     paperTitle: String,
     domain: String,
+    mode: String,
 
-    mode: {
-      type: String,
-      enum: ["hybrid", "offline"],
-      required: true,
-    },
-
-    amount: {
-      type: Number,
-      required: true,
-    },
+    amount: Number,
 
     paymentStatus: {
       type: String,
-      enum: ["pending", "paid", "failed"],
+      enum: ["pending", "submitted", "paid", "rejected"],
       default: "pending",
     },
+
+    transactionId: String,
+    paymentProofUrl: String,
+    paymentDate: Date,
   },
   { timestamps: true }
 );

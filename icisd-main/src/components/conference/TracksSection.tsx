@@ -20,40 +20,40 @@ const tracks = [
     icon: Cpu,
     title: "Artificial Intelligence and Intelligent Systems",
     topics: [
-      "Machine learning, deep learning, and reinforcement learning",
-      "Intelligent decision support systems and XAI",
-      "AI in healthcare, education, agriculture and industry",
+      "Machine and Deep Learning",
+      "Intelligent Decision Support Systems & XAI",
+      "AI in Healthcare, Education, Agriculture & Industry",
       "Computer Vision and Image Analysis",
     ],
   },
   {
     icon: Database,
-    title: "Data Science and Big Data Analytics",
+    title: "Smart Data Platform and AI Analytics",
     topics: [
-      "Data Mining",
-      "Data Visualization and Feature Engineering",
+      "AI Driven Analytics",
+      "Automated and Augmented Analytics",
       "Data Governance and Quality",
-      "Predictive analytics and visualization",
+      "Predictive Analytics and Visualization",
     ],
   },
   {
     icon: MessageSquare,
-    title: "Natural Language Processing & Speech Technologies",
+    title: "NLP & Speech Technologies",
     topics: [
       "Text Mining and Sentiment Analysis",
-      "Multilingual Models / LLMs",
+      "Multilingual Models & LLMs",
       "Speech Recognition",
       "Chatbots and Conversational AI",
     ],
   },
   {
     icon: Wifi,
-    title: "Internet of Things (IoT) and Cyber-Physical Systems",
+    title: "Internet of Things (IoT) and Smart Environments",
     topics: [
-      "IoT architectures and protocols",
-      "Cyber physical systems design and applications",
+      "IoT Architectures and Protocols",
+      "IoT Enabled Intelligent Systems",
       "Embedded and Real-Time Computing",
-      "Digital Twins and Bio IoT",
+      "Digital Twins and Bio-IoT",
     ],
   },
   {
@@ -61,7 +61,7 @@ const tracks = [
     title: "Cybersecurity and Blockchain",
     topics: [
       "Network Security and Cryptography",
-      "Ethical Hacking and Forensics",
+      "Ethical Hacking and Digital Forensics",
       "Smart Contracts & Zero-Trust Architecture",
     ],
   },
@@ -71,7 +71,7 @@ const tracks = [
     topics: [
       "Serverless & Microservice Architectures",
       "Cloud Security & Cloud-Native Systems",
-      "Distributed Storage and Computing Frameworks (Hadoop, Spark)",
+      "Distributed Storage and Computing Frameworks",
       "Green and Sustainable Computing",
     ],
   },
@@ -82,7 +82,7 @@ const tracks = [
       "Quantum Algorithms",
       "Quantum Cryptography",
       "Quantum Machine Learning",
-      "Hardware & Hybrid Architectures",
+      "Hybrid & Quantum Hardware Architectures",
     ],
   },
   {
@@ -99,7 +99,7 @@ const tracks = [
 
 /* ---------------- MODAL ---------------- */
 
-const TrackModal = ({ track, onClose }) => {
+const TrackModal = ({ track, onClose }: any) => {
   if (!track) return null;
 
   return (
@@ -121,19 +121,21 @@ const TrackModal = ({ track, onClose }) => {
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+            className="absolute top-4 right-4 text-slate-500 hover:text-slate-900"
           >
             <X />
           </button>
 
-          <div className="w-14 h-14 rounded-xl bg-[#1a472a]/10 flex items-center justify-center mb-4">
-            <track.icon className="w-7 h-7 text-[#1a472a]" />
+          <div className="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
+            <track.icon className="w-7 h-7 text-emerald-600" />
           </div>
 
-          <h3 className="text-2xl font-bold mb-4">{track.title}</h3>
+          <h3 className="text-2xl font-bold mb-4 text-slate-900">
+            {track.title}
+          </h3>
 
-          <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
-            {track.topics.map((topic) => (
+          <ul className="list-disc list-inside space-y-2 text-sm text-slate-600">
+            {track.topics.map((topic: string) => (
               <li key={topic}>{topic}</li>
             ))}
           </ul>
@@ -151,49 +153,73 @@ export const TracksSection = () => {
 
   return (
     <>
-      <section
-        id="tracks"
-        className="section-padding bg-secondary/40 backdrop-blur-sm"
-      >
+      <section id="tracks" className="py-16 md:py-20 bg-slate-50">
         <div className="container-conference" ref={ref}>
+          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-14"
           >
-            <span className="inline-block px-4 py-1.5 rounded-md bg-[#1a472a]/15 text-[#1a472a] text-sm font-semibold mb-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
               Research Domains
-            </span>
+            </p>
 
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Conference Tracks
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+              Conference{" "}
+              <span className="text-emerald-600">Tracks</span>
             </h2>
 
-            <p className="text-muted-foreground text-lg">
+            <p className="text-slate-600 text-sm sm:text-base">
               The conference invites original research contributions across the
-              following tracks.
+              following specialized domains.
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {/* Cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {tracks.map((track, index) => (
               <motion.div
                 key={track.title}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                transition={{ duration: 0.4, delay: index * 0.07 }}
               >
                 <motion.button
                   onClick={() => setSelectedTrack(track)}
-                  whileHover={{ scale: 1.04, y: -6 }}
-                  className="w-full h-full p-6 rounded-xl bg-white/80 backdrop-blur border border-gray-200 shadow-md hover:shadow-xl text-center"
+                  whileHover={{ y: -8 }}
+                  className="
+                    group relative w-full h-full
+                    rounded-2xl bg-white
+                    border border-slate-200
+                    p-7 text-center
+                    shadow-sm hover:shadow-xl
+                    transition-all duration-300
+                  "
                 >
-                  <div className="w-14 h-14 mx-auto rounded-xl bg-[#1a472a]/10 flex items-center justify-center mb-4">
-                    <track.icon className="w-7 h-7 text-[#1a472a]" />
+                  {/* Gradient ring */}
+                  <span className="absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:ring-emerald-500/30 transition" />
+
+                  {/* Track number */}
+                  <span className="absolute top-4 right-4 text-sm font-semibold text-emerald-600">
+  {String(index + 1).padStart(2, "0")}
+</span>
+
+                  {/* Icon */}
+                  <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-emerald-50 flex items-center justify-center 
+                                  group-hover:scale-110 group-hover:shadow-[0_0_0_8px_rgba(16,185,129,0.08)]
+                                  transition-all">
+                    <track.icon className="w-8 h-8 text-emerald-600" />
                   </div>
 
-                  <h3 className="text-lg font-bold">{track.title}</h3>
+                  <h3 className="text-base font-semibold text-slate-900 mb-3 leading-snug">
+  {track.title}
+</h3>
+
+                  <span className="text-sm font-medium text-emerald-600 opacity-80 group-hover:opacity-100">
+  View Topics →
+</span>
                 </motion.button>
               </motion.div>
             ))}

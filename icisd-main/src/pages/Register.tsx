@@ -1,3 +1,4 @@
+// icisd-main/src/pages/Register.tsx
 import { useUser, useAuth } from "@clerk/clerk-react";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, ArrowLeft } from "lucide-react";
@@ -16,6 +17,7 @@ export default function Register() {
     mode: "hybrid",
   });
 
+  /* Fee shown ONLY for UI */
   const fee =
     form.role === "author"
       ? form.mode === "offline"
@@ -24,29 +26,37 @@ export default function Register() {
       : 1500;
 
   /* ===============================
-     BACKEND CONNECTION (ONLY LOGIC)
+     SAVE REGISTRATION → GO TO BANK PAYMENT
   =============================== */
   const handleContinueToPayment = async () => {
     try {
       const token = await getToken();
 
-      await fetch(`${import.meta.env.VITE_API_URL}/api/registrations`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          role: form.role,
-          paperTitle: form.title,
-          domain: form.domain,
-          mode: form.mode,
-          amount: fee,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/registrations`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            role: form.role,
+            paperTitle: form.title,
+            domain: form.domain,
+            mode: form.mode,
+          }),
+        }
+      );
 
-      // Payment page will be added next
-      navigate("/payment");
+      if (!res.ok) {
+        const data = await res.json();
+        alert(data.message || "Registration failed");
+        return;
+      }
+
+      // ✅ Go to manual payment instructions
+      navigate("/payment-instructions");
     } catch (error) {
       console.error(error);
       alert("Failed to save registration. Please try again.");
@@ -55,6 +65,7 @@ export default function Register() {
 
   return (
     <div className="relative min-h-screen text-white py-28 px-6 bg-[#0b0d12] overflow-hidden">
+      {/* Background glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-accent/10 blur-[160px]" />
         <div className="absolute bottom-[-30%] right-[-10%] w-[700px] h-[700px] rounded-full bg-white/5 blur-[180px]" />
@@ -66,6 +77,7 @@ export default function Register() {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="relative max-w-6xl mx-auto"
       >
+        {/* Back */}
         <button
           onClick={() => navigate("/")}
           className="mb-10 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
@@ -74,6 +86,7 @@ export default function Register() {
           Back to Home
         </button>
 
+        {/* Header */}
         <header className="mb-16 text-center">
           <h1 className="text-4xl font-semibold tracking-tight">
             Conference Registration
@@ -84,7 +97,9 @@ export default function Register() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-14">
+          {/* LEFT */}
           <div className="lg:col-span-2 space-y-12">
+            {/* User info */}
             <div className="flex items-center gap-4 border border-white/10 rounded-2xl p-6 bg-white/5 backdrop-blur">
               <CheckCircle className="w-6 h-6 text-accent" />
               <div>
@@ -95,6 +110,7 @@ export default function Register() {
               </div>
             </div>
 
+            {/* Role */}
             <section>
               <h2 className="text-lg font-medium mb-4">
                 Registration Category
@@ -111,6 +127,7 @@ export default function Register() {
               </select>
             </section>
 
+            {/* Paper details */}
             {form.role === "author" && (
               <section className="space-y-6">
                 <h2 className="text-lg font-medium">
@@ -137,6 +154,7 @@ export default function Register() {
               </section>
             )}
 
+            {/* Mode */}
             <section>
               <h2 className="text-lg font-medium mb-4">
                 Participation Mode
@@ -168,6 +186,7 @@ export default function Register() {
             </section>
           </div>
 
+          {/* RIGHT — SUMMARY */}
           <div className="sticky top-32 h-fit">
             <div className="border border-white/10 rounded-3xl p-7 bg-black/55 backdrop-blur space-y-6">
               <div>
@@ -198,8 +217,8 @@ export default function Register() {
                   ₹ {fee}
                 </p>
                 <p className="text-xs text-white/45 mt-2">
-                  Includes conference access, proceedings,
-                  certification, and sessions.
+                  Registration will be confirmed after payment
+                  verification by the organizing committee.
                 </p>
               </div>
 
@@ -212,7 +231,7 @@ export default function Register() {
               </button>
 
               <p className="text-xs text-white/40 text-center">
-                Secure payment gateway · SSL encrypted
+                Payment via bank transfer · Manual verification
               </p>
             </div>
           </div>

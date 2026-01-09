@@ -1,45 +1,20 @@
-import stripe from "../utils/stripe.js";
+// backend/controllers/payment.controller.js
 import Registration from "../models/Registration.js";
 
-export const createCheckoutSession = async (req, res) => {
-  try {
-    const userId = req.auth.userId;
+export const submitPaymentProof = async (req, res) => {
+  const { transactionId, paymentDate, paymentProofUrl } = req.body;
+  const userId = req.auth.userId;
 
-    const registration = await Registration.findOne({
-      userId,
-      paymentStatus: "pending",
-    });
+  const registration = await Registration.findOne({ userId });
+  if (!registration)
+    return res.status(404).json({ message: "Registration not found" });
 
-    if (!registration) {
-      return res.status(400).json({ message: "No pending registration" });
-    }
+  registration.transactionId = transactionId;
+  registration.paymentDate = paymentDate;
+  registration.paymentProofUrl = paymentProofUrl;
+  registration.paymentStatus = "submitted";
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
-      mode: "payment",
-      customer_email: req.auth.sessionClaims.email,
-      line_items: [
-        {
-          price_data: {
-            currency: "inr",
-            product_data: {
-              name: "ICISD 2026 Registration",
-            },
-            unit_amount: registration.amount * 100,
-          },
-          quantity: 1,
-        },
-      ],
-      success_url: "http://localhost:8080/payment-success",
-      cancel_url: "http://localhost:8080/payment-cancel",
-      metadata: {
-        registrationId: registration._id.toString(),
-      },
-    });
+  await registration.save();
 
-    res.json({ url: session.url });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Stripe session error" });
-  }
+  res.json({ message: "Payment proof submitted" });
 };

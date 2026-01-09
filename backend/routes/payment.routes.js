@@ -1,9 +1,10 @@
+// backend/routes/payment.routes.js
 import { Router } from "express";
-import { createCheckoutSession } from "../controllers/payment.controller.js";
+import { submitPaymentProof } from "../controllers/payment.controller.js";
 import { requireAuth } from "../middleware/clerkAuth.js";
 
 const router = Router();
 
-router.post("/create-checkout-session", requireAuth, createCheckoutSession);
+router.post("/submit-proof", requireAuth, submitPaymentProof);
 
 export default router;

@@ -8,9 +8,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
-import Payment from "./pages/Payment";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
+
+import PaymentInstructions from "./pages/PaymentInstructions";
+import UploadProof from "./pages/UploadProof";
+
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -22,10 +25,10 @@ const App = () => (
 
       <BrowserRouter>
         <Routes>
-          {/* Public */}
+          {/* -------------------- Public -------------------- */}
           <Route path="/" element={<Index />} />
 
-          {/* Protected */}
+          {/* -------------------- Protected -------------------- */}
           <Route
             path="/register"
             element={
@@ -36,13 +39,23 @@ const App = () => (
           />
 
           <Route
-            path="/payment"
+            path="/payment-instructions"
             element={
               <ProtectedRoute>
-                <Payment />
+                <PaymentInstructions />
               </ProtectedRoute>
             }
           />
+
+          <Route
+            path="/upload-proof"
+            element={
+              <ProtectedRoute>
+                <UploadProof />
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/dashboard"
             element={
@@ -52,7 +65,7 @@ const App = () => (
             }
           />
 
-          {/* Catch-all */}
+          {/* -------------------- Catch-all -------------------- */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
