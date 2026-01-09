@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-/* ---------------- POSTER-ALIGNED DATA ---------------- */
+/* ---------------- DATA ---------------- */
 
 const associationPartners = [
   {
@@ -13,7 +13,7 @@ const associationPartners = [
 const publishingPartners = [
   {
     name: "De Gruyter Brill",
-    logo: "https://www.designtagebuch.de/wp-content/uploads/mediathek//2024/10/degruyter-brill-logo.jpg",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkX4PZCidtsaSEzrtGThJVftxRAuGuXHyEuw&s",
   },
 ];
 
@@ -27,126 +27,149 @@ const indexingPartners = [
 /* ---------------- SECTION ---------------- */
 
 export const CollaboratorsSection = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
+
+  const cardHover =
+    "hover:scale-[1.08] hover:-translate-y-2 hover:shadow-2xl";
 
   return (
-    <section className="py-16 md:py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
-
-        {/* Association Partner */}
+        {/* ================= Association Partner ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <p className="text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
+          <p className="text-xs uppercase tracking-[0.3em] text-slate-500 mb-2">
             In Association With
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             International{" "}
             <span className="text-emerald-600">Academic Partner</span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
-            ICISD’26 is organized in association with an internationally
-            recognized academic institution to promote global research
-            collaboration.
+            ICISD’26 collaborates with globally recognized academic institutions
+            to foster international research excellence.
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-20">
+        <div className="flex justify-center mb-24">
           {associationPartners.map((partner, index) => (
             <motion.div
               key={partner.name}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="
+              className={`
+                relative
                 bg-white
                 border border-slate-200
-                rounded-2xl
-                h-32 w-80
+                rounded-3xl
+                h-44 w-[28rem]
                 flex items-center justify-center
-                p-6
-                shadow-sm
-                hover:shadow-xl
-                hover:border-emerald-500
+                p-8
+                shadow-lg
+                ${cardHover}
                 transition-all duration-300
-              "
+              `}
             >
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-3xl bg-emerald-400/10 blur-2xl -z-10" />
+
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-16 object-contain"
+                className="
+                  max-h-[85%]
+                  max-w-[95%]
+                  object-contain
+                  grayscale
+                  hover:grayscale-0
+                  transition-all duration-300
+                "
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Publishing Partner */}
+        {/* ================= Publishing Partner ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-center max-w-3xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Publishing{" "}
             <span className="text-emerald-600">Partner</span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
-            All accepted papers will be published as per publisher norms with
-            international visibility.
+            Accepted papers will be published with international visibility
+            through our official publishing partner.
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-20">
+        <div className="flex justify-center mb-24">
           {publishingPartners.map((partner, index) => (
             <motion.div
               key={partner.name}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-              className="
+              className={`
+                relative
                 bg-white
                 border border-slate-200
-                rounded-2xl
-                h-28 w-72
+                rounded-3xl
+                h-40 w-[26rem]
                 flex items-center justify-center
-                p-6
-                shadow-sm
-                hover:shadow-xl
-                hover:border-emerald-500
+                p-8
+                shadow-lg
+                ${cardHover}
                 transition-all duration-300
-              "
+              `}
             >
+              <div className="absolute inset-0 rounded-3xl bg-emerald-400/10 blur-2xl -z-10" />
+
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-16 scale-110 max-w-full object-contain object-fit"
+                className="
+                  max-h-[90%]
+                  max-w-[95%]
+                  object-contain
+                  grayscale
+                  hover:grayscale-0
+                  transition-all duration-300
+                "
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Indexing */}
+        {/* ================= Indexing ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center max-w-3xl mx-auto mb-10"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Indexing &{" "}
             <span className="text-emerald-600">Abstracting</span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
-            The conference proceedings will be indexed to ensure academic reach
-            and citation impact.
+            Conference proceedings are indexed to maximize citation impact and
+            academic reach.
           </p>
         </motion.div>
 
@@ -157,28 +180,36 @@ export const CollaboratorsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.35 + index * 0.1 }}
-              className="
+              className={`
+                relative
                 bg-white
                 border border-slate-200
-                rounded-2xl
-                h-24 w-60
+                rounded-3xl
+                h-36 w-[22rem]
                 flex items-center justify-center
-                p-6
-                shadow-sm
-                hover:shadow-xl
-                hover:border-emerald-500
+                p-8
+                shadow-lg
+                ${cardHover}
                 transition-all duration-300
-              "
+              `}
             >
+              <div className="absolute inset-0 rounded-3xl bg-emerald-400/10 blur-2xl -z-10" />
+
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-10 object-contain"
+                className="
+                  max-h-[85%]
+                  max-w-[90%]
+                  object-contain
+                  grayscale
+                  hover:grayscale-0
+                  transition-all duration-300
+                "
               />
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -1,51 +1,5 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Check, ArrowRight } from "lucide-react";
-
-const registrationCategories = [
-  {
-    title: "Author",
-    subtitle: "UG / PG / Research Scholar (Indian)",
-    earlyBird: 9500,
-    lateFee: 11000,
-    currency: "₹",
-    features: [
-      "Paper Presentation",
-      "Conference Access",
-      "Digital Proceedings",
-      "Certificate",
-      "Lunch & Refreshments",
-    ],
-  },
-  {
-    title: "Author",
-    subtitle: "Foreign Participants",
-    earlyBird: 350,
-    lateFee: 400,
-    currency: "$",
-    features: [
-      "Paper Presentation",
-      "Conference Access",
-      "Digital Proceedings",
-      "Certificate",
-      "Lunch & Refreshments",
-    ],
-  },
-  {
-    title: "Industry Delegate",
-    subtitle: "Industry Professionals",
-    earlyBird: 11000,
-    lateFee: 12000,
-    currency: "₹",
-    features: [
-      "Conference Access",
-      "Digital Proceedings",
-      "Certificate",
-      "Lunch & Refreshments",
-      "Networking Opportunities",
-    ],
-  },
-];
 
 export const RegistrationSection = () => {
   const [ref, inView] = useInView({
@@ -55,131 +9,119 @@ export const RegistrationSection = () => {
 
   return (
     <section id="registration" className="py-16 md:py-20 bg-slate-50">
-      <div className="container-conference" ref={ref}>
+      <div ref={ref} className="container-conference max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center mb-10"
         >
           <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
             Registration Fees
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
             Conference Registration
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
-            Early bird pricing is available for a limited period.  
-            Fees are applicable as per category and shown in INR / USD.
+            Registration fees are applicable as per category. Early bird pricing
+            is available for a limited period.
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {registrationCategories.map((category, index) => (
-            <motion.div
-              key={category.title + index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="
-                bg-white
-                border border-slate-200
-                rounded-xl
-                p-6
-                flex flex-col
-                shadow-sm
-                hover:shadow-lg
-                hover:border-emerald-500
-                transition-all duration-200
-              "
-            >
-              {/* Title */}
-              <div className="text-center mb-5">
-                <h3 className="text-lg font-bold text-slate-900 mb-1">
-                  {category.title}
-                </h3>
-                <p className="text-sm text-slate-500">
-                  {category.subtitle}
-                </p>
-              </div>
 
-              {/* Pricing */}
-              <div className="text-center mb-5 pb-4 border-b border-slate-200">
-                <div className="text-4xl font-bold text-emerald-600">
-                  {category.currency}
-                  {category.earlyBird.toLocaleString(
-                    category.currency === "₹" ? "en-IN" : "en-US"
-                  )}
-                </div>
+        {/* Table */}
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  className="overflow-x-auto"
+>
+  <table className="w-full bg-white border border-slate-300 rounded-xl overflow-hidden shadow-lg">
+    <thead className="bg-emerald-600 text-white">
+      <tr>
+        <th className="px-8 py-5 text-left text-base font-bold border-r border-emerald-500">
+          Registration Category
+        </th>
+        <th className="px-8 py-5 text-center text-base font-bold border-r border-emerald-500">
+          Early Bird Fee
+        </th>
+        <th className="px-8 py-5 text-center text-base font-bold">
+          Late Fee
+        </th>
+      </tr>
+    </thead>
 
-                <div className="flex justify-center gap-2 mt-2">
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold">
-                    Early Bird
-                  </span>
-                  <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
-                    Late Fee
-                  </span>
-                </div>
+    <tbody className="text-slate-800 text-base">
+      {/* Row 1 */}
+      <tr className="border-t border-slate-200 hover:bg-emerald-50/40 transition">
+        <td className="px-8 py-6 border-r border-slate-200">
+          <div className="font-semibold text-slate-900">
+            Author
+          </div>
+          <div className="text-sm text-slate-500 mt-1">
+            UG / PG / Research Scholar (Indian)
+          </div>
+        </td>
+        <td className="px-8 py-6 text-center border-r border-slate-200 font-semibold text-lg">
+          ₹ 9,500
+        </td>
+        <td className="px-8 py-6 text-center font-semibold text-lg">
+          ₹ 11,000
+        </td>
+      </tr>
 
-                <p className="text-sm text-slate-600 mt-2">
-                  Late:&nbsp;
-                  <span className="font-semibold text-slate-900">
-                    {category.currency}
-                    {category.lateFee.toLocaleString(
-                      category.currency === "₹" ? "en-IN" : "en-US"
-                    )}
-                  </span>
-                </p>
-              </div>
+      {/* Row 2 */}
+      <tr className="border-t border-slate-200 bg-slate-50 hover:bg-emerald-50/40 transition">
+        <td className="px-8 py-6 border-r border-slate-200">
+          <div className="font-semibold text-slate-900">
+            Author
+          </div>
+          <div className="text-sm text-slate-500 mt-1">
+            Foreign Participants
+          </div>
+        </td>
+        <td className="px-8 py-6 text-center border-r border-slate-200 font-semibold text-lg">
+          $ 350
+        </td>
+        <td className="px-8 py-6 text-center font-semibold text-lg">
+          $ 400
+        </td>
+      </tr>
 
-              {/* Features */}
-              <ul className="space-y-2 flex-1 mb-6">
-                {category.features.map((feature, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-sm text-slate-600"
-                  >
-                    <Check className="w-4 h-4 text-emerald-600 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+      {/* Row 3 */}
+      <tr className="border-t border-slate-200 hover:bg-emerald-50/40 transition">
+        <td className="px-8 py-6 border-r border-slate-200">
+          <div className="font-semibold text-slate-900">
+            Industry Delegate
+          </div>
+          <div className="text-sm text-slate-500 mt-1">
+            Industry Professionals
+          </div>
+        </td>
+        <td className="px-8 py-6 text-center border-r border-slate-200 font-semibold text-lg">
+          ₹ 11,000
+        </td>
+        <td className="px-8 py-6 text-center font-semibold text-lg">
+          ₹ 12,000
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</motion.div>
 
-              {/* Button */}
-              <button
-                className="
-                  mt-auto
-                  w-full
-                  py-3
-                  rounded-md
-                  bg-emerald-600
-                  text-white
-                  font-semibold
-                  hover:bg-emerald-500
-                  transition-colors
-                  flex items-center justify-center gap-2
-                "
-              >
-                Register Now
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Footer Note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="text-center text-sm text-slate-500 mt-8"
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="text-center text-sm text-slate-500 mt-6"
         >
-          Secure payment via UPI, Credit/Debit Card, Net Banking, or Bank Transfer.  
-          Group discounts available for 5 or more participants.
+          Secure payment via UPI, Credit/Debit Card, Net Banking, or Bank Transfer.
+          Group discounts are available for 5 or more participants.
         </motion.p>
       </div>
     </section>

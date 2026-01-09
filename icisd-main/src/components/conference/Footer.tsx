@@ -15,7 +15,10 @@ const quickLinks = [
 ];
 
 const resourceLinks = [
-  { name: "Paper Submission (CMT)", href: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICAICS2026" },
+  {
+    name: "Paper Submission (CMT)",
+    href: "https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICAICS2026",
+  },
   { name: "Committee", href: "#patrons" },
 ];
 
@@ -28,14 +31,12 @@ export const Footer = () => {
     <footer className="bg-slate-900 text-white">
       <div className="container-conference pt-16 pb-8">
 
-        {/* Top Grid */}
+    
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
           {/* Conference Identity */}
           <div>
-            <h3 className="text-lg font-bold mb-3">
-              ICISD’26
-            </h3>
+            <h3 className="text-lg font-bold mb-3">ICISD’26</h3>
 
             <p className="text-white/70 text-sm leading-relaxed mb-4">
               International Conference on Intelligent Systems and Digital
@@ -115,6 +116,23 @@ export const Footer = () => {
 
         {/* Divider */}
         <div className="h-px bg-white/10 mb-6" />
+
+        {/* Microsoft CMT Acknowledgment */}
+        <p className="text-white/50 text-xs leading-relaxed mb-4 max-w-5xl">
+          The{" "}
+          <a
+            href="https://cmt3.research.microsoft.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-emerald-400 hover:underline inline-flex items-center gap-1"
+          >
+            Microsoft CMT service <ExternalLink className="w-3 h-3" />
+          </a>{" "}
+          was used for managing the peer-reviewing process for this conference.
+          This service was provided for free by Microsoft, and they bore all
+          expenses, including costs for Azure cloud services as well as for
+          software development and support.
+        </p>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
