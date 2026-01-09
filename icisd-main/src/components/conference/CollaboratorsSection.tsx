@@ -32,8 +32,7 @@ export const CollaboratorsSection = () => {
     threshold: 0.15,
   });
 
-  const cardHover =
-    "hover:scale-[1.08] hover:-translate-y-2 hover:shadow-2xl";
+  const cardHover = "hover:scale-[1.08] hover:-translate-y-2 hover:shadow-2xl";
 
   return (
     <section className="py-20 bg-slate-50">
@@ -80,20 +79,12 @@ export const CollaboratorsSection = () => {
                 transition-all duration-300
               `}
             >
-              {/* Glow */}
               <div className="absolute inset-0 rounded-3xl bg-emerald-400/10 blur-2xl -z-10" />
 
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="
-                  max-h-[85%]
-                  max-w-[95%]
-                  object-contain
-                  grayscale
-                  hover:grayscale-0
-                  transition-all duration-300
-                "
+                className="max-h-[85%] max-w-[95%] object-contain"
               />
             </motion.div>
           ))}
@@ -107,8 +98,7 @@ export const CollaboratorsSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Publishing{" "}
-            <span className="text-emerald-600">Partner</span>
+            Publishing <span className="text-emerald-600">Partner</span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
@@ -142,14 +132,7 @@ export const CollaboratorsSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="
-                  max-h-[90%]
-                  max-w-[95%]
-                  object-contain
-                  grayscale
-                  hover:grayscale-0
-                  transition-all duration-300
-                "
+                className="max-h-[90%] max-w-[95%] object-contain"
               />
             </motion.div>
           ))}
@@ -163,8 +146,7 @@ export const CollaboratorsSection = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Indexing &{" "}
-            <span className="text-emerald-600">Abstracting</span>
+            Indexing & <span className="text-emerald-600">Abstracting</span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
@@ -198,14 +180,7 @@ export const CollaboratorsSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="
-                  max-h-[85%]
-                  max-w-[90%]
-                  object-contain
-                  grayscale
-                  hover:grayscale-0
-                  transition-all duration-300
-                "
+                className="max-h-[85%] max-w-[90%] object-contain"
               />
             </motion.div>
           ))}

@@ -16,7 +16,7 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,14 +30,17 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-card/95 backdrop-blur shadow-md py-3"
-          : "bg-transparent py-4"
-      }`}
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        transition-all duration-300
+        ${isScrolled
+          ? "bg-card/95 backdrop-blur shadow-md"
+          : "bg-transparent"}
+      `}
     >
-      <div className="container-conference">
-        <div className="flex items-center justify-between min-h-[88px]">
+      <div className="container-conference px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+
           {/* ================= LOGOS ================= */}
           <a
             href="#hero"
@@ -45,34 +48,19 @@ export const Navbar = () => {
               e.preventDefault();
               handleNavClick("#hero");
             }}
-            className="flex items-center"
+            className="flex items-center gap-3 sm:gap-4"
           >
-            {/* Shared logo container */}
-            <div className="flex items-center gap-4 h-16">
-              {/* SRM Logo */}
-              <img
-                src="/logo.png"
-                alt="SRM Logo"
-                className="
-                  max-h-full
-                  w-auto
-                  object-contain
-                  flex-shrink-0
-                "
-              />
+            <img
+              src="/logo.png"
+              alt="SRM Logo"
+              className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
+            />
 
-              {/* ICISD Logo */}
-              <img
-                src="/logo_icisd_main.jpg"
-                alt="ICISD Logo"
-                className="
-                  max-h-[80%]
-                  w-auto
-                  object-contain
-                  flex-shrink-0
-                "
-              />
-            </div>
+            <img
+              src="/logo_icisd_main.jpg"
+              alt="ICISD Logo"
+              className="h-7 sm:h-9 lg:h-11 w-auto object-contain"
+            />
           </a>
 
           {/* ================= DESKTOP NAV ================= */}
@@ -85,11 +73,15 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isScrolled
-                    ? "text-foreground hover:bg-muted hover:text-primary"
-                    : "text-white/90 hover:text-white hover:bg-white/10"
-                }`}
+                className={`
+                  px-4 py-2 rounded-md text-sm font-medium
+                  transition-colors
+                  ${
+                    isScrolled
+                      ? "text-foreground hover:bg-muted hover:text-primary"
+                      : "text-white/90 hover:bg-white/10 hover:text-white"
+                  }
+                `}
               >
                 {link.name}
               </a>
@@ -105,11 +97,15 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleNavClick("#registration");
                 }}
-                className={`px-5 py-2 rounded-md text-sm font-semibold transition-colors ${
-                  isScrolled
-                    ? "bg-emerald-600 text-primary-foreground hover:bg-emerald-600"
-                    : "bg-white text-primary hover:bg-white/90"
-                }`}
+                className={`
+                  px-5 py-2 rounded-md text-sm font-semibold
+                  transition-colors
+                  ${
+                    isScrolled
+                      ? "bg-emerald-600 text-white hover:bg-emerald-500"
+                      : "bg-white text-slate-900 hover:bg-white/90"
+                  }
+                `}
               >
                 Apply Now
               </a>
@@ -128,11 +124,13 @@ export const Navbar = () => {
             </SignedIn>
           </div>
 
-          {/* ================= MOBILE BUTTON ================= */}
+          {/* ================= MOBILE MENU BUTTON ================= */}
           <button
-            className={`lg:hidden p-2 rounded-md ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}
+            aria-label="Toggle menu"
+            className={`
+              lg:hidden p-2 rounded-md
+              ${isScrolled ? "text-foreground" : "text-white"}
+            `}
             onClick={() => setIsMobileMenuOpen((p) => !p)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -147,14 +145,15 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
             className="lg:hidden bg-card border-t border-border"
           >
-            <div className="container-conference py-4 space-y-1">
+            <div className="container-conference px-4 sm:px-6 py-4 space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block px-3 py-2 rounded-md text-foreground font-medium hover:bg-muted transition-colors"
+                  className="block px-4 py-3 rounded-md text-foreground font-medium hover:bg-muted transition"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(link.href);
@@ -167,7 +166,7 @@ export const Navbar = () => {
               <SignedOut>
                 <a
                   href="#registration"
-                  className="block w-full mt-3 px-4 py-2.5 rounded-md bg-primary text-primary-foreground text-center font-semibold"
+                  className="block w-full mt-3 px-4 py-3 rounded-md bg-emerald-600 text-white text-center font-semibold hover:bg-emerald-500 transition"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick("#registration");
