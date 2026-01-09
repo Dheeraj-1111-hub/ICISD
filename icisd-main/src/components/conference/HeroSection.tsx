@@ -30,34 +30,22 @@ export const HeroSection = () => {
   useEffect(() => {
     const targetDate = new Date("2026-04-06T00:00:00");
 
+    const pad = (n) => String(n).padStart(2, "0");
+
     const updateTime = () => {
       const now = new Date().getTime();
       const distance = targetDate.getTime() - now;
 
-      if (distance <= 0) {
-        setTimeLeft({
-          days: "00",
-          hours: "00",
-          minutes: "00",
-          seconds: "00",
-        });
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      const pad = (n: number) => String(n).padStart(2, "0");
+      // ✅ MATCHES SECOND CODE BEHAVIOR
+      if (distance <= 0) return;
 
       setTimeLeft({
-        days: pad(days),
-        hours: pad(hours),
-        minutes: pad(minutes),
-        seconds: pad(seconds),
+        days: pad(Math.floor(distance / (1000 * 60 * 60 * 24))),
+        hours: pad(
+          Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        ),
+        minutes: pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))),
+        seconds: pad(Math.floor((distance % (1000 * 60)) / 1000)),
       });
     };
 
@@ -135,27 +123,39 @@ export const HeroSection = () => {
           </span>
         </motion.p>
 
-        {/* Description */}
-        <motion.p
+        {/* Organiser + Association */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="text-xs sm:text-sm md:text-base text-white/75 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="mb-8 max-w-4xl mx-auto"
         >
-          Organised by the{" "}
-          <span className="font-medium">
-            Department of Computer Science & Engineering
-          </span>
-          , Faculty of Engineering and Technology, SRM IST, in association with{" "}
-          <span className="font-medium">Cardiff Metropolitan University</span>.
-        </motion.p>
+          <p className="text-xs sm:text-sm md:text-base text-white/80 leading-relaxed">
+            Organised by the{" "}
+            <span className="text-emerald-400 font-semibold">
+              Department of Computer Science & Engineering
+            </span>
+          </p>
+
+          <div className="mt-4 flex flex-col items-center gap-2">
+            <span className="text-[11px] uppercase tracking-widest text-white/60">
+              In association with
+            </span>
+
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj9YZ_1n0St46De5p7ozlk9JjCd4NlfAju7Q&s"
+              alt="Cardiff Metropolitan University"
+              className="h-10 sm:h-12 object-contain"
+            />
+          </div>
+        </motion.div>
 
         {/* Date & Mode */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/80 mb-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-white/80 mb-6"
         >
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-emerald-400" />
@@ -166,9 +166,7 @@ export const HeroSection = () => {
 
           <div className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-emerald-400" />
-            <span className="font-medium">
-              Vadapalani Campus · Hybrid Mode
-            </span>
+            <span className="font-medium">Vadapalani Campus · Hybrid Mode</span>
           </div>
         </motion.div>
 
@@ -177,32 +175,21 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.28 }}
-          className="mb-10 flex flex-col items-center gap-3"
+          className="mb-10 flex justify-center"
         >
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.22em] text-white/70">
-            Conference begins in
-          </p>
-
-          <div className="inline-flex flex-wrap justify-center items-center gap-4 rounded-2xl bg-black/45 border border-white/15 px-4 sm:px-6 py-4 backdrop-blur-md">
-            {[
-              { label: "Days", value: timeLeft.days },
-              { label: "Hours", value: timeLeft.hours },
-              { label: "Minutes", value: timeLeft.minutes },
-              { label: "Seconds", value: timeLeft.seconds },
-            ].map((unit, idx) => (
-              <div key={unit.label} className="flex items-center gap-3">
-                <div className="flex flex-col items-center min-w-[3.5rem]">
-                  <span className="text-2xl sm:text-3xl font-semibold text-emerald-400">
-                    {unit.value}
+          <div className="flex gap-4 rounded-2xl bg-black/45 border border-white/15 px-6 py-4 backdrop-blur-md">
+            {Object.entries(timeLeft).map(([key, value], idx) => (
+              <div key={key} className="flex items-center gap-3">
+                <div className="text-center min-w-[3.5rem]">
+                  <span className="text-3xl font-semibold text-emerald-400">
+                    {value}
                   </span>
-                  <span className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
-                    {unit.label}
-                  </span>
+                  <div className="text-xs uppercase tracking-widest text-white/70">
+                    {key}
+                  </div>
                 </div>
-                {idx !== 3 && (
-                  <span className="text-emerald-400/70 text-2xl font-semibold">
-                    :
-                  </span>
+                {idx < 3 && (
+                  <span className="text-emerald-400/70 text-2xl">:</span>
                 )}
               </div>
             ))}
@@ -217,22 +204,12 @@ export const HeroSection = () => {
           className="flex justify-center"
         >
           <button
-            onClick={() => {
-              const section = document.getElementById("registration");
-              section?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
-            className="
-              flex items-center gap-2
-              px-6 sm:px-8 py-3
-              text-base sm:text-lg
-              font-semibold
-              rounded-md
-              bg-emerald-600
-              text-white
-              hover:bg-emerald-500
-              transition-colors
-              focus:outline-none focus:ring-2 focus:ring-emerald-400
-            "
+            onClick={() =>
+              document
+                .getElementById("registration")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="flex items-center gap-2 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-md bg-emerald-600 text-white hover:bg-emerald-500 transition"
           >
             Apply Now
             <ArrowRight className="w-5 h-5" />

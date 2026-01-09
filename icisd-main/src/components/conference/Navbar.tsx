@@ -16,24 +16,16 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href) => {
     setIsMobileMenuOpen(false);
-
     if (!href.startsWith("#")) return;
-
-    const id = href.substring(1);
-    const element = document.getElementById(id);
-
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    const el = document.getElementById(href.substring(1));
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -45,42 +37,45 @@ export const Navbar = () => {
       }`}
     >
       <div className="container-conference">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-<a
-  href="#hero"
-  onClick={(e) => {
-    e.preventDefault();
-    handleNavClick("#hero");
-  }}
-  className="flex items-center gap-4"
->
-  {/* Existing Logo */}
-  <img
-    src="/logo.png"
-    alt="ICISD Logo"
-    className="w-16 h-16 sm:w-18 sm:h-18 object-contain"
-  />
+        <div className="flex items-center justify-between min-h-[88px]">
+          {/* ================= LOGOS ================= */}
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("#hero");
+            }}
+            className="flex items-center"
+          >
+            {/* Shared logo container */}
+            <div className="flex items-center gap-4 h-16">
+              {/* SRM Logo */}
+              <img
+                src="/logo.png"
+                alt="SRM Logo"
+                className="
+                  max-h-full
+                  w-auto
+                  object-contain
+                  flex-shrink-0
+                "
+              />
 
-  {/* New ICISD Logo */}
-  <img
-    src="/logo_icisd.png"
-    alt="ICISD 2026 Logo"
-    className="h-14 sm:h-16 w-auto object-contain"
-  />
+              {/* ICISD Logo */}
+              <img
+                src="/logo_icisd_main.jpg"
+                alt="ICISD Logo"
+                className="
+                  max-h-[80%]
+                  w-auto
+                  object-contain
+                  flex-shrink-0
+                "
+              />
+            </div>
+          </a>
 
-  {/* Text */}
-  <span
-    className={`font-bold text-xl ${
-      isScrolled ? "text-foreground" : "text-white"
-    }`}
-  >
-    ICISD 2026
-  </span>
-</a>
-
-
-          {/* Desktop Nav */}
+          {/* ================= DESKTOP NAV ================= */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -101,7 +96,7 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Right */}
+          {/* ================= DESKTOP RIGHT ================= */}
           <div className="hidden lg:flex items-center gap-4">
             <SignedOut>
               <a
@@ -121,24 +116,11 @@ export const Navbar = () => {
             </SignedOut>
 
             <SignedIn>
-              {/* Dashboard disabled for now */}
-              {/*
-              <a
-                href="/dashboard"
-                className={`px-4 py-2 rounded-md text-sm font-semibold transition ${
-                  isScrolled
-                    ? "bg-muted text-foreground hover:bg-muted/70"
-                    : "bg-white/10 text-white hover:bg-white/20"
-                }`}
-              >
-                Dashboard
-              </a>
-              */}
-
               <UserButton
                 appearance={{
                   elements: {
-                    avatarBox: "w-9 h-9 rounded-full ring-2 ring-white/20",
+                    avatarBox:
+                      "w-9 h-9 rounded-full ring-2 ring-white/20",
                   },
                 }}
                 afterSignOutUrl="/"
@@ -146,19 +128,19 @@ export const Navbar = () => {
             </SignedIn>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* ================= MOBILE BUTTON ================= */}
           <button
             className={`lg:hidden p-2 rounded-md ${
               isScrolled ? "text-foreground" : "text-white"
             }`}
-            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            onClick={() => setIsMobileMenuOpen((p) => !p)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= MOBILE MENU ================= */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -182,7 +164,6 @@ export const Navbar = () => {
                 </a>
               ))}
 
-              {/* Mobile Auth */}
               <SignedOut>
                 <a
                   href="#registration"
@@ -197,16 +178,6 @@ export const Navbar = () => {
               </SignedOut>
 
               <SignedIn>
-                {/* Dashboard disabled for now */}
-                {/*
-                <a
-                  href="/dashboard"
-                  className="block w-full mt-3 px-4 py-2.5 rounded-md bg-muted text-foreground text-center font-semibold"
-                >
-                  Dashboard
-                </a>
-                */}
-
                 <div className="flex justify-center pt-4">
                   <UserButton
                     appearance={{

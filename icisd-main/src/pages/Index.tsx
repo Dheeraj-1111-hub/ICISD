@@ -10,6 +10,7 @@ import { PatronsSection } from "@/components/conference/PatronsSection";
 import { ConferenceChairsSection } from "@/components/conference/ConferenceChairsSection";
 import { CollaboratorsSection } from "@/components/conference/CollaboratorsSection";
 import { Footer } from "@/components/conference/Footer";
+import { ImpDatesTimeline } from "@/components/conference/ImpDatesTimeline";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <TracksSection />
       <StatsSection />
       <SubmissionSection />
+      <ImpDatesTimeline />
       <ScheduleSection />
       <RegistrationSection />
       <PatronsSection />

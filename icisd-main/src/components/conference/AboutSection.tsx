@@ -1,33 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Target, Users, Lightbulb, Award, Cpu } from "lucide-react";
-
-const highlights = [
-  {
-    icon: Target,
-    title: "Research Excellence",
-    description:
-      "A global platform for presenting high-quality research in intelligent and digitally enabled systems",
-  },
-  {
-    icon: Lightbulb,
-    title: "Emerging Technologies",
-    description:
-      "Focused discussions on AI, data-driven intelligence, automation, IoT, cloud, and cyber-physical systems",
-  },
-  {
-    icon: Users,
-    title: "Global Collaboration",
-    description:
-      "Bringing together researchers, academicians, and industry professionals from around the world",
-  },
-  {
-    icon: Award,
-    title: "Indexed Publications",
-    description:
-      "Accepted papers published in Scopus-indexed conference proceedings with DOI",
-  },
-];
+import { Users, Cpu } from "lucide-react";
+import { useState } from "react";
 
 export const AboutSection = () => {
   const [ref, inView] = useInView({
@@ -35,15 +9,40 @@ export const AboutSection = () => {
     threshold: 0.1,
   });
 
+  const [pos, setPos] = useState({ x: 50, y: 50 });
+  const [showMagnifier, setShowMagnifier] = useState(false);
+  const [locked, setLocked] = useState(false);
+
+  const clamp = (value, min, max) =>
+    Math.min(Math.max(value, min), max);
+
+  const handleMouseMove = (e) => {
+    if (locked) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    let x = ((e.clientX - rect.left) / rect.width) * 100;
+    let y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    // Edge-safe clamping
+    x = clamp(x, 10, 90);
+    y = clamp(y, 10, 90);
+
+    setPos({ x, y });
+  };
+
+  const toggleLock = () => setLocked((prev) => !prev);
+
   return (
     <section id="about" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+
+          {/* LEFT CONTENT — UNCHANGED */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
+            className="relative z-10"
           >
             <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
               About the Conference
@@ -71,7 +70,6 @@ export const AboutSection = () => {
               that are transforming industries and society.
             </p>
 
-            {/* Key Points */}
             <div className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2 text-emerald-600">
                 <Cpu className="w-5 h-5" />
@@ -89,39 +87,52 @@ export const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* Highlights Cards */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            {highlights.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="
-                  bg-white
-                  border border-slate-200
-                  rounded-xl
-                  p-5
-                  shadow-sm
-                  hover:shadow-lg
-                  hover:border-emerald-500
-                  transition-all duration-200
-                "
-              >
-                <div className="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center mb-3">
-                  <item.icon className="w-6 h-6 text-emerald-600" />
-                </div>
+          {/* RIGHT SIDE — MAGNIFIER POSTER */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div
+              className="relative w-full max-w-xs sm:max-w-sm aspect-[3/4] rounded-lg border shadow-lg overflow-hidden cursor-zoom-in"
+              onMouseEnter={() => setShowMagnifier(true)}
+              onMouseLeave={() => {
+                if (!locked) setShowMagnifier(false);
+              }}
+              onMouseMove={handleMouseMove}
+              onClick={toggleLock}
+            >
+              {/* Base Image */}
+              <img
+                src="/main_poster.jpg"
+                alt="ICISD 2026 Poster"
+                className="w-full h-full object-cover"
+              />
 
-                <h3 className="text-base font-bold text-slate-900 mb-2">
-                  {item.title}
-                </h3>
+              {/* Hint */}
+              <span className="absolute top-2 right-2 text-[10px] px-2 py-1 bg-black/70 text-white rounded z-20">
+                {locked ? "Click to unlock" : "Hover / Click to zoom"}
+              </span>
 
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              {/* MAGNIFIER GLASS */}
+              {(showMagnifier || locked) && (
+                <div
+                  className="absolute pointer-events-none rounded-full border-2 border-white shadow-2xl z-30"
+                  style={{
+                    width: "160px",
+                    height: "160px",
+                    top: `calc(${pos.y}% - 80px)`,
+                    left: `calc(${pos.x}% - 80px)`,
+                    backgroundImage: "url('/main_poster.jpg')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "300%",
+                    backgroundPosition: `${pos.x}% ${pos.y}%`,
+                  }}
+                />
+              )}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
