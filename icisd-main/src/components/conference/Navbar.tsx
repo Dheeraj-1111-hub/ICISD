@@ -47,27 +47,38 @@ export const Navbar = () => {
       <div className="container-conference">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#hero");
-            }}
-            className="flex items-center gap-3"
-          >
-            <img
-              src="/logo.png"
-              alt="ICISD Logo"
-              className="w-14 h-14 object-contain"
-            />
-            <span
-              className={`font-bold text-lg ${
-                isScrolled ? "text-foreground" : "text-white"
-              }`}
-            >
-              ICISD 2026
-            </span>
-          </a>
+<a
+  href="#hero"
+  onClick={(e) => {
+    e.preventDefault();
+    handleNavClick("#hero");
+  }}
+  className="flex items-center gap-4"
+>
+  {/* Existing Logo */}
+  <img
+    src="/logo.png"
+    alt="ICISD Logo"
+    className="w-16 h-16 sm:w-18 sm:h-18 object-contain"
+  />
+
+  {/* New ICISD Logo */}
+  <img
+    src="/logo_icisd.png"
+    alt="ICISD 2026 Logo"
+    className="h-14 sm:h-16 w-auto object-contain"
+  />
+
+  {/* Text */}
+  <span
+    className={`font-bold text-xl ${
+      isScrolled ? "text-foreground" : "text-white"
+    }`}
+  >
+    ICISD 2026
+  </span>
+</a>
+
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
