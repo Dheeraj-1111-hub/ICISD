@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
-import heroImage from "../../../public/hero.jpg";
 import { useUser, useClerk } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +9,8 @@ export const HeroSection = () => {
   const { openSignIn } = useClerk();
   const navigate = useNavigate();
 
+  // 🚫 Disabled for now (kept for future use)
+  /*
   const handleApplyNow = () => {
     if (!isSignedIn) {
       openSignIn({ redirectUrl: "/register" });
@@ -17,6 +18,7 @@ export const HeroSection = () => {
       navigate("/register");
     }
   };
+  */
 
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -67,22 +69,22 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-slate-900 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-{/* Background Gradient */}
-<div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950" />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950" />
 
-{/* Subtle Abstract Glow */}
-<div className="absolute inset-0">
-  <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
-  <div className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-emerald-400/10 rounded-full blur-[140px]" />
-</div>
+      {/* Abstract Glow */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-32 -left-32 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/3 -right-40 w-[450px] sm:w-[600px] h-[450px] sm:h-[600px] bg-emerald-400/10 rounded-full blur-[140px]" />
+      </div>
 
-{/* Subtle Grid Pattern */}
-<div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:80px_80px]" />
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-
-      <div className="container-conference relative z-10 text-center py-20 pt-32">
+      {/* Content */}
+      <div className="container-conference relative z-10 text-center py-16 sm:py-20 pt-28 sm:pt-32 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +93,7 @@ export const HeroSection = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white/10 border border-white/20 mb-4 backdrop-blur-sm"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500" />
-          <span className="text-white/90 text-sm font-medium">
+          <span className="text-white/90 text-xs sm:text-sm font-medium">
             International Conference · ICISD’26
           </span>
         </motion.div>
@@ -101,7 +103,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="text-xs sm:text-sm tracking-[0.18em] uppercase text-white/70 mb-3"
+          className="text-[10px] sm:text-sm tracking-[0.18em] uppercase text-white/70 mb-3"
         >
           SRM Institute of Science and Technology · Vadapalani Campus · Chennai
         </motion.p>
@@ -111,10 +113,9 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight"
         >
-          ICISD{" "}
-          <span className="text-emerald-500">2026</span>
+          ICISD <span className="text-emerald-500">2026</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -122,7 +123,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-base sm:text-lg md:text-xl text-white/85 mb-6"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-white/85 mb-6 max-w-4xl mx-auto"
         >
           International Conference on{" "}
           <span className="text-emerald-400 font-semibold">
@@ -139,17 +140,14 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="text-xs sm:text-sm text-white/75 mb-8 max-w-3xl mx-auto"
+          className="text-xs sm:text-sm md:text-base text-white/75 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
           Organised by the{" "}
           <span className="font-medium">
             Department of Computer Science & Engineering
           </span>
           , Faculty of Engineering and Technology, SRM IST, in association with{" "}
-          <span className="font-medium">
-            Cardiff Metropolitan University
-          </span>
-          .
+          <span className="font-medium">Cardiff Metropolitan University</span>.
         </motion.p>
 
         {/* Date & Mode */}
@@ -157,7 +155,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/80 mb-6"
+          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/80 mb-6"
         >
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-emerald-400" />
@@ -185,7 +183,7 @@ export const HeroSection = () => {
             Conference begins in
           </p>
 
-          <div className="inline-flex items-center gap-4 rounded-2xl bg-black/45 border border-white/15 px-6 py-4 backdrop-blur-md">
+          <div className="inline-flex flex-wrap justify-center items-center gap-4 rounded-2xl bg-black/45 border border-white/15 px-4 sm:px-6 py-4 backdrop-blur-md">
             {[
               { label: "Days", value: timeLeft.days },
               { label: "Hours", value: timeLeft.hours },
@@ -193,8 +191,8 @@ export const HeroSection = () => {
               { label: "Seconds", value: timeLeft.seconds },
             ].map((unit, idx) => (
               <div key={unit.label} className="flex items-center gap-3">
-                <div className="flex flex-col items-center min-w-[4rem]">
-                  <span className="text-3xl font-semibold text-emerald-400">
+                <div className="flex flex-col items-center min-w-[3.5rem]">
+                  <span className="text-2xl sm:text-3xl font-semibold text-emerald-400">
                     {unit.value}
                   </span>
                   <span className="mt-1 text-[11px] uppercase tracking-[0.16em] text-white/70">
@@ -212,37 +210,34 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* CTA */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.3 }}
-  className="flex justify-center"
->
-  <button
-    // onClick={handleApplyNow} // 🚫 Disabled for now
-    onClick={() => {
-      const section = document.getElementById("registration");
-      section?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }}
-    className="
-      flex items-center gap-2
-      px-8 py-3
-      text-lg font-semibold
-      rounded-md
-      bg-emerald-600
-      text-white
-      hover:bg-emerald-500
-      transition-colors
-      focus:outline-none focus:ring-2 focus:ring-emerald-400
-    "
-  >
-    Apply Now
-    <ArrowRight className="w-5 h-5" />
-  </button>
-</motion.div>
-
-
-
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex justify-center"
+        >
+          <button
+            onClick={() => {
+              const section = document.getElementById("registration");
+              section?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="
+              flex items-center gap-2
+              px-6 sm:px-8 py-3
+              text-base sm:text-lg
+              font-semibold
+              rounded-md
+              bg-emerald-600
+              text-white
+              hover:bg-emerald-500
+              transition-colors
+              focus:outline-none focus:ring-2 focus:ring-emerald-400
+            "
+          >
+            Apply Now
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </motion.div>
       </div>
     </section>
   );
