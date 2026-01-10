@@ -48,19 +48,18 @@ export const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950" />
 
-      {/* Glow */}
+    
       <div className="absolute inset-0">
         <div className="absolute -top-32 -left-32 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-emerald-500/10 rounded-full blur-[120px]" />
         <div className="absolute top-1/3 -right-40 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-emerald-400/10 rounded-full blur-[140px]" />
       </div>
 
-      {/* Grid */}
+   
       <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-      {/* Content */}
+   
       <div className="container-conference relative z-10 text-center px-4 sm:px-6 pt-28 sm:pt-32 pb-16 max-w-7xl mx-auto">
 
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,17 +71,15 @@ export const HeroSection = () => {
           </span>
         </motion.div>
 
-        {/* Location */}
         <p className="text-[10px] sm:text-sm tracking-[0.18em] uppercase text-white/70 mb-3">
           SRM Institute of Science and Technology · Vadapalani Campus · Chennai
         </p>
 
-        {/* Title */}
+
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight">
           ICISD <span className="text-emerald-500">2026</span>
         </h1>
 
-        {/* Subtitle */}
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/85 mb-6 max-w-4xl mx-auto">
           International Conference on{" "}
           <span className="text-emerald-400 font-semibold">
@@ -94,7 +91,6 @@ export const HeroSection = () => {
           </span>
         </p>
 
-        {/* Organiser */}
         <div className="mb-8 max-w-4xl mx-auto">
           <p className="text-xs sm:text-sm md:text-base text-white/80">
             Organised by the{" "}
@@ -126,7 +122,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Date & Mode */}
+   
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-white/80 mb-6">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-emerald-400" />
@@ -141,7 +137,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Countdown */}
+        
         <div className="mb-10 flex justify-center">
           <div className="flex flex-wrap sm:flex-nowrap justify-center gap-4 rounded-2xl bg-black/45 border border-white/15 px-4 sm:px-6 py-4 backdrop-blur-md">
             {Object.entries(timeLeft).map(([key, value]) => (
@@ -157,7 +153,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* CTA */}
+        
         <div className="flex justify-center">
           <button
             onClick={() =>

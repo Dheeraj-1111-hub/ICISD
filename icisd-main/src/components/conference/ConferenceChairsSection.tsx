@@ -28,7 +28,6 @@ const chairs = [
   },
 ];
 
-// Neutral abstract avatar
 const defaultAvatar =
   "https://api.iconify.design/ph:user-circle-duotone.svg?color=%23b3b3b3&width=200";
 
@@ -83,7 +82,7 @@ export const ConferenceChairsSection = () => {
                 transition-all duration-200
               "
             >
-              {/* Avatar */}
+            
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-emerald-50 flex items-center justify-center">
                 <img
                   src={defaultAvatar}
@@ -92,22 +91,20 @@ export const ConferenceChairsSection = () => {
                 />
               </div>
 
-              {/* Role */}
               <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-xs font-semibold mb-3">
                 {chair.role}
               </span>
 
-              {/* Name */}
+     
               <h3 className="text-base font-bold text-slate-900 mb-1">
                 {chair.name}
               </h3>
 
-              {/* Designation */}
               <p className="text-sm text-emerald-600 font-medium mb-1">
                 {chair.designation}
               </p>
 
-              {/* Organization */}
+   
               <p className="text-sm text-slate-500">
                 {chair.organization}
               </p>

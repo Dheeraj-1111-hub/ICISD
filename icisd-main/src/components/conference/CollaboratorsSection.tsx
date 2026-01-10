@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-/* ---------------- DATA ---------------- */
-
 const associationPartners = [
   {
     name: "Cardiff Metropolitan University",
@@ -24,7 +22,6 @@ const indexingPartners = [
   },
 ];
 
-/* ---------------- SECTION ---------------- */
 
 export const CollaboratorsSection = () => {
   const [ref, inView] = useInView({
@@ -37,7 +34,6 @@ export const CollaboratorsSection = () => {
   return (
     <section className="py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
-        {/* ================= Association Partner ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -90,7 +86,6 @@ export const CollaboratorsSection = () => {
           ))}
         </div>
 
-        {/* ================= Publishing Partner ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -138,7 +133,6 @@ export const CollaboratorsSection = () => {
           ))}
         </div>
 
-        {/* ================= Indexing ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

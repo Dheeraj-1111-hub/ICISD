@@ -23,7 +23,6 @@ export const AboutSection = () => {
     let x = ((e.clientX - rect.left) / rect.width) * 100;
     let y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    // Edge-safe clamping
     x = clamp(x, 10, 90);
     y = clamp(y, 10, 90);
 
@@ -37,7 +36,7 @@ export const AboutSection = () => {
       <div className="container-conference" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT CONTENT — UNCHANGED */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -87,7 +86,7 @@ export const AboutSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE — MAGNIFIER POSTER */}
+
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -103,19 +102,17 @@ export const AboutSection = () => {
               onMouseMove={handleMouseMove}
               onClick={toggleLock}
             >
-              {/* Base Image */}
+
               <img
                 src="/main_poster.jpg"
                 alt="ICISD 2026 Poster"
                 className="w-full h-full object-cover"
               />
 
-              {/* Hint */}
               <span className="absolute top-2 right-2 text-[10px] px-2 py-1 bg-black/70 text-white rounded z-20">
                 {locked ? "Click to unlock" : "Hover / Click to zoom"}
               </span>
 
-              {/* MAGNIFIER GLASS */}
               {(showMagnifier || locked) && (
                 <div
                   className="absolute pointer-events-none rounded-full border-2 border-white shadow-2xl z-30"

@@ -40,7 +40,7 @@ export default function Dashboard() {
 
   return (
     <div className="relative min-h-screen bg-[#0b0d12] text-white px-6 py-28 overflow-hidden">
-      {/* Global Glow */}
+     
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] rounded-full bg-accent/10 blur-[200px]" />
       </div>
@@ -51,7 +51,6 @@ export default function Dashboard() {
         transition={{ duration: 0.7 }}
         className="relative max-w-7xl mx-auto space-y-16"
       >
-        {/* ================= HERO ================= */}
         <section className="rounded-[28px] p-10 bg-white/5 border border-white/10 backdrop-blur">
           <h1 className="text-4xl font-semibold tracking-tight">
             Welcome back, {user?.firstName}
@@ -70,7 +69,6 @@ export default function Dashboard() {
           )}
         </section>
 
-        {/* ================= STATE ================= */}
         {loading && <p className="text-white/50">Loading dashboard…</p>}
         {!loading && !data && (
           <div className="p-6 bg-white/5 rounded-xl border border-white/10">
@@ -80,7 +78,6 @@ export default function Dashboard() {
 
         {data && (
           <>
-            {/* ================= JOURNEY ================= */}
             <section>
               <h2 className="text-xl font-medium mb-6">Your ICISD Journey</h2>
               <div className="grid md:grid-cols-4 gap-6">
@@ -91,7 +88,6 @@ export default function Dashboard() {
               </div>
             </section>
 
-            {/* ================= INFORMATION GRID ================= */}
             <section className="grid lg:grid-cols-3 gap-10">
               <GlassCard title="Registration Overview" icon={<Layers />}>
                 <Info label="Role" value={data.role} />
@@ -125,7 +121,6 @@ export default function Dashboard() {
               </GlassCard>
             </section>
 
-            {/* ================= INSIGHTS ================= */}
             <section className="grid md:grid-cols-2 gap-10">
               <GlassCard title="What Happens Next?" icon={<TrendingUp />}>
                 <ul className="space-y-3 text-sm text-white/70">
@@ -146,7 +141,6 @@ export default function Dashboard() {
               </GlassCard>
             </section>
 
-            {/* ================= ALERT ================= */}
             <section className="flex items-center gap-4 p-6 rounded-2xl bg-white/5 border border-white/10">
               <AlertCircle className="text-accent w-6 h-6" />
               <p className="text-sm text-white/70">
@@ -160,7 +154,6 @@ export default function Dashboard() {
   );
 }
 
-/* ================= COMPONENTS ================= */
 
 function Metric({ title, value, icon, success }: any) {
   return (

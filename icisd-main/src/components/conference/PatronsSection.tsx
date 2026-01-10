@@ -22,7 +22,7 @@ const patrons = [
   },
 ];
 
-// Neutral abstract avatar (no real face)
+// avatars
 const defaultAvatar =
   "https://api.iconify.design/ph:user-circle-duotone.svg?color=%2394a3b8&width=200";
 

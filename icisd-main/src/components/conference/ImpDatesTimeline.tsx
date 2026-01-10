@@ -8,7 +8,6 @@ import {
   Presentation,
 } from "lucide-react";
 
-/* ---------------- IMPORTANT DATES DATA ---------------- */
 
 const timeline = [
   {
@@ -53,7 +52,6 @@ const timeline = [
   },
 ];
 
-/* ---------------- COMPONENT ---------------- */
 
 export const ImpDatesTimeline = () => {
   const [ref, inView] = useInView({

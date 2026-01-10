@@ -41,7 +41,7 @@ export const Navbar = () => {
       <div className="container-conference px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
 
-          {/* ================= LOGOS ================= */}
+          
           <a
             href="#hero"
             onClick={(e) => {
@@ -63,7 +63,7 @@ export const Navbar = () => {
             />
           </a>
 
-          {/* ================= DESKTOP NAV ================= */}
+          {/* DESKTOP NAV  */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -88,7 +88,7 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* ================= DESKTOP RIGHT ================= */}
+          {/*  DESKTOP RIGHT  */}
           <div className="hidden lg:flex items-center gap-4">
             <SignedOut>
               <a
@@ -124,7 +124,7 @@ export const Navbar = () => {
             </SignedIn>
           </div>
 
-          {/* ================= MOBILE MENU BUTTON ================= */}
+          {/*  MOBILE MENU BUTTON  */}
           <button
             aria-label="Toggle menu"
             className={`
@@ -138,7 +138,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
+      {/*  MOBILE MENU  */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

@@ -76,7 +76,6 @@ export const CommitteeSection = () => {
         </motion.div>
 
         <div className="space-y-10">
-          {/* Chief Patron */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -100,7 +99,6 @@ export const CommitteeSection = () => {
             </div>
           </motion.div>
 
-          {/* Organizing Committee */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -121,7 +119,6 @@ export const CommitteeSection = () => {
             </div>
           </motion.div>
 
-          {/* Advisory Committee */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -146,7 +143,6 @@ export const CommitteeSection = () => {
             </div>
           </motion.div>
 
-          {/* Technical Program Committee */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

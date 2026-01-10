@@ -13,7 +13,6 @@ import {
   X,
 } from "lucide-react";
 
-/* ---------------- COLOR MAP ---------------- */
 
 const colorMap: any = {
   emerald: {
