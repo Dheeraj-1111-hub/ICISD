@@ -65,9 +65,9 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white/10 border border-white/20 mb-4 backdrop-blur-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+          
           <span className="text-white/90 text-xs sm:text-sm font-medium">
-            International Conference · ICISD’26
+            International Conference
           </span>
         </motion.div>
 
