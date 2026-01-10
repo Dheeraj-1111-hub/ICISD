@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FileText, Calendar, CheckCircle2, BookOpen } from "lucide-react";
+import {
+  FileText,
+  Calendar,
+  CheckCircle2,
+  BookOpen,
+  ExternalLink,
+  Info,
+} from "lucide-react";
 
 /* ---------------- GUIDELINES DATA ---------------- */
 
@@ -22,7 +29,7 @@ const guidelines = [
       "All accepted papers will be published in conference proceedings",
       "Proceedings will be Scopus-indexed",
       "Each paper will be assigned a DOI",
-      "Publication as per publisher norms",
+      "Publication will follow publisher norms",
     ],
   },
   {
@@ -42,7 +49,7 @@ const guidelines = [
     items: [
       "All submissions must be made through Microsoft CMT",
       "Authors must create an account on CMT before submission",
-      "Instructions for submission are available on the conference website",
+      "Follow the instructions provided on the CMT portal",
       "Multiple submissions by the same author are permitted",
     ],
   },
@@ -56,13 +63,13 @@ export const SubmissionSection = () => {
 
   return (
     <section id="submission" className="py-16 md:py-20 bg-slate-50">
-      <div className="container-conference" ref={ref}>
-        {/* Heading */}
+      <div className="container-conference max-w-7xl mx-auto px-4" ref={ref}>
+        {/* ---------------- HEADING ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-14"
         >
           <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
             Author Information
@@ -75,35 +82,26 @@ export const SubmissionSection = () => {
           <p className="text-slate-600 text-sm sm:text-base">
             Authors are invited to submit original research papers to the
             International Conference on Intelligent Systems and Digital
-            Transformation (ICISD’26) in accordance with the guidelines below.
+            Transformation (ICISD’26) by following the guidelines below.
           </p>
         </motion.div>
 
-        {/* Guidelines Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        {/* ---------------- GUIDELINES GRID ---------------- */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {guidelines.map((guide, index) => (
             <motion.div
               key={guide.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="
-                bg-white
-                border border-slate-200
-                rounded-xl
-                p-6
-                shadow-sm
-                hover:shadow-lg
-                hover:border-emerald-500
-                transition-all duration-200
-              "
+              className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-lg hover:border-emerald-500 transition-all"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center">
                   <guide.icon className="w-6 h-6 text-emerald-600" />
                 </div>
 
-                <div className="flex-1">
+                <div>
                   <h3 className="text-lg font-bold text-slate-900 mb-3">
                     {guide.title}
                   </h3>
@@ -112,9 +110,9 @@ export const SubmissionSection = () => {
                     {guide.items.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-sm text-slate-600"
+                        className="flex gap-2 text-sm text-slate-600"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -125,59 +123,72 @@ export const SubmissionSection = () => {
           ))}
         </div>
 
-        {/* Microsoft CMT Acknowledgement */}
-        <motion.p
+        {/* ---------------- CMT INFO NOTE ---------------- */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4 }}
-          className="text-center text-xs text-slate-500 max-w-4xl mx-auto mb-10"
+          className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 max-w-4xl mx-auto mb-10"
         >
-          The Microsoft CMT service was used for managing the peer-reviewing
-          process for this conference. This service was provided for free by
-          Microsoft, and they bore all expenses, including costs for Azure cloud
-          services as well as for software development and support.
-        </motion.p>
+          <div className="flex gap-3">
+            <Info className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <p className="text-sm text-slate-700">
+              <span className="font-semibold">Microsoft CMT Notice:</span>{" "}
+              Authors must log in using their registered email ID on Microsoft
+              CMT. First-time users are required to create an account before
+              submitting their paper.
+            </p>
+          </div>
+        </motion.div>
 
-        {/* Submission CTA */}
+        {/* ================= CMT ACKNOWLEDGMENT (STATIC – REQUIRED) ================= */}
+        <div
+          style={{
+            marginTop: "40px",
+            padding: "24px",
+            border: "1px solid #e5e7eb",
+            borderRadius: "8px",
+            backgroundColor: "#f9fafb",
+          }}
+        >
+          <h3 style={{ fontWeight: "600", marginBottom: "8px" }}>
+            Microsoft CMT Acknowledgment
+          </h3>
+
+          <p style={{ fontSize: "14px", color: "#374151" }}>
+            The Microsoft CMT service was used for managing the peer-reviewing
+            process for this conference. This service was provided for free by
+            Microsoft and they bore all expenses, including costs for Azure cloud
+            services as well as for software development and support.
+          </p>
+        </div>
+        {/* ================= END CMT ACKNOWLEDGMENT ================= */}
+
+        {/* ---------------- SUBMISSION CTA ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="
-            bg-white
-            border border-slate-200
-            rounded-xl
-            p-8
-            text-center
-            shadow-sm
-          "
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="bg-white border border-slate-200 rounded-xl p-8 text-center shadow-sm max-w-3xl mx-auto mt-12"
         >
           <h3 className="text-xl font-bold text-slate-900 mb-3">
-            Submit Your Paper via CMT
+            Submit Your Paper via Microsoft CMT
           </h3>
 
           <p className="text-slate-600 mb-6 text-sm sm:text-base">
-            All papers must be submitted through the Microsoft CMT submission
-            portal. Please ensure that your manuscript complies with the
-            conference requirements before submission.
+            All manuscripts must be submitted through the official Microsoft CMT
+            portal. Please ensure your paper complies with the conference
+            guidelines before submission.
           </p>
 
           <a
-            href="https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICAICS2026"
+            href="https://cmt3.research.microsoft.com/User/Login"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              inline-flex items-center gap-2
-              px-6 py-3
-              rounded-md
-              bg-emerald-600
-              text-white
-              font-semibold
-              hover:bg-emerald-500
-              transition-colors
-            "
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition-colors"
           >
             Submit Paper on CMT
+            <ExternalLink className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
