@@ -1,3 +1,4 @@
+// icisd-main/src/components/conference/ImpDatesTimeline.tsx
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -62,8 +63,6 @@ export const ImpDatesTimeline = () => {
   return (
     <section id="dates" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
-
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -83,10 +82,7 @@ export const ImpDatesTimeline = () => {
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
-
-          {/* Vertical Line */}
           <div className="absolute left-4 md:left-1/2 top-0 h-full w-px bg-emerald-200 md:-translate-x-1/2" />
 
           <div className="space-y-12">
@@ -101,7 +97,6 @@ export const ImpDatesTimeline = () => {
                   ${index % 2 === 0 ? "md:flex-row-reverse" : ""}
                 `}
               >
-                {/* Icon */}
                 <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2">
                   <div
                     className={`
@@ -117,7 +112,7 @@ export const ImpDatesTimeline = () => {
                   </div>
                 </div>
 
-                {/* Content Card */}
+               
                 <div
                   className={`
                     ml-12 md:ml-0 md:w-1/2

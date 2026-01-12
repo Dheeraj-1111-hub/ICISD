@@ -1,16 +1,19 @@
-import { Navbar } from "@/components/conference/Navbar";
-import { HeroSection } from "@/components/conference/HeroSection";
-import { AboutSection } from "@/components/conference/AboutSection";
-import { TracksSection } from "@/components/conference/TracksSection";
-import { StatsSection } from "@/components/conference/StatsSection";
-import { SubmissionSection } from "@/components/conference/SubmissionSection";
-import { ScheduleSection } from "@/components/conference/ScheduleSection";
-import { RegistrationSection } from "@/components/conference/RegistrationSection";
-import { PatronsSection } from "@/components/conference/PatronsSection";
-import { ConferenceChairsSection } from "@/components/conference/ConferenceChairsSection";
-import { CollaboratorsSection } from "@/components/conference/CollaboratorsSection";
-import { Footer } from "@/components/conference/Footer";
-import { ImpDatesTimeline } from "@/components/conference/ImpDatesTimeline";
+// icisd-main/src/pages/Index.tsx
+import { Navbar } from "@/components/common/Navbar";
+import { HeroSection } from "@/components/conference/Home/HeroSection";
+import { AboutSection } from "@/components/conference/Home/AboutSection";
+import { TracksSection } from "@/components/conference/Call for papers/TracksSection";
+import { StatsSection } from "@/components/conference/Home/StatsSection";
+import { SubmissionSection } from "@/components/conference/Paper Submission/SubmissionSection";
+import { ScheduleSection } from "@/components/conference/Home/ScheduleSection";
+import { RegistrationSection } from "@/components/conference/Registration/RegistrationSection";
+import { PatronsSection } from "@/components/conference/Committee/PatronsSection";
+import { ConferenceChairsSection } from "@/components/conference/Committee/ConferenceChairsSection";
+import { CollaboratorsSection } from "@/components/conference/Home/CollaboratorsSection";
+import { Footer } from "@/components/common/Footer";
+import { ImpDatesTimeline } from "@/components/conference/Call for papers/ImpDatesTimeline";
+import Contact from "@/components/conference/Contact/Contact";
+
 
 const Index = () => {
   return (
@@ -20,13 +23,10 @@ const Index = () => {
       <AboutSection />
       <TracksSection />
       <StatsSection />
-      <SubmissionSection />
-      <ImpDatesTimeline />
       <ScheduleSection />
       <RegistrationSection />
-      <PatronsSection />
-      <ConferenceChairsSection />
       <CollaboratorsSection />
+      <Contact />
       <Footer />
     </main>
   );

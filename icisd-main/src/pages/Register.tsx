@@ -17,7 +17,7 @@ export default function Register() {
     mode: "hybrid",
   });
 
-  /* Fee shown ONLY for UI */
+
   const fee =
     form.role === "author"
       ? form.mode === "offline"
@@ -25,9 +25,6 @@ export default function Register() {
         : 3000
       : 1500;
 
-  /* ===============================
-     SAVE REGISTRATION → GO TO BANK PAYMENT
-  =============================== */
   const handleContinueToPayment = async () => {
     try {
       const token = await getToken();
@@ -55,7 +52,6 @@ export default function Register() {
         return;
       }
 
-      // ✅ Go to manual payment instructions
       navigate("/payment-instructions");
     } catch (error) {
       console.error(error);
@@ -65,7 +61,7 @@ export default function Register() {
 
   return (
     <div className="relative min-h-screen text-white py-28 px-6 bg-[#0b0d12] overflow-hidden">
-      {/* Background glow */}
+
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-[-25%] left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-accent/10 blur-[160px]" />
         <div className="absolute bottom-[-30%] right-[-10%] w-[700px] h-[700px] rounded-full bg-white/5 blur-[180px]" />
@@ -77,7 +73,7 @@ export default function Register() {
         transition={{ duration: 0.55, ease: "easeOut" }}
         className="relative max-w-6xl mx-auto"
       >
-        {/* Back */}
+      
         <button
           onClick={() => navigate("/")}
           className="mb-10 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"

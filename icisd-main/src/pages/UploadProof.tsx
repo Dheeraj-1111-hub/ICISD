@@ -58,7 +58,7 @@ export default function UploadProof() {
   return (
     <div className="min-h-screen bg-[#0b0d12] text-white px-4 sm:px-6 lg:px-12 py-16">
       <div className="max-w-6xl mx-auto">
-        {/* Back */}
+
         <button
           onClick={() => navigate(-1)}
           className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
@@ -67,9 +67,7 @@ export default function UploadProof() {
           Back to payment methods
         </button>
 
-        {/* Card */}
         <div className="bg-black/60 border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-12 backdrop-blur">
-          {/* Stepper */}
           <div className="mb-10">
             <div className="flex items-center justify-between text-xs text-white/40 mb-2">
               <span>Registration</span>
@@ -81,7 +79,6 @@ export default function UploadProof() {
             </div>
           </div>
 
-          {/* Header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
             <div>
               <h1 className="text-2xl sm:text-3xl font-semibold">
@@ -97,7 +94,7 @@ export default function UploadProof() {
             </span>
           </div>
 
-          {/* Layout */}
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* LEFT — FORM */}
             <div className="lg:col-span-2 space-y-8">

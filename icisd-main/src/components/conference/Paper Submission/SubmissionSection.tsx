@@ -1,3 +1,4 @@
+// icisd-main/src/components/conference/SubmissionSection.tsx
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -9,7 +10,7 @@ import {
   Info,
 } from "lucide-react";
 
-/* ---------------- GUIDELINES DATA ---------------- */
+
 
 const guidelines = [
   {
@@ -64,7 +65,6 @@ export const SubmissionSection = () => {
   return (
     <section id="submission" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference max-w-7xl mx-auto px-4" ref={ref}>
-        {/* ---------------- HEADING ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -86,7 +86,6 @@ export const SubmissionSection = () => {
           </p>
         </motion.div>
 
-        {/* ---------------- GUIDELINES GRID ---------------- */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {guidelines.map((guide, index) => (
             <motion.div
@@ -123,7 +122,7 @@ export const SubmissionSection = () => {
           ))}
         </div>
 
-        {/* ---------------- CMT INFO NOTE ---------------- */}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -141,7 +140,6 @@ export const SubmissionSection = () => {
           </div>
         </motion.div>
 
-        {/* ================= CMT ACKNOWLEDGMENT (STATIC – REQUIRED) ================= */}
         <div
           style={{
             marginTop: "40px",
@@ -162,9 +160,7 @@ export const SubmissionSection = () => {
             services as well as for software development and support.
           </p>
         </div>
-        {/* ================= END CMT ACKNOWLEDGMENT ================= */}
 
-        {/* ---------------- SUBMISSION CTA ---------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

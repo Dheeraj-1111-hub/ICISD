@@ -1,3 +1,4 @@
+// icisd-main/src/components/conference/ConferenceChairsSection.tsx
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -41,7 +42,7 @@ export const ConferenceChairsSection = () => {
     <section id="chairs" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
 
-        {/* Heading */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -62,7 +63,7 @@ export const ConferenceChairsSection = () => {
           </p>
         </motion.div>
 
-        {/* Chair Cards */}
+        
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {chairs.map((chair, index) => (
             <motion.div

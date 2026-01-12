@@ -37,7 +37,6 @@ export default function PaymentInstructions() {
   return (
     <div className="min-h-screen bg-[#0b0d12] text-white px-4 sm:px-6 lg:px-10 py-16">
       <div className="max-w-6xl mx-auto">
-        {/* Back */}
         <button
           onClick={() => navigate(-1)}
           className="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition"
@@ -46,9 +45,9 @@ export default function PaymentInstructions() {
           Back
         </button>
 
-        {/* Container */}
+        
         <div className="bg-black/60 border border-white/10 rounded-3xl p-6 sm:p-8 lg:p-12 backdrop-blur">
-          {/* Header */}
+          
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-12">
             <div>
               <h1 className="text-2xl sm:text-3xl font-semibold">

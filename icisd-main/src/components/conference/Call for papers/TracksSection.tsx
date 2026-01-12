@@ -1,3 +1,4 @@
+// icisd-main/src/components/conference/TracksSection.tsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -64,9 +65,6 @@ const colorMap: any = {
     wash: "bg-green-500/5",
   },
 };
-
-/* ---------------- TRACK DATA ---------------- */
-
 const tracks = [
   {
     icon: Cpu,
@@ -156,9 +154,6 @@ const tracks = [
     ],
   },
 ];
-
-/* ---------------- MODAL ---------------- */
-
 const TrackModal = ({ track, onClose }: any) => {
   if (!track) return null;
   const c = colorMap[track.color];
@@ -207,9 +202,6 @@ const TrackModal = ({ track, onClose }: any) => {
     </AnimatePresence>
   );
 };
-
-/* ---------------- MAIN SECTION ---------------- */
-
 export const TracksSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [selectedTrack, setSelectedTrack] = useState<any>(null);
@@ -218,7 +210,6 @@ export const TracksSection = () => {
     <>
       <section id="tracks" className="py-16 md:py-20 bg-slate-50">
         <div className="container-conference" ref={ref}>
-          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -235,8 +226,6 @@ export const TracksSection = () => {
               Original research contributions across specialized domains.
             </p>
           </motion.div>
-
-          {/* Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {tracks.map((track, index) => {
               const c = colorMap[track.color];
@@ -254,24 +243,18 @@ export const TracksSection = () => {
                     transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     className="group relative w-full h-full rounded-2xl bg-white border border-slate-200 p-7 text-center shadow-sm hover:shadow-xl transition"
                   >
-                    {/* Color wash */}
                     <span
                       className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition ${c.wash}`}
                     />
-
-                    {/* Ring */}
                     <span
                       className={`absolute inset-0 rounded-2xl ring-1 ring-transparent group-hover:${c.ring} transition`}
                     />
-
-                    {/* Index */}
                     <span
                       className={`absolute top-4 right-4 text-sm font-semibold ${c.text}`}
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
-                    {/* Icon */}
                     <div
                       className={`w-16 h-16 mx-auto mb-5 rounded-full ${c.bg} flex items-center justify-center transition-all group-hover:scale-110`}
                     >

@@ -31,10 +31,9 @@ export const Footer = () => {
     <footer className="bg-slate-900 text-white">
       <div className="container-conference pt-20 pb-10">
 
-        {/* MAIN GRID */}
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mb-14">
 
-          {/* Conference Identity */}
+          
           <div className="space-y-4">
             <h3 className="text-xl font-bold tracking-wide">ICISD’26</h3>
 
@@ -49,7 +48,7 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/*Links*/}
           <div>
             <h4 className="text-sm font-semibold tracking-wide uppercase mb-5">
               Quick Links
