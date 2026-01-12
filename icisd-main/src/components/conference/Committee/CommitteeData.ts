@@ -53,19 +53,22 @@ export const committeeData = {
 
   organisingSecretaries: [
     {
-      name: "Name 1",
-      role: "Organising Secretary",
+      name: "Dr. P. Durgadevi",
+      role: "Assistant Professor (S.G)",
       organization: "SRMIST",
+      img:"https://srmistvdp.edu.in/wp-content/uploads/2022/08/p-durga-devi-200x240-1.jpg",
     },
     {
-      name: "Name 2",
-      role: "Organising Secretary",
+      name: "Dr. H. Mary Shyni",
+      role: "Assistant Professor (O.G)",
       organization: "SRMIST",
+      img:"https://srmistvdp.edu.in/wp-content/uploads/2024/04/Dr.-H.-Mary-Shyni.png.webp",
     },
     {
-      name: "Name 3",
-      role: "Organising Secretary",
+      name: "Ms. Charulatha .R .T",
+      role: "Assistant Professor (Jr.G)",
       organization: "SRMIST",
+      img:"https://srmistvdp.edu.in/wp-content/uploads/2024/04/Ms-Charulatha.R.T.png.webp",
     },
   ],
 

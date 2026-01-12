@@ -2,12 +2,14 @@ interface CommitteeCardProps {
   name: string;
   role: string;
   organization: string;
+  img?:string;
 }
 
 export const CommitteeCard = ({
   name,
   role,
   organization,
+  img,
 }: CommitteeCardProps) => {
   const initials = name
     .split(" ")
@@ -47,7 +49,7 @@ export const CommitteeCard = ({
           text-xl
           ring-1 ring-slate-200
         ">
-          {initials}
+          <img src={img} alt={name} className="rounded-full w-20 h-20 items-center"/>
         </div>
       </div>
       <h3 className="text-[15px] font-semibold text-slate-900 tracking-tight mb-1">

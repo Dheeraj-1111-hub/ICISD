@@ -6,6 +6,7 @@ interface Member {
   name: string;
   role: string;
   organization: string;
+  img?:string;
 }
 
 interface CommitteeSectionBlockProps {
@@ -49,6 +50,7 @@ export const CommitteeSectionBlock = ({
               name={member.name}
               role={member.role}
               organization={member.organization}
+              img={member.img}
             />
           ))}
         </div>

@@ -4,10 +4,10 @@ import { useInView } from "react-intersection-observer";
 import { Users, Mic2, Layers, BookOpen } from "lucide-react";
 
 const stats = [
-  { icon: Mic2, value: 50, suffix: "+", label: "Expert Speakers" },
-  { icon: Users, value: 2500, suffix: "+", label: "Expected Participants" },
-  { icon: Layers, value: 10, suffix: "", label: "Research Tracks" },
-  { icon: BookOpen, value: 25, suffix: "+", label: "Workshops & Sessions" },
+  { icon: Mic2, value: 10, suffix: "+", label: "Expert Speakers" },
+  { icon: Users, value: 500, suffix: "+", label: "Expected Participants" },
+  { icon: Layers, value: 8, suffix: "", label: "Research Tracks" },
+  { icon: BookOpen, value: 5, suffix: "+", label: "Workshops & Sessions" },
 ];
 
 const AnimatedCounter = ({
