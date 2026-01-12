@@ -23,20 +23,24 @@ export const AboutSection = () => {
     let x = ((e.clientX - rect.left) / rect.width) * 100;
     let y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    x = clamp(x, 10, 90);
-    y = clamp(y, 10, 90);
+    // Allow full edge movement
+    x = clamp(x, 0, 100);
+    y = clamp(y, 0, 100);
 
     setPos({ x, y });
   };
 
   const toggleLock = () => setLocked((prev) => !prev);
 
+  // Zoom level (must match backgroundSize)
+  const zoom = 3;
+
   return (
     <section id="about" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-
+          {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -86,7 +90,7 @@ export const AboutSection = () => {
             </div>
           </motion.div>
 
-
+          {/* RIGHT IMAGE WITH MAGNIFIER */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -102,7 +106,6 @@ export const AboutSection = () => {
               onMouseMove={handleMouseMove}
               onClick={toggleLock}
             >
-
               <img
                 src="/main_poster.jpg"
                 alt="ICISD 2026 Poster"
@@ -123,8 +126,9 @@ export const AboutSection = () => {
                     left: `calc(${pos.x}% - 80px)`,
                     backgroundImage: "url('/main_poster.jpg')",
                     backgroundRepeat: "no-repeat",
-                    backgroundSize: "300%",
-                    backgroundPosition: `${pos.x}% ${pos.y}%`,
+                    backgroundSize: `${zoom * 100}%`,
+                    backgroundPosition: `${pos.x * zoom - 50}% ${pos.y * zoom - 50}%`,
+                    transition: "background-position 0.05s linear",
                   }}
                 />
               )}
