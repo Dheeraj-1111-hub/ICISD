@@ -32,9 +32,10 @@ export const committeeData = {
 
   convener: [
     {
-      name: "Name 1",
+      name: "Dr. Golda Dilip",
       role: "Convener",
-      organization: "Department of CSE, SRMIST",
+      organization: "Professor & HOD ,Department of CSE, SRMIST",
+      img:"https://srmistvdp.edu.in/wp-content/uploads/2024/03/golda-dilip.jpg"
     },
   ],
 

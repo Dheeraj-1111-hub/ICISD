@@ -11,7 +11,7 @@ const associationPartners = [
 const publishingPartners = [
   {
     name: "De Gruyter Brill",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkX4PZCidtsaSEzrtGThJVftxRAuGuXHyEuw&s",
+    logo: "/brill.png",
   },
 ];
 
@@ -127,7 +127,7 @@ export const CollaboratorsSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-[90%] max-w-[95%] object-contain"
+                className="max-h-[95%] max-w-[95%] object-contain"
               />
             </motion.div>
           ))}

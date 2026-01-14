@@ -81,7 +81,7 @@ export const HeroSection = () => {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/85 mb-6 max-w-4xl mx-auto">
-          International Conference on{" "}
+          6th International Conference on{" "}
           <span className="text-emerald-400 font-semibold">
             Intelligent Systems
           </span>{" "}

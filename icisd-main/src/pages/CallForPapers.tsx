@@ -5,6 +5,7 @@ import { TracksSection } from "@/components/conference/Call for papers/TracksSec
 import { ImpDatesTimeline } from "@/components/conference/Call for papers/ImpDatesTimeline";
 import { Footer } from "@/components/common/Footer";
 import { motion } from "framer-motion";
+import { SubmissionSection } from "@/components/conference/Paper Submission/SubmissionSection";
 
 const CallForPapers = () => {
   return (
@@ -43,6 +44,7 @@ const CallForPapers = () => {
         </div>
       </section>
       <TracksSection />
+       <SubmissionSection />
       <ImpDatesTimeline />
       <Footer />
     </main>

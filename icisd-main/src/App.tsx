@@ -71,7 +71,6 @@ const App = () => (
           />
           {/*New latest routes as said*/}
           <Route path="/review-policy" element={<ReviewPolicy />} />
-          <Route path="/paper-submission" element={<PaperSubmission />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/call-for-papers" element={<CallForPapers />} />
           <Route path="/publications" element={<Publications />} />

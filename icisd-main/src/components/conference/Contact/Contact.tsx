@@ -58,7 +58,7 @@ const Contact = () => {
                   Email
                 </p>
                 <p className="text-slate-900 font-medium">
-                  icisd@srmist.edu.in
+                  icisd.2026@gmail.com
                 </p>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Contact = () => {
                   Contact
                 </p>
                 <p className="text-slate-900 font-medium">
-                  Conference Secretariat – +91 80561 25082
+                  Conference Secretary – +91 80561 25082
                 </p>
               </div>
             </div>

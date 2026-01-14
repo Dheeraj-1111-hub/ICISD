@@ -175,7 +175,7 @@ export const ScheduleSection = () => {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        {/* <div className="flex justify-center gap-4 mb-10 flex-wrap">
           {["day1", "day2"].map((day) => (
             <button
               key={day}
@@ -196,7 +196,7 @@ export const ScheduleSection = () => {
               </div>
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Schedule List */}
         <AnimatePresence mode="wait">
@@ -207,7 +207,7 @@ export const ScheduleSection = () => {
             exit={{ opacity: 0, y: -10 }}
             className="max-w-4xl mx-auto space-y-4"
           >
-            {currentSchedule.events.map((event, index) => (
+            {/* {currentSchedule.events.map((event, index) => (
               <div
                 key={index}
                 className="
@@ -244,7 +244,7 @@ export const ScheduleSection = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
           </motion.div>
         </AnimatePresence>
       </div>
