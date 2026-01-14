@@ -19,7 +19,7 @@ const CallForPapers = () => {
       {/* Must INsert contentt */}
       <section className="py-16 md:py-20 bg-slate-50">
         <div className="container-conference max-w-4xl mx-auto">
-            Publications
+            Will be updated soon...
         </div>
       </section>
       

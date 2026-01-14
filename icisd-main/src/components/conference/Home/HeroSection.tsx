@@ -155,17 +155,16 @@ export const HeroSection = () => {
 
         
         <div className="flex justify-center">
-          <button
-            onClick={() =>
-              document
-                .getElementById("registration")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="flex items-center gap-2 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-md bg-emerald-600 text-white hover:bg-emerald-500 transition"
-          >
-            Apply Now
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <a
+  href="https://cmt3.research.microsoft.com/ICISDT2026/Submission/Index"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-md bg-emerald-600 text-white hover:bg-emerald-500 transition"
+>
+  Submit Paper
+  <ArrowRight className="w-5 h-5" />
+</a>
+
         </div>
       </div>
     </section>
