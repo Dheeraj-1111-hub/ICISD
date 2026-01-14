@@ -11,7 +11,6 @@ const navLinks = [
   { name: "Registration", href: "#registration" },
   { name: "Call For Papers", href: "/call-for-papers" },
   { name: "Committee", href: "/committee" },
-  { name: "Paper Submission", href: "/paper-submission" },
   { name: "Review Policy", href: "/review-policy" },
   { name: "Contact", href: "#contact" },
 ];

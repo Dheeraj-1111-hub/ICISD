@@ -150,7 +150,7 @@ export const SubmissionSection = () => {
           </p>
 
           <a
-            href="https://cmt3.research.microsoft.com/User/Login"
+            href="https://cmt3.research.microsoft.com/ICISDT2026/Submission/Manage"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-emerald-600 text-white font-semibold hover:bg-emerald-500 transition-colors"
