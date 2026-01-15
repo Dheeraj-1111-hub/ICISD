@@ -216,11 +216,8 @@ export const TracksSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-14"
           >
-            <p className="text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
-              Research Domains
-            </p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
-              Conference <span className="text-emerald-600">Tracks</span>
+              Conference <span className="text-emerald-600">Themes</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
               Original research contributions across specialized domains.

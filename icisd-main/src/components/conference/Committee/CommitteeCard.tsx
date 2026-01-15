@@ -2,7 +2,7 @@ interface CommitteeCardProps {
   name: string;
   role: string;
   organization: string;
-  img?:string;
+  img?: string;
 }
 
 export const CommitteeCard = ({
@@ -35,12 +35,13 @@ export const CommitteeCard = ({
     >
       <div className="absolute inset-x-8 top-0 h-[2px] bg-emerald-500/80 rounded-full" />
 
-      {/* Avatar */}
-      <div className="relative w-20 h-20 mx-auto mb-6">
+      <div className="relative w-32 h-32 mx-auto mb-6">
         <div className="absolute inset-0 rounded-full bg-emerald-200/40 blur-lg opacity-70" />
-        <div className="
+
+        <div
+          className="
           relative
-          w-20 h-20
+          w-full h-full
           rounded-full
           bg-white
           flex items-center justify-center
@@ -48,22 +49,24 @@ export const CommitteeCard = ({
           font-semibold
           text-xl
           ring-1 ring-slate-200
-        ">
-          <img src={img} alt={name} className="rounded-full w-20 h-20 items-center"/>
+          overflow-hidden
+        "
+        >
+          {img ? (
+            <img src={img} alt={name} className="w-full h-full object-cover" />
+          ) : (
+            <span className="text-3xl">{initials}</span>
+          )}
         </div>
       </div>
+
       <h3 className="text-[15px] font-semibold text-slate-900 tracking-tight mb-1">
         {name}
       </h3>
-      <p className="text-sm text-emerald-700 font-medium mb-1">
-        {role}
-      </p>
 
       <div className="w-10 h-px bg-slate-200 mx-auto my-3" />
 
-      <p className="text-sm text-slate-600 leading-relaxed">
-        {organization}
-      </p>
+      <p className="text-sm text-slate-600 leading-relaxed">{organization}</p>
     </div>
   );
 };

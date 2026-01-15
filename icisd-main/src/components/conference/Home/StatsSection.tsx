@@ -6,7 +6,7 @@ import { Users, Mic2, Layers, BookOpen } from "lucide-react";
 const stats = [
   { icon: Mic2, value: 10, suffix: "+", label: "Expert Speakers" },
   { icon: Users, value: 500, suffix: "+", label: "Expected Participants" },
-  { icon: Layers, value: 8, suffix: "", label: "Research Tracks" },
+  { icon: Layers, value: 8, suffix: "", label: "Research Themes" },
   { icon: BookOpen, value: 5, suffix: "+", label: "Workshops & Sessions" },
 ];
 
@@ -66,10 +66,7 @@ export const StatsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-slate-500 mb-2">
-            Conference Overview
-          </p>
-
+          
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
             Conference at a{" "}
             <span className="text-emerald-600">Glance</span>

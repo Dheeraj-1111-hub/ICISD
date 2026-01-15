@@ -160,17 +160,13 @@ export const ScheduleSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-10"
         >
-          <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
-            Event Timeline
-          </span>
-
+         
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Conference Schedule
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base">
-            Conference conducted on <strong>6th & 7th April 2026</strong> with
-            keynote addresses, technical sessions, and workshops.
+            Conference sheduled for <strong>6th & 7th April 2026</strong> Technical session details will be updated soon...
           </p>
         </motion.div>
 

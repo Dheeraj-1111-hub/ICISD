@@ -14,7 +14,7 @@ const CallForPapers = () => {
       <Navbar />
 
       <PageHero
-        title="Publications"
+        title="Publication"
         subtitle="Advancing research visibility through quality publications at ICISD’26"
       />
 
@@ -31,7 +31,7 @@ const CallForPapers = () => {
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
-              className="h-64 md:h-80 flex justify-center items-center overflow-hidden"
+              className="h-64 md:h-75 py-1 flex justify-center items-center overflow-hidden"
             >
               <img
                 src="/brill.png"
@@ -41,7 +41,7 @@ const CallForPapers = () => {
             </motion.div>
 
             {/* Text Section */}
-            <div className="p-8 flex flex-col justify-center">
+            <div className="p-6 flex flex-col justify-center">
               <motion.h1
                 initial={{ x: 30, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -57,8 +57,9 @@ const CallForPapers = () => {
                 transition={{ delay: 0.35, duration: 0.5 }}
                 className="text-gray-600 mb-6 leading-relaxed"
               >
-                All accepted papers will be published as conference book chapters
-                in proceedings indexed by Scopus.
+                All <strong>registered and accepted papers</strong> will be
+                considered for publication in <strong>Degruter Brill </strong>
+                Conference book proceedings( Scopus Indexed ).
               </motion.p>
 
               <motion.button

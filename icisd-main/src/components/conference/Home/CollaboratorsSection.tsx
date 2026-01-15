@@ -127,7 +127,7 @@ export const CollaboratorsSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-h-[95%] max-w-[95%] object-contain"
+                className={`${(index!=1)? "max-h-[130%] max-w-[130%]" : "max-h-[85%] max-w-[85%]"} object-contain`}
               />
             </motion.div>
           ))}

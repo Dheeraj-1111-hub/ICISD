@@ -67,9 +67,9 @@ export const AboutSection = () => {
             </p>
 
             <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
-              ICISD’26 focuses on cutting-edge advancements in artificial
-              intelligence, data analytics, automation, Internet of Things,
-              cloud computing, cybersecurity, and emerging digital technologies
+              ICISD’26 focuses on cutting-edge advancements in Artificial
+              Intelligence, Data Analytics, Automation, Internet of Things,
+              Cloud Computing, Cybersecurity, and emerging digital technologies
               that are transforming industries and society.
             </p>
 
@@ -98,7 +98,7 @@ export const AboutSection = () => {
             className="flex justify-center lg:justify-end"
           >
             <div
-              className="relative w-full max-w-xs sm:max-w-sm aspect-[3/4] rounded-lg border shadow-lg overflow-hidden cursor-zoom-in"
+              className="relative w-full max-w-xs sm:max-w-sm aspect-[283/400] rounded-lg border shadow-lg overflow-hidden cursor-zoom-in"
               onMouseEnter={() => setShowMagnifier(true)}
               onMouseLeave={() => {
                 if (!locked) setShowMagnifier(false);
@@ -109,7 +109,7 @@ export const AboutSection = () => {
               <img
                 src="/main_poster.jpg"
                 alt="ICISD 2026 Poster"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
 
               <span className="absolute top-2 right-2 text-[10px] px-2 py-1 bg-black/70 text-white rounded z-20">

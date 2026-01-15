@@ -73,7 +73,7 @@ const App = () => (
           <Route path="/review-policy" element={<ReviewPolicy />} />
           <Route path="/committee" element={<Committee />} />
           <Route path="/call-for-papers" element={<CallForPapers />} />
-          <Route path="/publications" element={<Publications />} />
+          <Route path="/publication" element={<Publications />} />
 
 
           <Route path="*" element={<NotFound />} />
