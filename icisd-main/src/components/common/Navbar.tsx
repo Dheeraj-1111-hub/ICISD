@@ -31,35 +31,42 @@ export const Navbar = () => {
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
 
+    // 1. Handle External Routes (e.g., /publication, /committee)
     if (href.startsWith("/")) {
       navigate(href);
+      window.scrollTo(0, 0); // <--- ADDED: Forces page to start at the top
       return;
     }
 
+    // 2. Handle Hash Links (e.g., #contact)
     const sectionId = href.substring(1);
 
+    // If we are already on the home page, just scroll to the section
     if (location.pathname === "/") {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById(sectionId)
+        ?.scrollIntoView({ behavior: "smooth" });
       return;
     }
 
+    // If we are on another page, navigate home first, then scroll
     navigate("/");
+    window.scrollTo(0, 0); // Optional: Reset to top before scrolling to section
     setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById(sectionId)
+        ?.scrollIntoView({ behavior: "smooth" });
     }, 120);
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container-conference px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
-
           {/*Logos - srm logo on lefts ide */}
           <button
             onClick={() => handleNavClick("#home")}
@@ -112,7 +119,6 @@ export const Navbar = () => {
 
           {/*for mobile*/}
           <div className="flex items-center justify-between w-full lg:hidden">
-
             {/*logos*/}
             <button
               onClick={() => handleNavClick("#home")}
@@ -158,7 +164,10 @@ export const Navbar = () => {
             <div className="container-conference px-4 py-6 space-y-6">
               <div className="flex items-center justify-center gap-6 pb-4 border-b">
                 <img src="/logo.png" className="h-8 object-contain" />
-                <img src="/logo_icisd_main.jpg" className="h-8 object-contain" />
+                <img
+                  src="/logo_icisd_main.jpg"
+                  className="h-8 object-contain"
+                />
               </div>
               <div className="space-y-2">
                 {navLinks.map((link) => (
@@ -189,8 +198,7 @@ export const Navbar = () => {
                   <UserButton
                     appearance={{
                       elements: {
-                        avatarBox:
-                          "w-11 h-11 ring-2 ring-emerald-500/30",
+                        avatarBox: "w-11 h-11 ring-2 ring-emerald-500/30",
                       },
                     }}
                     afterSignOutUrl="/"

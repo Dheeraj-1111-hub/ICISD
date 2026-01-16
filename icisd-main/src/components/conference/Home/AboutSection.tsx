@@ -13,8 +13,7 @@ export const AboutSection = () => {
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [locked, setLocked] = useState(false);
 
-  const clamp = (value, min, max) =>
-    Math.min(Math.max(value, min), max);
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
   const handleMouseMove = (e) => {
     if (locked) return;
@@ -39,7 +38,6 @@ export const AboutSection = () => {
     <section id="about" className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -53,23 +51,24 @@ export const AboutSection = () => {
 
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
               Intelligent Systems &{" "}
-              <span className="text-emerald-600">
-                Digital Transformation
-              </span>
+              <span className="text-emerald-600">Digital Transformation</span>
             </h2>
 
             <p className="text-slate-600 leading-relaxed mb-4 text-sm sm:text-base">
               The International Conference on Intelligent Systems and Digital
-              Transformation (ICISD’26) provides a premier global forum for
-              researchers, academicians, and industry experts to present and
-              exchange innovative ideas shaping intelligent and digitally
-              enabled systems.
+              Transformation <strong>(ICISD’26)</strong> provides a premier
+              global forum for researchers, academicians, and industry experts
+              to present and exchange innovative ideas shaping intelligent and
+              digitally enabled systems.
             </p>
 
             <p className="text-slate-600 leading-relaxed mb-6 text-sm sm:text-base">
-              ICISD’26 focuses on cutting-edge advancements in Artificial
-              Intelligence, Data Analytics, Automation, Internet of Things,
-              Cloud Computing, Cybersecurity, and emerging digital technologies
+              ICISD’26 focuses on cutting-edge advancements in{" "}
+              <strong>
+                Artificial Intelligence, Data Analytics, Automation, Internet of
+                Things, Cloud Computing, Cybersecurity, and emerging digital
+                technologies{" "}
+              </strong>
               that are transforming industries and society.
             </p>
 
@@ -127,7 +126,9 @@ export const AboutSection = () => {
                     backgroundImage: "url('/main_poster.jpg')",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: `${zoom * 100}%`,
-                    backgroundPosition: `${pos.x * zoom - 50}% ${pos.y * zoom - 50}%`,
+                    backgroundPosition: `${pos.x * zoom - 50}% ${
+                      pos.y * zoom - 50
+                    }%`,
                     transition: "background-position 0.05s linear",
                   }}
                 />

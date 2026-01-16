@@ -15,9 +15,6 @@ import Committee from "./pages/Committee";
 import CallForPapers from "./pages/CallForPapers";
 import Publications from "./pages/Publications";
 
-
-
-
 import PaymentInstructions from "./pages/PaymentInstructions";
 import UploadProof from "./pages/UploadProof";
 
@@ -74,7 +71,6 @@ const App = () => (
           <Route path="/committee" element={<Committee />} />
           <Route path="/call-for-papers" element={<CallForPapers />} />
           <Route path="/publication" element={<Publications />} />
-
 
           <Route path="*" element={<NotFound />} />
         </Routes>
