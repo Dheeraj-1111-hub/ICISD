@@ -12,17 +12,18 @@ export default function CommitteePage() {
         title="Conference Committee"
         subtitle="Academic leadership and organizational framework of ICISD’26"
       />
-      {/* <CommitteeSectionBlock
+       <CommitteeSectionBlock
         badge="Leadership"
         title="Chief Patrons"
         columns="lg:grid-cols-2"
         members={committeeData.chiefPatrons}
       />
+    
       <CommitteeSectionBlock
         badge="Guidance"
         title="Patrons"
         members={committeeData.patrons}
-      /> */}
+      /> 
       <CommitteeSectionBlock
         badge="Coordination"
         title="Convener"
@@ -51,13 +52,13 @@ export default function CommitteePage() {
         columns="lg:grid-cols-4"
         members={committeeData.programCommittee}
       />
-
+*/}
       <CommitteeSectionBlock
         badge="Execution"
         title="Organising Committee"
         columns="lg:grid-cols-4"
         members={committeeData.organisingCommittee}
-      /> */}
+      /> 
 
 
       <Footer />

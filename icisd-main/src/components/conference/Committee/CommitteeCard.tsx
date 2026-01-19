@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface CommitteeCardProps {
   name: string;
   role: string;
@@ -11,62 +13,85 @@ export const CommitteeCard = ({
   organization,
   img,
 }: CommitteeCardProps) => {
+  // Safer initials logic (max 2 chars, uppercase)
   const initials = name
     .split(" ")
     .map((n) => n[0])
-    .join("");
+    .join("")
+    .substring(0, 2)
+    .toUpperCase();
 
   return (
     <div
       className="
         group
         relative
+        flex flex-col items-center
         bg-white
-        border border-slate-200
         rounded-2xl
-        px-8
-        py-9
-        text-center
-        shadow-[0_1px_3px_rgba(0,0,0,0.06)]
-        transition-all duration-300 ease-out
-        hover:shadow-[0_12px_30px_rgba(0,0,0,0.10)]
+        border border-slate-200
+        shadow-sm
+        overflow-hidden
+        transition-all duration-300
+        hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]
+        hover:border-emerald-200
         hover:-translate-y-1
       "
     >
-      <div className="absolute inset-x-8 top-0 h-[2px] bg-emerald-500/80 rounded-full" />
+      {/* Decorative Gradient Header */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-br from-emerald-50 to-emerald-100/50" />
 
-      <div className="relative w-32 h-32 mx-auto mb-6">
-        <div className="absolute inset-0 rounded-full bg-emerald-200/40 blur-lg opacity-70" />
-
+      {/* Avatar Container */}
+      <div className="relative mt-8 mb-5">
         <div
           className="
-          relative
-          w-full h-full
-          rounded-full
-          bg-white
-          flex items-center justify-center
-          text-emerald-700
-          font-semibold
-          text-xl
-          ring-1 ring-slate-200
-          overflow-hidden
-        "
+            relative
+            w-28 h-28
+            rounded-full
+            p-1
+            bg-white
+            ring-1 ring-slate-100
+            shadow-sm
+            group-hover:ring-emerald-100
+            transition-all duration-300
+          "
         >
-          {img ? (
-            <img src={img} alt={name} className="w-full h-full object-cover" />
-          ) : (
-            <span className="text-3xl">{initials}</span>
-          )}
+          {/* Inner Circle */}
+          <div className="w-full h-full rounded-full overflow-hidden bg-slate-50 flex items-center justify-center">
+            {img ? (
+              <img
+                src={img}
+                alt={name}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <div className="w-full h-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl tracking-wider">
+                {initials}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      <h3 className="text-[15px] font-semibold text-slate-900 tracking-tight mb-1">
-        {name}
-      </h3>
+      {/* Content */}
+      <div className="px-6 pb-8 text-center w-full">
+        <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">
+          {name}
+        </h3>
 
-      <div className="w-10 h-px bg-slate-200 mx-auto my-3" />
+        {role && (
+          <div className="text-sm font-semibold text-emerald-600 mb-3 uppercase tracking-wide text-[11px]">
+            {role}
+          </div>
+        )}
 
-      <p className="text-sm text-slate-600 leading-relaxed">{organization}</p>
+        {/* Subtle separator */}
+        <div className="w-12 h-0.5 bg-slate-100 mx-auto mb-4 group-hover:bg-emerald-100 transition-colors" />
+
+        <p className="text-sm text-slate-500 leading-relaxed px-2 font-medium">
+            {organization}
+        </p>
+      </div>
     </div>
   );
 };

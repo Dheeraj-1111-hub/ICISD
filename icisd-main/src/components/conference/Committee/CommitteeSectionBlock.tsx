@@ -4,7 +4,7 @@ import { CommitteeCard } from "./CommitteeCard";
 
 interface Member {
   name: string;
-  role: string;
+  role?: string;
   organization: string;
   img?:string;
 }
@@ -33,9 +33,6 @@ export const CommitteeSectionBlock = ({
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-          <span className="inline-block px-3 py-1 rounded-md bg-emerald-50 text-emerald-600 text-sm font-semibold mb-4">
-            {badge}
-          </span>
 
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
             {title}
