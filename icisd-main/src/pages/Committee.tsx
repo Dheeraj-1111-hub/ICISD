@@ -26,26 +26,26 @@ export default function CommitteePage() {
       /> 
       <CommitteeSectionBlock
         badge="Coordination"
-        title="Convener"
+        title="Convener & Program Chair"
         columns="lg:grid-cols-1"
         members={committeeData.convener}
       />
-      {/* <CommitteeSectionBlock
+     <CommitteeSectionBlock
         badge="Academic Oversight"
-        title="Program Chair & Program Co-Chair"
+        title="Program Co-Chair"
         columns="lg:grid-cols-2"
         members={committeeData.programChairs}
-      /> */}
+      /> 
       <CommitteeSectionBlock
         badge="Operations"
         title="Organising Secretaries"
         members={committeeData.organisingSecretaries}
       />
-      {/* <CommitteeSectionBlock
+       <CommitteeSectionBlock
         badge="Strategic Direction"
         title="Steering Committee"
         members={committeeData.steeringCommittee}
-      />
+      />{/*
       <CommitteeSectionBlock
         badge="Technical Review"
         title="Program Committee"
