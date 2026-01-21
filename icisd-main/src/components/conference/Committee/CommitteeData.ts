@@ -29,7 +29,7 @@ export const committeeData = {
   patrons: [
     {
       name: "Dr. C. Muthamizhchelvan",
-      role: "Vice Chancellor (E&T)",
+      role: "Vice Chancellor",
       organization: "SRM Institute of Science and Technology",
       img:"https://srmist.irins.org/profile_images/315472.jpg"
     },
