@@ -13,6 +13,7 @@ import { CollaboratorsSection } from "@/components/conference/Home/Collaborators
 import { Footer } from "@/components/common/Footer";
 import { ImpDatesTimeline } from "@/components/conference/Call for papers/ImpDatesTimeline";
 import Contact from "@/components/conference/Contact/Contact";
+import { GallerySection } from "@/components/conference/Home/GallerySection";
 
 
 const Index = () => {
@@ -25,6 +26,7 @@ const Index = () => {
       <StatsSection />
       <ScheduleSection />
       <RegistrationSection />
+      <GallerySection />
       <CollaboratorsSection />
       <Contact />
       <Footer />
