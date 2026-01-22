@@ -23,48 +23,51 @@ export const committeeData = {
   ],
 
   patrons: [
-  {
-    name: "Dr. C. Muthamizhchelvan",
-    role: "Vice Chancellor (E&T)",
-    organization: "SRM Institute of Science and Technology",
-  },
-  {
-    name: "Dr. S. Ponnusamy",
-    role: "Registrar",
-    organization: "SRM Institute of Science and Technology",
-  },
-  {
-    name: "Dr. K. Gunasekaran",
-    role: "Controller of Examinations",
-    organization: "SRM Institute of Science and Technology",
-  },
-  {
-    name: "Dr. R. Venkatesh Babu",
-    role: "Director (Academics and Administration)",
-    organization: "SRM Institute of Science and Technology",
-  },
-  {
-    name: "Dr. C. V. Jayakumar",
-    role: "Dean (FET)",
-    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
-  },
-  {
-    name: "Dr. C. Gomathy",
-    role: "Vice Principal (Academics & Placements)",
-    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
-  },
-  {
-    name: "Dr. S. Karthikeyan",
-    role: "Vice Principal (Examinations)",
-    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
-  },
-  {
-    name: "Dr. K. Ramachandran",
-    role: "Research Coordinator",
-    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
-  },
-],
-
+    {
+      name: "Dr. C. Muthamizhchelvan",
+      role: "Vice Chancellor",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. S. Ponnusamy",
+      role: "Registrar",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. K. Gunasekaran",
+      role: "Controller of Examinations",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. R. Venkatesh Babu",
+      role: "Director (Academics and Administration)",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. C. V. Jayakumar",
+      role: "Dean (FET)",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
+    },
+    {
+      name: "Dr. C. Gomathy",
+      role: "Vice Principal (Academics & Placements)",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
+    },
+    {
+      name: "Dr. S. Karthikeyan",
+      role: "Vice Principal (Examinations)",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
+    },
+    {
+      name: "Dr. K. Ramachandran",
+      role: "Research Coordinator",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
+    },
+  ],
 
   convener: [
     {
@@ -104,37 +107,45 @@ export const committeeData = {
 
   steeringCommittee: [
     {
-      name: "Member Name 1",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
+      name: "Yiu-Wing Leung",
+      role: "Department of Computer Science",
+      organization: "Hong Kong Baptist University\nKowloon Tong, Hong Kong",
     },
     {
-      name: "Member Name 2",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
+      name: "Chun-Wei Tsai (蔡崇煒)",
+      role: "Department of Computer Science and Engineering",
+      organization: "National Sun Yat-sen University\nKaohsiung, Taiwan",
     },
     {
-      name: "Member Name 3",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
+      name: "DR. VAIBHAV BHUSHAN TYAGI",
+      role: "Associate Professor",
+      organization: "ISBAT University\nKampala,Uganda,East Africa",
     },
     {
-      name: "Member Name 4",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
+      name: "Dr.XIAOLEI WANG",
+      role: "Professor,Department of Electrical Engineering and Automation",
+      organization: "Aalto University\nAalto,Finland",
     },
     {
-      name: "Member Name 5",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
-    },
-    {
-      name: "Member Name 6",
-      role: "Steering Committee Member",
-      organization: "University / Organization",
+      name: "Dr.BASIM MOHAMMED FADEL ALHADIDI",
+      role: "Professor,Department of Computer Information Systems",
+      organization: "Al-Balqa Applied University\nJordan",
     },
   ],
-
+  programChairs: [
+    {
+      name: "Dr Raj Ramachandran",
+      role: "Senior Lecturer in Technologies (Head)",
+      organization:
+        "Cardiff Metropolitan University Western Avenue, Cardiff CF5 2YB, Wales, UK",
+    },
+    {
+      name: "Jedsada Tipmontian, PhD",
+      role: "Executive Vice Dean",
+      organization:
+        "International Academy of Aviation Industry\nKing Mongkut's Institute of Technology Ladkrabang (KMITL)\nLadkrabang, Bangkok, Thailand",
+    },
+  ],
   programCommittee: [
     {
       name: "Member Name 1",
@@ -204,11 +215,31 @@ export const committeeData = {
       organization: "SRM Institute of Science and Technology",
     },
     {
-      name: "Mrs. Steffina Muthukumar",
+      name: "Dr. M. Kiruthiga Devi",
       organization: "SRM Institute of Science and Technology",
     },
     {
-      name: "Dr. M. Kiruthiga Devi",
+      name: "Dr. K. Akila",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. Sridevi Sridhar",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. N. Saraswathi",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Ms. V. Deepa",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Ms. R. Saranya",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Ms. S. Niranjana",
       organization: "SRM Institute of Science and Technology",
     },
   ],
