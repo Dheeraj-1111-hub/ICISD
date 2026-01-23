@@ -1,12 +1,15 @@
-// icisd-main/src/components/conference/CommitteeSectionBlock.tsx
 import { motion } from "framer-motion";
 import { CommitteeCard } from "./CommitteeCard";
 
 interface Member {
   name: string;
   role?: string;
-  organization: string;
-  img?:string;
+  organization?: string;
+
+  // for steering / program committee
+  designation?: string;
+  clgName?: string;
+  country?: string;
 }
 
 interface CommitteeSectionBlockProps {
@@ -25,7 +28,6 @@ export const CommitteeSectionBlock = ({
   return (
     <section className="py-16 md:py-20 bg-slate-50">
       <div className="container-conference">
-       
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,21 +35,21 @@ export const CommitteeSectionBlock = ({
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-12"
         >
-
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
             {title}
           </h2>
         </motion.div>
 
-     
         <div className={`grid sm:grid-cols-2 ${columns} gap-6`}>
           {members.map((member, index) => (
             <CommitteeCard
               key={index}
               name={member.name}
-              role={member.role}
-              organization={member.organization}
-              img={member.img}
+              role={member.role || member.designation}
+              organization={
+                member.organization ||
+                `${member.clgName}${member.country ? ", " + member.country : ""}`
+              }
             />
           ))}
         </div>
