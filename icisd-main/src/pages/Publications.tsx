@@ -67,7 +67,7 @@ const CallForPapers = () => {
                 transition={{ delay: 0.4 }}
                 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4"
               >
-                De Gruyter Brill
+                WILEY
               </motion.h1>
 
               <motion.p
