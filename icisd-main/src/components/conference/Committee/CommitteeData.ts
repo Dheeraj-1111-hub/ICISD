@@ -46,22 +46,26 @@ export const committeeData = {
     {
       name: "Dr. C. V. Jayakumar",
       role: "Dean (FET)",
-      organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
     },
     {
       name: "Dr. C. Gomathy",
       role: "Vice Principal (Academics & Placements)",
-      organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
     },
     {
       name: "Dr. S. Karthikeyan",
       role: "Vice Principal (Examinations)",
-      organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
     },
     {
       name: "Dr. K. Ramachandran",
       role: "Research Coordinator",
-      organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
     },
   ],
 
@@ -69,7 +73,23 @@ export const committeeData = {
     {
       name: "Dr. Golda Dilip",
       role: "Professor & Head, Department of CSE",
-      organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+      organization:
+        "SRM Institute of Science and Technology, Vadapalani Campus",
+    },
+  ],
+
+  coChairs: [
+    {
+      name: "Dr. Jedsada Tipmontian",
+      role: "Executive Vice Dean",
+      organization:
+        "International Academy of Aviation Industry, King Mongkut's Institute of Technology Ladkrabang (KMITL), Thailand",
+    },
+    {
+      name: "Dr. Raj Ramachandran",
+      role: "Senior Lecturer in Technologies",
+      organization:
+        "Senior Lecturer in Technologies (Head) Cardiff Metropolitan University Western Avenue, Cardiff CF5 2YB, Wales, UK",
     },
   ],
 
@@ -103,13 +123,6 @@ export const committeeData = {
   // ✅ UPDATED FORMAT AS REQUESTED
   steeringCommittee: [
     {
-      name: "Dr. Jedsada Tipmontian, PhD",
-      designation: "Executive Vice Dean",
-      clgName:
-        "International Academy of Aviation Industry, King Mongkut's Institute of Technology Ladkrabang (KMITL)",
-      country: "Thailand",
-    },
-    {
       name: "Dr. Yiu-Wing Leung",
       designation: "Faculty, Department of Computer Science",
       clgName: "Hong Kong Baptist University",
@@ -136,8 +149,7 @@ export const committeeData = {
     },
     {
       name: "Dr. Basim Mohammed Fadel Alhadidi",
-      designation:
-        "Professor, Department of Computer Information Systems",
+      designation: "Professor, Department of Computer Information Systems",
       clgName: "Al-Balqa Applied University",
       country: "Jordan",
     },
@@ -165,8 +177,7 @@ export const committeeData = {
     {
       name: "Dr. Renuka Devi S",
       designation: "Professor",
-      clgName:
-        "School of Computer Science and Engineering, VIT Chennai",
+      clgName: "School of Computer Science and Engineering, VIT Chennai",
       country: "India",
     },
     {
@@ -178,8 +189,7 @@ export const committeeData = {
     {
       name: "Viswanathan K G",
       designation: "Director – Workforce Development",
-      clgName:
-        "India Electronics & Semiconductor Association, Bengaluru",
+      clgName: "India Electronics & Semiconductor Association, Bengaluru",
       country: "India",
     },
     {
@@ -221,8 +231,7 @@ export const committeeData = {
     {
       name: "Dr. Sabu M Thambi",
       designation: "Professor",
-      clgName:
-        "Kerala University of Digital Sciences",
+      clgName: "Kerala University of Digital Sciences",
       country: "India",
     },
     {
@@ -240,13 +249,37 @@ export const committeeData = {
   ],
 
   organisingCommittee: [
-    { name: "Dr. Rajasekar Velswamy", organization: "SRM Institute of Science and Technology" },
-    { name: "Dr. G. Paavai Anand", organization: "SRM Institute of Science and Technology" },
-    { name: "Mrs. S. Niveditha", organization: "SRM Institute of Science and Technology" },
-    { name: "Dr. K. Karthikayani", organization: "SRM Institute of Science and Technology" },
-    { name: "Dr. T. Anusha", organization: "SRM Institute of Science and Technology" },
-    { name: "Mrs. M. Indumathy", organization: "SRM Institute of Science and Technology" },
-    { name: "Mrs. Steffina Muthukumar", organization: "SRM Institute of Science and Technology" },
-    { name: "Dr. M. Kiruthiga Devi", organization: "SRM Institute of Science and Technology" },
+    {
+      name: "Dr. Rajasekar Velswamy",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. G. Paavai Anand",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Mrs. S. Niveditha",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. K. Karthikayani",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. T. Anusha",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Mrs. M. Indumathy",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Mrs. Steffina Muthukumar",
+      organization: "SRM Institute of Science and Technology",
+    },
+    {
+      name: "Dr. M. Kiruthiga Devi",
+      organization: "SRM Institute of Science and Technology",
+    },
   ],
 };
