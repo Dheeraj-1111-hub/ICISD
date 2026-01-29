@@ -29,9 +29,16 @@ export default function CommitteePage() {
 
       <CommitteeSectionBlock
         badge="Coordination"
-        title="Convener"
+        title="Convener & program chair"
         columns="lg:grid-cols-1"
         members={committeeData.convener}
+      />
+
+      <CommitteeSectionBlock
+        badge="Leadership"
+        title="Co-Chairs"
+        columns="lg:grid-cols-2"
+        members={committeeData.coChairs}
       />
 
       <CommitteeSectionBlock
