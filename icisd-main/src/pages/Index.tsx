@@ -14,7 +14,7 @@ import { Footer } from "@/components/common/Footer";
 import { ImpDatesTimeline } from "@/components/conference/Call for papers/ImpDatesTimeline";
 import Contact from "@/components/conference/Contact/Contact";
 import { GallerySection } from "@/components/conference/Home/GallerySection";
-
+import  Genesis  from "@/components/conference/Home/Genesis";
 
 const Index = () => {
   return (
@@ -22,6 +22,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <Genesis />
       <TracksSection />
       <StatsSection />
       <ScheduleSection />

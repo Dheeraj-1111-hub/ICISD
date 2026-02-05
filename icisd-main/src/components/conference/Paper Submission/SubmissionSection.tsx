@@ -38,7 +38,7 @@ const submissionRules = [
 const manuscriptPrep = [
   "Manuscripts must be prepared using the specific Journal Template without page numbers or running heads.",
   "Content created through generative AI tools is strictly prohibited and will not be reviewed.",
-  "Figures must be high resolution (600 dpi+) and tables must be text-based (not images).",
+  "Figures must be high resolution (300 dpi+) and tables must be text-based (not images).",
   "Do not use academic titles (e.g., Dr., Prof.) or positions in author affiliations.",
   "Include full address, affiliation, and email for all authors.",
   "Clearly specify one corresponding author for proofreading.",
@@ -211,7 +211,7 @@ export const SubmissionSection = () => {
 
               {/* DOWNLOAD BUTTON */}
               <a
-                href="/Word+Template.zip" // Replace with your actual template link
+                href="/Template.pdf" // Replace with your actual template link
                 className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
               >
                 <Download className="w-4 h-4" />
