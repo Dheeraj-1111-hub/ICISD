@@ -93,6 +93,14 @@ export const committeeData = {
     },
   ],
 
+  keynote:[
+    {
+      name: "Gang Li",
+      role: "Professor",
+      organization:
+        "Faculty of Science Engineering and Built Environment/School of Information Technology/Deakin Cyber Research and Innovation Centre",
+    }
+  ],
   programCoChairs: [
     {
       name: "Dr. Raj Ramachandran",

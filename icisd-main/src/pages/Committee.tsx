@@ -4,6 +4,7 @@ import { CommitteeSectionBlock } from "@/components/conference/Committee/Committ
 import { committeeData } from "@/components/conference/Committee/CommitteeData";
 import { Footer } from "@/components/common/Footer";
 
+
 export default function CommitteePage() {
   return (
     <main className="bg-slate-50 overflow-x-hidden">
@@ -36,9 +37,16 @@ export default function CommitteePage() {
 
       <CommitteeSectionBlock
         badge="Leadership"
-        title="Co-Chairs"
+        title="Chief Guest"
         columns="lg:grid-cols-2"
         members={committeeData.coChairs}
+      />
+
+      <CommitteeSectionBlock
+        badge="Leadership"
+        title="Keynote Speakers"
+        columns="lg:grid-cols-2"
+        members={committeeData.keynote}
       />
 
       <CommitteeSectionBlock
@@ -47,7 +55,7 @@ export default function CommitteePage() {
         members={committeeData.organisingSecretaries}
       />
 
-      {/* ✅ NOW VISIBLE */}
+
       <CommitteeSectionBlock
         badge="Strategic Direction"
         title="Steering Committee"
