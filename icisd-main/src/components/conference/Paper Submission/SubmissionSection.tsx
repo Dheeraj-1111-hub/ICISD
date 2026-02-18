@@ -211,12 +211,14 @@ export const SubmissionSection = () => {
 
               {/* DOWNLOAD BUTTON */}
               <a
-                href="/Conference paper_Template.docx" // Replace with your actual template link
-                className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
-              >
-                <Download className="w-4 h-4" />
-                Download Template
-              </a>
+  href="/Conference_paper_Template.docx"
+  download
+  className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
+>
+  <Download className="w-4 h-4" />
+  Download Template
+</a>
+
             </div>
 
             <ul className="space-y-4 mb-8">

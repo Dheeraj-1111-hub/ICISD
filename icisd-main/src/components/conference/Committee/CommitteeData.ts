@@ -78,35 +78,43 @@ export const committeeData = {
     },
   ],
 
-  coChairs: [
+  // 🔹 SPLIT SECTION STARTS HERE
+
+  chiefGuest: [
     {
       name: "Dr. Jedsada Tipmontian",
       role: "Executive Vice Dean",
       organization:
         "International Academy of Aviation Industry, King Mongkut's Institute of Technology Ladkrabang (KMITL), Thailand",
     },
+  ],
+
+  guestOfHonour: [
     {
       name: "Dr. Raj Ramachandran",
       role: "Senior Lecturer in Technologies",
       organization:
-        "Senior Lecturer in Technologies (Head) Cardiff Metropolitan University Western Avenue, Cardiff CF5 2YB, Wales, UK",
+        "Cardiff Metropolitan University, Cardiff, Wales, UK",
     },
   ],
 
-  keynote:[
+  // 🔹 SPLIT SECTION ENDS HERE
+
+  keynote: [
     {
       name: "Gang Li",
       role: "Professor",
       organization:
-        "Faculty of Science Engineering and Built Environment/School of Information Technology/Deakin Cyber Research and Innovation Centre",
-    }
+        "Faculty of Science Engineering and Built Environment / School of Information Technology / Deakin Cyber Research and Innovation Centre",
+    },
   ],
+
   programCoChairs: [
     {
       name: "Dr. Raj Ramachandran",
       role: "Program Co-Chair",
       organization:
-        "Senior Lecturer in Technologies (Head), Cardiff Metropolitan University, Cardiff, Wales, UK",
+        "Cardiff Metropolitan University, Cardiff, Wales, UK",
     },
   ],
 
@@ -128,7 +136,6 @@ export const committeeData = {
     },
   ],
 
-  // ✅ UPDATED FORMAT AS REQUESTED
   steeringCommittee: [
     {
       name: "Dr. Yiu-Wing Leung",
@@ -185,73 +192,7 @@ export const committeeData = {
     {
       name: "Dr. Renuka Devi S",
       designation: "Professor",
-      clgName: "School of Computer Science and Engineering, VIT Chennai",
-      country: "India",
-    },
-    {
-      name: "Dr. Latha Parthiban",
-      designation: "Professor and Head, Department of Computer Science",
-      clgName: "Pondicherry University",
-      country: "India",
-    },
-    {
-      name: "Viswanathan K G",
-      designation: "Director – Workforce Development",
-      clgName: "India Electronics & Semiconductor Association, Bengaluru",
-      country: "India",
-    },
-    {
-      name: "Dr. Sapthagirivasan",
-      designation: "Solution Architect – Engg R&D",
-      clgName: "Capgemini",
-      country: "India",
-    },
-    {
-      name: "Shankar Venugopal",
-      designation: "Vice President",
-      clgName: "Mahindra & Mahindra",
-      country: "India",
-    },
-    {
-      name: "Dr. Sainarayanan Gopalakrishnan",
-      designation: "Global Technology Director",
-      clgName: "HCLTech",
-      country: "India",
-    },
-    {
-      name: "Dr. Dinesh Vishwakarma",
-      designation: "Professor and Head, Department of IT",
-      clgName: "DTU Delhi",
-      country: "India",
-    },
-    {
-      name: "Dr. Sri Vallabha Deevi",
-      designation: "Director, Data Science",
-      clgName: "Tiger Analytics, Chennai",
-      country: "India",
-    },
-    {
-      name: "Dr. Srinivasan",
-      designation: "Professor, Department of Information Technology",
-      clgName: "SSN College of Engineering",
-      country: "India",
-    },
-    {
-      name: "Dr. Sabu M Thambi",
-      designation: "Professor",
-      clgName: "Kerala University of Digital Sciences",
-      country: "India",
-    },
-    {
-      name: "Dr. T. Mala",
-      designation: "Director, Centre for Distance Education",
-      clgName: "Anna University",
-      country: "India",
-    },
-    {
-      name: "Dr. Meenakshi Sumeet Arya",
-      designation: "Senior Director of AI Research",
-      clgName: "Accrete.AI",
+      clgName: "VIT Chennai",
       country: "India",
     },
   ],
@@ -282,12 +223,127 @@ export const committeeData = {
       organization: "SRM Institute of Science and Technology",
     },
     {
-      name: "Mrs. Steffina Muthukumar",
-      organization: "SRM Institute of Science and Technology",
-    },
-    {
       name: "Dr. M. Kiruthiga Devi",
       organization: "SRM Institute of Science and Technology",
     },
+    
+  
+  {
+    name: "Dr. K. Akila",
+    
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. Sridevi Sridhar",
+    
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Dr. M. Kiruthiga Devi",
+   
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Dr. N. Saraswathi",
+   
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Mrs. V. Deepa",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Mrs. R. Saranya",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Ms. S. Niranjana",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Mr. G. Sangar",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
   ],
+  facultyCommittee: [
+  
+  {
+    name: "Dr. V. Rajasekar",
+    role: "Associate Professor, Department of CSE",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. G. Paavai Anand",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Mrs. S. Niveditha",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. K. Karthikayani",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. K. Akila",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. Sridevi Sridhar",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. T. Anusha",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. M. Kiruthiga Devi",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Mrs. M. Indumathy",
+    role: "Assistant Professor (O.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Dr. N. Saraswathi",
+    role: "Assistant Professor (Sr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Mrs. V. Deepa",
+    role: "Assistant Professor (Jr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  
+  {
+    name: "Mrs. R. Saranya",
+    role: "Assistant Professor (Jr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Ms. S. Niranjana",
+    role: "Assistant Professor (Jr.G)",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+  {
+    name: "Mr. G. Sangar",
+    role: "Teaching Research Fellow",
+    organization: "SRM Institute of Science and Technology, Vadapalani Campus",
+  },
+],
+
 };

@@ -4,7 +4,6 @@ import { CommitteeSectionBlock } from "@/components/conference/Committee/Committ
 import { committeeData } from "@/components/conference/Committee/CommitteeData";
 import { Footer } from "@/components/common/Footer";
 
-
 export default function CommitteePage() {
   return (
     <main className="bg-slate-50 overflow-x-hidden">
@@ -30,16 +29,25 @@ export default function CommitteePage() {
 
       <CommitteeSectionBlock
         badge="Coordination"
-        title="Convener & program chair"
+        title="Convener & Program Chair"
         columns="lg:grid-cols-1"
         members={committeeData.convener}
       />
 
+      {/* ✅ NEW SPLIT SECTIONS */}
+
       <CommitteeSectionBlock
         badge="Leadership"
         title="Chief Guest"
-        columns="lg:grid-cols-2"
-        members={committeeData.coChairs}
+        columns="lg:grid-cols-1"
+        members={committeeData.chiefGuest}
+      />
+
+      <CommitteeSectionBlock
+        badge="Honorary"
+        title="Guest of Honour"
+        columns="lg:grid-cols-1"
+        members={committeeData.guestOfHonour}
       />
 
       <CommitteeSectionBlock
@@ -54,7 +62,6 @@ export default function CommitteePage() {
         title="Organising Secretaries"
         members={committeeData.organisingSecretaries}
       />
-
 
       <CommitteeSectionBlock
         badge="Strategic Direction"
@@ -76,6 +83,8 @@ export default function CommitteePage() {
         columns="lg:grid-cols-4"
         members={committeeData.organisingCommittee}
       />
+
+      
 
       <Footer />
     </main>
