@@ -1,4 +1,4 @@
-import React from "react";
+
 import { MapPin, Users } from "lucide-react";
 
 const timelineEvents = [
@@ -9,6 +9,7 @@ const timelineEvents = [
       "SRM IST Vadapalani’s CSE Department embraced borderless learning by hosting the inaugural virtual Research Conference on IoT, Cloud and Data Science (RCICD - 2020) on May 11, 2020.",
     image: "2020",
     attendees: "289 Online",
+    sponsor:""
   },
   {
     year: "2021",
@@ -17,6 +18,7 @@ const timelineEvents = [
       "Virtual International Research Conference on IOT, CLOUD & DATA SCIENCE (IRCICD ) was conducted by the CSE department of SRMIST Vadapalani campus  on 23rd and 24th, April ,2021",
     image: "2021",
     attendees: "280 Online",
+    sponsor:""
   },
   {
     year: "2022",
@@ -25,6 +27,7 @@ const timelineEvents = [
       "Fifth International Conference on IoT, Cloud Computing and Data Science (IRCICD 2022)  conducted on 6th and 7th May, 2022 ",
     image: "2022",
     attendees: "297 Online",
+     sponsor:"/springer.png"
   },
   {
     year: "2023",
@@ -33,6 +36,7 @@ const timelineEvents = [
       "The 2023 International Research Conference (IRCICD) brought together global experts and researchers to explore the synergy between IoT, Cloud computing, and Data Science.",
     image: "2023",
     attendees: "390 Attendees",
+     sponsor:"/springer.png"
   },
 ];
 
@@ -92,7 +96,7 @@ const TimelineItem = ({ event, isLeft }) => {
         }`}
       >
         <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl group">
-          {/* Image Area - Updated for 16:9 Ratio */}
+          {/* Image Area */}
           <div className="relative aspect-video w-full overflow-hidden bg-gray-100">
             <img
               src={
@@ -118,6 +122,21 @@ const TimelineItem = ({ event, isLeft }) => {
             <p className="text-gray-600 text-sm mb-4 leading-relaxed">
               {event.description}
             </p>
+
+            {/* --- NEW: Sponsor Logo Section --- */}
+            {event.sponsor && (
+              <div className="mb-4 flex items-center gap-2">
+                <span className="text-[10px] uppercase tracking-wider text-gray-500 font-semibold">
+                  Paper Publication
+                </span>
+                <img
+                  src={event.sponsor}
+                  alt="Sponsor Logo"
+                  className="h-12 object-contain  hover:grayscale-0 transition-all opacity-90 hover:opacity-100"
+                />
+              </div>
+            )}
+            {/* --------------------------------- */}
 
             {/* Metadata Footer */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-500">
