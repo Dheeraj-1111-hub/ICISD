@@ -1,4 +1,3 @@
-
 import { MapPin, Users } from "lucide-react";
 
 const timelineEvents = [
@@ -7,36 +6,45 @@ const timelineEvents = [
     title: "Going Virtual",
     description:
       "SRM IST Vadapalani’s CSE Department embraced borderless learning by hosting the inaugural virtual Research Conference on IoT, Cloud and Data Science (RCICD - 2020) on May 11, 2020.",
-    image: "2020",
+    image: "2020.png",
     attendees: "289 Online",
-    sponsor:""
+    sponsor: "",
   },
   {
     year: "2021",
     title: "The Embers",
     description:
       "Virtual International Research Conference on IOT, CLOUD & DATA SCIENCE (IRCICD ) was conducted by the CSE department of SRMIST Vadapalani campus  on 23rd and 24th, April ,2021",
-    image: "2021",
+    image: "2021.png",
     attendees: "280 Online",
-    sponsor:""
+    sponsor: "",
   },
   {
     year: "2022",
     title: "Reimagining Connection",
     description:
       "Fifth International Conference on IoT, Cloud Computing and Data Science (IRCICD 2022)  conducted on 6th and 7th May, 2022 ",
-    image: "2022",
+    image: "2022.png",
     attendees: "297 Online",
-     sponsor:"/springer.png"
+    sponsor: "/springer.png",
   },
   {
     year: "2023",
     title: "The Return",
     description:
       "The 2023 International Research Conference (IRCICD) brought together global experts and researchers to explore the synergy between IoT, Cloud computing, and Data Science.",
-    image: "2023",
+    image: "2023.png",
     attendees: "390 Attendees",
-     sponsor:"/springer.png"
+    sponsor: "/springer.png",
+  },
+  {
+    year: "2025",
+    title: "The Triumph",
+    description:
+      "The Department of Computer Science and Engineering, SRM Institute of Science and Technology, Vadapalani Campus, organized ICISD’25, an International-level Conference on the theme Intelligent Systems and Digital Transformation.",
+    image: "2025.JPG",
+    attendees: "360 Attendees",
+    sponsor: "/atlantis.svg",
   },
 ];
 
@@ -102,7 +110,7 @@ const TimelineItem = ({ event, isLeft }) => {
               src={
                 event.image.startsWith("http")
                   ? event.image
-                  : `/Timeline/${event.image}.png`
+                  : `/Timeline/${event.image}`
               }
               alt={event.title}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
