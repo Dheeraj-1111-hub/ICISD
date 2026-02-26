@@ -9,6 +9,7 @@ export default defineConfig({
     open: true, // auto-opens browser
   },
   plugins: [react()],
+  assetsInclude: ['**/*.docx'],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

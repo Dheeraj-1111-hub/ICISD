@@ -15,7 +15,7 @@ import {
   ArrowRight,
   Download,
 } from "lucide-react";
-
+import templateFile from "../../../assets/Conference_paper_Template.docx";
 // --- Data Configuration ---
 
 const timelineDates = [
@@ -211,9 +211,9 @@ export const SubmissionSection = () => {
 
               {/* DOWNLOAD BUTTON */}
               <a
-  href="/Conference_paper_Template.docx"
-  download
-  className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
+  href={templateFile}
+  download="Conference_paper_Template.docx"
+  className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white"
 >
   <Download className="w-4 h-4" />
   Download Template
