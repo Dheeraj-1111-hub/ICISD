@@ -9,7 +9,7 @@ export default defineConfig({
     open: true, // auto-opens browser
   },
   plugins: [react()],
-  assetsInclude: ['**/*.docx'],
+  assetsInclude: ['**/*.docx', '**/*.zip'],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

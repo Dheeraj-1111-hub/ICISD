@@ -16,6 +16,7 @@ import {
   Download,
 } from "lucide-react";
 import templateFile from "../../../assets/Conference_paper_Template.docx";
+import latexTemplate from "../../../assets/Wiley_LaTeX_Template.pdf";
 // --- Data Configuration ---
 
 const timelineDates = [
@@ -209,16 +210,30 @@ export const SubmissionSection = () => {
                 </h3>
               </div>
 
-              {/* DOWNLOAD BUTTON */}
-              <a
-  href={templateFile}
-  download="Conference_paper_Template.docx"
-  className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white"
->
-  <Download className="w-4 h-4" />
-  Download Template
-</a>
+              {/* DOWNLOAD BUTTONS */}
+<div className="flex flex-wrap gap-3">
+  
+  {/* WORD TEMPLATE */}
+  <a
+    href={templateFile}
+    download="Conference_paper_Template.docx"
+    className="flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-all shadow-md"
+  >
+    <Download className="w-4 h-4" />
+    Word Template
+  </a>
 
+  {/* LATEX TEMPLATE */}
+  <a
+    href={latexTemplate}
+    download="Wiley_LaTeX_Template.pdf"
+    className="flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-600 text-white hover:bg-emerald-500 transition-all shadow-md"
+  >
+    <Download className="w-4 h-4" />
+    LaTeX Template
+  </a>
+
+</div>
             </div>
 
             <ul className="space-y-4 mb-8">
